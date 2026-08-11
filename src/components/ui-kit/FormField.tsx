@@ -15,9 +15,9 @@ function FieldShell({
 }: {
   id: string;
   label: string;
-  hint?: string;
-  error?: string;
-  required?: boolean;
+  hint?: string | undefined;
+  error?: string | undefined;
+  required?: boolean | undefined;
   children: ReactNode;
 }) {
   return (
@@ -48,7 +48,7 @@ function FieldShell({
   );
 }
 
-type Common = { label: string; hint?: string; error?: string };
+type Common = { label: string; hint?: string | undefined; error?: string | undefined };
 
 export function TextField({
   label,

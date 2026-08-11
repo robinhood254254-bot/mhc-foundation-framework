@@ -28,17 +28,17 @@ export function ImageContainer({
   imgClassName,
   sizes,
 }: {
-  src?: string;
+  src?: string | undefined;
   alt: string;
   /** Placeholder caption describing the approved image that will be supplied. */
-  label?: string;
-  ratio?: ImageRatio;
-  position?: "center" | "top" | "bottom" | "left" | "right";
-  rounded?: "none" | "lg" | "xl" | "2xl" | "full";
-  priority?: boolean;
-  className?: string;
-  imgClassName?: string;
-  sizes?: string;
+  label?: string | undefined;
+  ratio?: ImageRatio | undefined;
+  position?: "center" | "top" | "bottom" | "left" | "right" | undefined;
+  rounded?: "none" | "lg" | "xl" | "2xl" | "full" | undefined;
+  priority?: boolean | undefined;
+  className?: string | undefined;
+  imgClassName?: string | undefined;
+  sizes?: string | undefined;
 }) {
   const roundedClass = {
     none: "",

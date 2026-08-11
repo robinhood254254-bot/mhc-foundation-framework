@@ -8,7 +8,7 @@ export type DoctorProfileData = {
   qualifications: string[];
   experience: string;
   bio: string;
-  portraitSrc?: string;
+  portraitSrc?: string | undefined;
   portraitLabel: string;
 };
 
