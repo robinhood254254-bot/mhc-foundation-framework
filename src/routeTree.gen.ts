@@ -12,8 +12,10 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as AccessibilityRouteImport } from './routes/accessibility'
+import { Route as ContactRouteImport } from './routes/contact'
 import { Route as HearingAidsRouteRouteImport } from './routes/hearing-aids.route'
 import { Route as HearingEducationRouteRouteImport } from './routes/hearing-education.route'
+import { Route as HearingTestRouteImport } from './routes/hearing-test'
 import { Route as MedicalDisclaimerRouteImport } from './routes/medical-disclaimer'
 import { Route as PrivacyPolicyRouteImport } from './routes/privacy-policy'
 import { Route as ServicesRouteRouteImport } from './routes/services.route'
@@ -41,6 +43,11 @@ const AccessibilityRoute = AccessibilityRouteImport.update({
   path: '/accessibility',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const HearingAidsRouteRoute = HearingAidsRouteRouteImport.update({
   id: '/hearing-aids',
   path: '/hearing-aids',
@@ -49,6 +56,11 @@ const HearingAidsRouteRoute = HearingAidsRouteRouteImport.update({
 const HearingEducationRouteRoute = HearingEducationRouteRouteImport.update({
   id: '/hearing-education',
   path: '/hearing-education',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HearingTestRoute = HearingTestRouteImport.update({
+  id: '/hearing-test',
+  path: '/hearing-test',
   getParentRoute: () => rootRouteImport,
 } as any)
 const MedicalDisclaimerRoute = MedicalDisclaimerRouteImport.update({
@@ -114,6 +126,8 @@ export interface FileRoutesByFullPath {
   '/services': typeof ServicesRouteRouteWithChildren
   '/about': typeof AboutRoute
   '/accessibility': typeof AccessibilityRoute
+  '/contact': typeof ContactRoute
+  '/hearing-test': typeof HearingTestRoute
   '/medical-disclaimer': typeof MedicalDisclaimerRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
   '/terms-of-use': typeof TermsOfUseRoute
@@ -129,6 +143,8 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/accessibility': typeof AccessibilityRoute
+  '/contact': typeof ContactRoute
+  '/hearing-test': typeof HearingTestRoute
   '/medical-disclaimer': typeof MedicalDisclaimerRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
   '/terms-of-use': typeof TermsOfUseRoute
@@ -148,6 +164,8 @@ export interface FileRoutesById {
   '/services': typeof ServicesRouteRouteWithChildren
   '/about': typeof AboutRoute
   '/accessibility': typeof AccessibilityRoute
+  '/contact': typeof ContactRoute
+  '/hearing-test': typeof HearingTestRoute
   '/medical-disclaimer': typeof MedicalDisclaimerRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
   '/terms-of-use': typeof TermsOfUseRoute
@@ -168,6 +186,8 @@ export interface FileRouteTypes {
     | '/services'
     | '/about'
     | '/accessibility'
+    | '/contact'
+    | '/hearing-test'
     | '/medical-disclaimer'
     | '/privacy-policy'
     | '/terms-of-use'
@@ -183,6 +203,8 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/accessibility'
+    | '/contact'
+    | '/hearing-test'
     | '/medical-disclaimer'
     | '/privacy-policy'
     | '/terms-of-use'
@@ -201,6 +223,8 @@ export interface FileRouteTypes {
     | '/services'
     | '/about'
     | '/accessibility'
+    | '/contact'
+    | '/hearing-test'
     | '/medical-disclaimer'
     | '/privacy-policy'
     | '/terms-of-use'
@@ -220,6 +244,8 @@ export interface RootRouteChildren {
   ServicesRouteRoute: typeof ServicesRouteRouteWithChildren
   AboutRoute: typeof AboutRoute
   AccessibilityRoute: typeof AccessibilityRoute
+  ContactRoute: typeof ContactRoute
+  HearingTestRoute: typeof HearingTestRoute
   MedicalDisclaimerRoute: typeof MedicalDisclaimerRoute
   PrivacyPolicyRoute: typeof PrivacyPolicyRoute
   TermsOfUseRoute: typeof TermsOfUseRoute
@@ -249,6 +275,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AccessibilityRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/hearing-aids': {
       id: '/hearing-aids'
       path: '/hearing-aids'
@@ -261,6 +294,13 @@ declare module '@tanstack/react-router' {
       path: '/hearing-education'
       fullPath: '/hearing-education'
       preLoaderRoute: typeof HearingEducationRouteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/hearing-test': {
+      id: '/hearing-test'
+      path: '/hearing-test'
+      fullPath: '/hearing-test'
+      preLoaderRoute: typeof HearingTestRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/medical-disclaimer': {
@@ -392,6 +432,8 @@ const rootRouteChildren: RootRouteChildren = {
   ServicesRouteRoute: ServicesRouteRouteWithChildren,
   AboutRoute: AboutRoute,
   AccessibilityRoute: AccessibilityRoute,
+  ContactRoute: ContactRoute,
+  HearingTestRoute: HearingTestRoute,
   MedicalDisclaimerRoute: MedicalDisclaimerRoute,
   PrivacyPolicyRoute: PrivacyPolicyRoute,
   TermsOfUseRoute: TermsOfUseRoute,
