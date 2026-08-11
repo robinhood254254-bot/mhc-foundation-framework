@@ -4,7 +4,7 @@ import { ServiceCard, ProductCard, ArticleCard, TestimonialCard } from "@/compon
 import { CTAButton } from "@/components/ui-kit/CTAButton";
 import { cta } from "@/lib/site";
 
-export const Route = createFileRoute("/hearing-aids")({
+export const Route = createFileRoute("/hearing-aids/")({
   head: () => ({
     meta: [
       { title: "Hearing Aids | Mombasa Hearing Centre" },

@@ -3,7 +3,7 @@ import { PageHeader, Section, ContentPlaceholder } from "@/components/ui-kit/Pag
 import { ServiceCard, ProductCard, ArticleCard, TestimonialCard } from "@/components/ui-kit/Cards";
 import { DownloadResourceCard } from "@/components/ui-kit/Cards";
 
-export const Route = createFileRoute("/hearing-education")({
+export const Route = createFileRoute("/hearing-education/")({
   head: () => ({
     meta: [
       { title: "Hearing Education | Mombasa Hearing Centre" },
