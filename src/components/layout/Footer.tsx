@@ -66,7 +66,7 @@ export function Footer() {
       </div>
 
       <div className="border-t border-border">
-        <div className="container-page flex flex-col gap-4 py-6 md:flex-row md:items-center md:justify-between">
+        <div className="container-page flex flex-col gap-4 py-6 pb-24 md:flex-row md:pb-6 md:items-center md:justify-between">
           <p className="text-xs text-muted-foreground">
             © 2026 Mombasa Hearing Center. All rights reserved.
           </p>
