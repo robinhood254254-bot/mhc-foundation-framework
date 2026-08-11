@@ -10,33 +10,246 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AboutRouteImport } from './routes/about'
+import { Route as AccessibilityRouteImport } from './routes/accessibility'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as HearingAidsRouteRouteImport } from './routes/hearing-aids.route'
+import { Route as HearingEducationRouteRouteImport } from './routes/hearing-education.route'
+import { Route as HearingTestRouteImport } from './routes/hearing-test'
+import { Route as MedicalDisclaimerRouteImport } from './routes/medical-disclaimer'
+import { Route as PrivacyPolicyRouteImport } from './routes/privacy-policy'
+import { Route as ServicesRouteRouteImport } from './routes/services.route'
+import { Route as TermsOfUseRouteImport } from './routes/terms-of-use'
+import { Route as TestimonialsRouteImport } from './routes/testimonials'
+import { Route as HearingAidsIndexRouteImport } from './routes/hearing-aids.index'
+import { Route as HearingAidsSlugRouteImport } from './routes/hearing-aids.$slug'
+import { Route as HearingEducationIndexRouteImport } from './routes/hearing-education.index'
+import { Route as HearingEducationSlugRouteImport } from './routes/hearing-education.$slug'
+import { Route as ServicesIndexRouteImport } from './routes/services.index'
+import { Route as ServicesSlugRouteImport } from './routes/services.$slug'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AccessibilityRoute = AccessibilityRouteImport.update({
+  id: '/accessibility',
+  path: '/accessibility',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HearingAidsRouteRoute = HearingAidsRouteRouteImport.update({
+  id: '/hearing-aids',
+  path: '/hearing-aids',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HearingEducationRouteRoute = HearingEducationRouteRouteImport.update({
+  id: '/hearing-education',
+  path: '/hearing-education',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HearingTestRoute = HearingTestRouteImport.update({
+  id: '/hearing-test',
+  path: '/hearing-test',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MedicalDisclaimerRoute = MedicalDisclaimerRouteImport.update({
+  id: '/medical-disclaimer',
+  path: '/medical-disclaimer',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PrivacyPolicyRoute = PrivacyPolicyRouteImport.update({
+  id: '/privacy-policy',
+  path: '/privacy-policy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ServicesRouteRoute = ServicesRouteRouteImport.update({
+  id: '/services',
+  path: '/services',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TermsOfUseRoute = TermsOfUseRouteImport.update({
+  id: '/terms-of-use',
+  path: '/terms-of-use',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TestimonialsRoute = TestimonialsRouteImport.update({
+  id: '/testimonials',
+  path: '/testimonials',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HearingAidsIndexRoute = HearingAidsIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => HearingAidsRouteRoute,
+} as any)
+const HearingAidsSlugRoute = HearingAidsSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => HearingAidsRouteRoute,
+} as any)
+const HearingEducationIndexRoute = HearingEducationIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => HearingEducationRouteRoute,
+} as any)
+const HearingEducationSlugRoute = HearingEducationSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => HearingEducationRouteRoute,
+} as any)
+const ServicesIndexRoute = ServicesIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => ServicesRouteRoute,
+} as any)
+const ServicesSlugRoute = ServicesSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => ServicesRouteRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/hearing-aids': typeof HearingAidsRouteRouteWithChildren
+  '/hearing-education': typeof HearingEducationRouteRouteWithChildren
+  '/services': typeof ServicesRouteRouteWithChildren
+  '/about': typeof AboutRoute
+  '/accessibility': typeof AccessibilityRoute
+  '/contact': typeof ContactRoute
+  '/hearing-test': typeof HearingTestRoute
+  '/medical-disclaimer': typeof MedicalDisclaimerRoute
+  '/privacy-policy': typeof PrivacyPolicyRoute
+  '/terms-of-use': typeof TermsOfUseRoute
+  '/testimonials': typeof TestimonialsRoute
+  '/hearing-aids/$slug': typeof HearingAidsSlugRoute
+  '/hearing-education/$slug': typeof HearingEducationSlugRoute
+  '/services/$slug': typeof ServicesSlugRoute
+  '/hearing-aids/': typeof HearingAidsIndexRoute
+  '/hearing-education/': typeof HearingEducationIndexRoute
+  '/services/': typeof ServicesIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/accessibility': typeof AccessibilityRoute
+  '/contact': typeof ContactRoute
+  '/hearing-test': typeof HearingTestRoute
+  '/medical-disclaimer': typeof MedicalDisclaimerRoute
+  '/privacy-policy': typeof PrivacyPolicyRoute
+  '/terms-of-use': typeof TermsOfUseRoute
+  '/testimonials': typeof TestimonialsRoute
+  '/hearing-aids/$slug': typeof HearingAidsSlugRoute
+  '/hearing-education/$slug': typeof HearingEducationSlugRoute
+  '/services/$slug': typeof ServicesSlugRoute
+  '/hearing-aids': typeof HearingAidsIndexRoute
+  '/hearing-education': typeof HearingEducationIndexRoute
+  '/services': typeof ServicesIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/hearing-aids': typeof HearingAidsRouteRouteWithChildren
+  '/hearing-education': typeof HearingEducationRouteRouteWithChildren
+  '/services': typeof ServicesRouteRouteWithChildren
+  '/about': typeof AboutRoute
+  '/accessibility': typeof AccessibilityRoute
+  '/contact': typeof ContactRoute
+  '/hearing-test': typeof HearingTestRoute
+  '/medical-disclaimer': typeof MedicalDisclaimerRoute
+  '/privacy-policy': typeof PrivacyPolicyRoute
+  '/terms-of-use': typeof TermsOfUseRoute
+  '/testimonials': typeof TestimonialsRoute
+  '/hearing-aids/$slug': typeof HearingAidsSlugRoute
+  '/hearing-education/$slug': typeof HearingEducationSlugRoute
+  '/services/$slug': typeof ServicesSlugRoute
+  '/hearing-aids/': typeof HearingAidsIndexRoute
+  '/hearing-education/': typeof HearingEducationIndexRoute
+  '/services/': typeof ServicesIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/hearing-aids'
+    | '/hearing-education'
+    | '/services'
+    | '/about'
+    | '/accessibility'
+    | '/contact'
+    | '/hearing-test'
+    | '/medical-disclaimer'
+    | '/privacy-policy'
+    | '/terms-of-use'
+    | '/testimonials'
+    | '/hearing-aids/$slug'
+    | '/hearing-education/$slug'
+    | '/services/$slug'
+    | '/hearing-aids/'
+    | '/hearing-education/'
+    | '/services/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/about'
+    | '/accessibility'
+    | '/contact'
+    | '/hearing-test'
+    | '/medical-disclaimer'
+    | '/privacy-policy'
+    | '/terms-of-use'
+    | '/testimonials'
+    | '/hearing-aids/$slug'
+    | '/hearing-education/$slug'
+    | '/services/$slug'
+    | '/hearing-aids'
+    | '/hearing-education'
+    | '/services'
+  id:
+    | '__root__'
+    | '/'
+    | '/hearing-aids'
+    | '/hearing-education'
+    | '/services'
+    | '/about'
+    | '/accessibility'
+    | '/contact'
+    | '/hearing-test'
+    | '/medical-disclaimer'
+    | '/privacy-policy'
+    | '/terms-of-use'
+    | '/testimonials'
+    | '/hearing-aids/$slug'
+    | '/hearing-education/$slug'
+    | '/services/$slug'
+    | '/hearing-aids/'
+    | '/hearing-education/'
+    | '/services/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  HearingAidsRouteRoute: typeof HearingAidsRouteRouteWithChildren
+  HearingEducationRouteRoute: typeof HearingEducationRouteRouteWithChildren
+  ServicesRouteRoute: typeof ServicesRouteRouteWithChildren
+  AboutRoute: typeof AboutRoute
+  AccessibilityRoute: typeof AccessibilityRoute
+  ContactRoute: typeof ContactRoute
+  HearingTestRoute: typeof HearingTestRoute
+  MedicalDisclaimerRoute: typeof MedicalDisclaimerRoute
+  PrivacyPolicyRoute: typeof PrivacyPolicyRoute
+  TermsOfUseRoute: typeof TermsOfUseRoute
+  TestimonialsRoute: typeof TestimonialsRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,22 +261,184 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/accessibility': {
+      id: '/accessibility'
+      path: '/accessibility'
+      fullPath: '/accessibility'
+      preLoaderRoute: typeof AccessibilityRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/hearing-aids': {
+      id: '/hearing-aids'
+      path: '/hearing-aids'
+      fullPath: '/hearing-aids'
+      preLoaderRoute: typeof HearingAidsRouteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/hearing-education': {
+      id: '/hearing-education'
+      path: '/hearing-education'
+      fullPath: '/hearing-education'
+      preLoaderRoute: typeof HearingEducationRouteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/hearing-test': {
+      id: '/hearing-test'
+      path: '/hearing-test'
+      fullPath: '/hearing-test'
+      preLoaderRoute: typeof HearingTestRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/medical-disclaimer': {
+      id: '/medical-disclaimer'
+      path: '/medical-disclaimer'
+      fullPath: '/medical-disclaimer'
+      preLoaderRoute: typeof MedicalDisclaimerRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/privacy-policy': {
+      id: '/privacy-policy'
+      path: '/privacy-policy'
+      fullPath: '/privacy-policy'
+      preLoaderRoute: typeof PrivacyPolicyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/services': {
+      id: '/services'
+      path: '/services'
+      fullPath: '/services'
+      preLoaderRoute: typeof ServicesRouteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/terms-of-use': {
+      id: '/terms-of-use'
+      path: '/terms-of-use'
+      fullPath: '/terms-of-use'
+      preLoaderRoute: typeof TermsOfUseRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/testimonials': {
+      id: '/testimonials'
+      path: '/testimonials'
+      fullPath: '/testimonials'
+      preLoaderRoute: typeof TestimonialsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/hearing-aids/': {
+      id: '/hearing-aids/'
+      path: '/'
+      fullPath: '/hearing-aids/'
+      preLoaderRoute: typeof HearingAidsIndexRouteImport
+      parentRoute: typeof HearingAidsRouteRoute
+    }
+    '/hearing-aids/$slug': {
+      id: '/hearing-aids/$slug'
+      path: '/$slug'
+      fullPath: '/hearing-aids/$slug'
+      preLoaderRoute: typeof HearingAidsSlugRouteImport
+      parentRoute: typeof HearingAidsRouteRoute
+    }
+    '/hearing-education/': {
+      id: '/hearing-education/'
+      path: '/'
+      fullPath: '/hearing-education/'
+      preLoaderRoute: typeof HearingEducationIndexRouteImport
+      parentRoute: typeof HearingEducationRouteRoute
+    }
+    '/hearing-education/$slug': {
+      id: '/hearing-education/$slug'
+      path: '/$slug'
+      fullPath: '/hearing-education/$slug'
+      preLoaderRoute: typeof HearingEducationSlugRouteImport
+      parentRoute: typeof HearingEducationRouteRoute
+    }
+    '/services/': {
+      id: '/services/'
+      path: '/'
+      fullPath: '/services/'
+      preLoaderRoute: typeof ServicesIndexRouteImport
+      parentRoute: typeof ServicesRouteRoute
+    }
+    '/services/$slug': {
+      id: '/services/$slug'
+      path: '/$slug'
+      fullPath: '/services/$slug'
+      preLoaderRoute: typeof ServicesSlugRouteImport
+      parentRoute: typeof ServicesRouteRoute
+    }
   }
 }
 
+interface HearingAidsRouteRouteChildren {
+  HearingAidsSlugRoute: typeof HearingAidsSlugRoute
+  HearingAidsIndexRoute: typeof HearingAidsIndexRoute
+}
+
+const HearingAidsRouteRouteChildren: HearingAidsRouteRouteChildren = {
+  HearingAidsSlugRoute: HearingAidsSlugRoute,
+  HearingAidsIndexRoute: HearingAidsIndexRoute,
+}
+
+const HearingAidsRouteRouteWithChildren =
+  HearingAidsRouteRoute._addFileChildren(HearingAidsRouteRouteChildren)
+
+interface HearingEducationRouteRouteChildren {
+  HearingEducationSlugRoute: typeof HearingEducationSlugRoute
+  HearingEducationIndexRoute: typeof HearingEducationIndexRoute
+}
+
+const HearingEducationRouteRouteChildren: HearingEducationRouteRouteChildren = {
+  HearingEducationSlugRoute: HearingEducationSlugRoute,
+  HearingEducationIndexRoute: HearingEducationIndexRoute,
+}
+
+const HearingEducationRouteRouteWithChildren =
+  HearingEducationRouteRoute._addFileChildren(
+    HearingEducationRouteRouteChildren,
+  )
+
+interface ServicesRouteRouteChildren {
+  ServicesSlugRoute: typeof ServicesSlugRoute
+  ServicesIndexRoute: typeof ServicesIndexRoute
+}
+
+const ServicesRouteRouteChildren: ServicesRouteRouteChildren = {
+  ServicesSlugRoute: ServicesSlugRoute,
+  ServicesIndexRoute: ServicesIndexRoute,
+}
+
+const ServicesRouteRouteWithChildren = ServicesRouteRoute._addFileChildren(
+  ServicesRouteRouteChildren,
+)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  HearingAidsRouteRoute: HearingAidsRouteRouteWithChildren,
+  HearingEducationRouteRoute: HearingEducationRouteRouteWithChildren,
+  ServicesRouteRoute: ServicesRouteRouteWithChildren,
+  AboutRoute: AboutRoute,
+  AccessibilityRoute: AccessibilityRoute,
+  ContactRoute: ContactRoute,
+  HearingTestRoute: HearingTestRoute,
+  MedicalDisclaimerRoute: MedicalDisclaimerRoute,
+  PrivacyPolicyRoute: PrivacyPolicyRoute,
+  TermsOfUseRoute: TermsOfUseRoute,
+  TestimonialsRoute: TestimonialsRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}

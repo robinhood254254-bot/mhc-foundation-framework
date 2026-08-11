@@ -1,24 +1,285 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { Award, Ear, HeartHandshake, ShieldCheck, Stethoscope } from "lucide-react";
+import { Hero } from "@/components/ui-kit/Hero";
+import { Section, ContentPlaceholder } from "@/components/ui-kit/Page";
+import { SectionHeading } from "@/components/ui-kit/SectionHeading";
+import {
+  ArticleCard,
+  ProductCard,
+  ServiceCard,
+  TestimonialCard,
+  TrustBadge,
+  Card,
+} from "@/components/ui-kit/Cards";
+import { DoctorProfile } from "@/components/ui-kit/DoctorProfile";
+import { CTAButton } from "@/components/ui-kit/CTAButton";
+import { ImageContainer } from "@/components/ui-kit/ImageContainer";
+import { ContactBlock } from "@/components/ui-kit/ContactBlock";
+import { cta, site } from "@/lib/site";
 
-// No head() here: the home route inherits title/description/og/twitter from
-// __root.tsx, and ships no og:image so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
 export const Route = createFileRoute("/")({
-  component: Index,
+  head: () => ({
+    meta: [
+      { title: "Mombasa Hearing Centre | Specialist Hearing Care in Mombasa" },
+      {
+        name: "description",
+        content:
+          "Mombasa Hearing Centre is a specialist hearing-care organisation at NSSF Building, Nkrumah Road, Mombasa, offering hearing aids, hearing tests and patient education.",
+      },
+      { property: "og:title", content: "Mombasa Hearing Centre | Specialist Hearing Care in Mombasa" },
+      {
+        property: "og:description",
+        content: "Specialist hearing care, hearing aids and hearing assessments in Mombasa, Kenya.",
+      },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: "/" },
+      { name: "twitter:card", content: "summary_large_image" },
+    ],
+    links: [{ rel: "canonical", href: "/" }],
+  }),
+  component: Home,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
-function Index() {
+const heroSlides = [
+  { alt: "Hearing care at Mombasa Hearing Centre", label: "Hero image 1 — approved centre photograph", focal: "center" as const },
+  { alt: "Audiologist with a patient", label: "Hero image 2 — approved clinical photograph", focal: "top" as const },
+  { alt: "Hearing aid fitting", label: "Hero image 3 — approved fitting photograph", focal: "center" as const },
+  { alt: "Hearing assessment booth", label: "Hero image 4 — approved assessment photograph", focal: "center" as const },
+];
+
+const trust = [
+  { value: `${site.experienceYears}+ years`, label: "Experience placeholder", icon: <Award className="size-4" /> },
+  { value: "Specialist care", label: "Positioning placeholder", icon: <Ear className="size-4" /> },
+  { value: "Mombasa, Kenya", label: "NSSF Building, Nkrumah Rd", icon: <ShieldCheck className="size-4" /> },
+  { value: "Patient support", label: "Support placeholder", icon: <HeartHandshake className="size-4" /> },
+];
+
+function Home() {
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
+    <>
+      {/* 1. Hero */}
+      <Hero
+        eyebrow={`Specialist hearing care · ${site.experienceYears}+ years`}
+        headline="Hearing care built around you, in the heart of Mombasa"
+        subheadline="Headline and supporting copy are placeholders. Approved messaging will be supplied in a later module."
+        primaryCta={{ label: cta.primary.label, to: cta.primary.to }}
+        secondaryCta={{ label: cta.hearingTest.label, to: cta.hearingTest.to }}
+        slides={heroSlides}
+        trustIndicator="Trust indicator placeholder — approved wording pending."
+        trustCard={{
+          quote: "Approved testimonial or trust statement will appear here.",
+          name: "Trust card placeholder",
+          meta: "Attribution pending",
+        }}
       />
-    </div>
+
+      {/* 2. Trust / Experience strip */}
+      <section aria-label="Experience" className="border-y border-border bg-surface">
+        <div className="container-page grid gap-4 py-8 sm:grid-cols-2 lg:grid-cols-4">
+          {trust.map((item) => (
+            <TrustBadge key={item.value} value={item.value} label={item.label} icon={item.icon} />
+          ))}
+        </div>
+      </section>
+
+      {/* 3. Featured services */}
+      <Section label="Featured services">
+        <SectionHeading
+          eyebrow="Services"
+          title="Featured hearing services"
+          description="Approved service list and descriptions will be supplied in a later module."
+          actions={<CTAButton to="/services" variant="secondary">All services</CTAButton>}
+        />
+        <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {Array.from({ length: 6 }).map((_, i) => (
+            <ServiceCard
+              key={i}
+              title={`Service Placeholder 0${i + 1}`}
+              description="Approved service description pending."
+              to={`/services/service-placeholder-0${i + 1}`}
+              icon={<Stethoscope className="size-5" />}
+            />
+          ))}
+        </div>
+      </Section>
+
+      {/* 4. Why Mombasa Hearing Centre */}
+      <Section tone="muted" label="Why Mombasa Hearing Centre">
+        <div className="grid gap-10 lg:grid-cols-2 lg:items-center lg:gap-14">
+          <ImageContainer
+            ratio="landscape"
+            alt="Inside Mombasa Hearing Centre"
+            label="Approved photograph: centre interior or team"
+            rounded="2xl"
+          />
+          <div>
+            <SectionHeading
+              eyebrow="Why us"
+              title="Why Mombasa Hearing Centre"
+              description="Approved differentiators will be supplied in a later module."
+            />
+            <div className="mt-8 grid gap-4 sm:grid-cols-2">
+              {Array.from({ length: 4 }).map((_, i) => (
+                <Card key={i} className="p-5">
+                  <h3 className="text-sm font-semibold text-ink">Reason Placeholder 0{i + 1}</h3>
+                  <p className="mt-2 text-sm text-muted-foreground">Approved supporting text pending.</p>
+                </Card>
+              ))}
+            </div>
+          </div>
+        </div>
+      </Section>
+
+      {/* 5. Lead doctor / clinical authority */}
+      <Section label="Clinical authority">
+        <DoctorProfile
+          doctor={{
+            name: "Dr Mahin Abdilahi Mohamed",
+            title: "Lead Audiologist",
+            qualifications: ["Qualification placeholder 01", "Qualification placeholder 02"],
+            experience: "Over two decades of working experience",
+            bio: "Approved professional biography will be supplied in a later module.",
+            portraitLabel: "Approved portrait of Dr Mahin Abdilahi Mohamed (supplied in the next phase)",
+          }}
+        />
+      </Section>
+
+      {/* 6. Hearing aids */}
+      <Section tone="muted" label="Hearing aids">
+        <SectionHeading
+          eyebrow="Hearing Aids"
+          title="Hearing aid range"
+          description="Approved product range and imagery will be supplied in a later module."
+          actions={<CTAButton to="/hearing-aids" variant="secondary">View hearing aids</CTAButton>}
+        />
+        <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {Array.from({ length: 4 }).map((_, i) => (
+            <ProductCard
+              key={i}
+              category="Product placeholder"
+              title={`Hearing Aid Placeholder 0${i + 1}`}
+              imageLabel="Approved product photograph"
+              to={`/hearing-aids/product-placeholder-0${i + 1}`}
+            />
+          ))}
+        </div>
+      </Section>
+
+      {/* 7. Hearing test */}
+      <Section label="Hearing test">
+        <div className="grid gap-8 rounded-3xl border border-border bg-surface p-6 shadow-card md:p-10 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] lg:items-center">
+          <div>
+            <SectionHeading
+              eyebrow="Hearing Test"
+              title="Check your hearing"
+              description="A dedicated hearing test experience. Approved test content and logic will be supplied in a later module."
+            />
+            <div className="mt-8 flex flex-wrap gap-3">
+              <CTAButton to={cta.hearingTest.to}>{cta.hearingTest.label}</CTAButton>
+              <CTAButton to={cta.primary.to} variant="secondary">
+                {cta.primary.label}
+              </CTAButton>
+            </div>
+          </div>
+          <ImageContainer
+            ratio="landscape"
+            alt="Hearing assessment"
+            label="Approved photograph: hearing assessment"
+            rounded="2xl"
+          />
+        </div>
+      </Section>
+
+      {/* 8. Hearing education */}
+      <Section tone="muted" label="Hearing education">
+        <SectionHeading
+          eyebrow="Hearing Education"
+          title="Patient education"
+          description="Approved educational articles will be supplied in a later module."
+          actions={<CTAButton to="/hearing-education" variant="secondary">All resources</CTAButton>}
+        />
+        <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {Array.from({ length: 3 }).map((_, i) => (
+            <ArticleCard
+              key={i}
+              category="Article placeholder"
+              title={`Education Article Placeholder 0${i + 1}`}
+              imageLabel="Approved article image"
+              to={`/hearing-education/article-placeholder-0${i + 1}`}
+            />
+          ))}
+        </div>
+      </Section>
+
+      {/* 9. Testimonials */}
+      <Section label="Testimonials">
+        <SectionHeading
+          eyebrow="Testimonials"
+          title="Patient experiences"
+          description="Only approved, verified testimonials will be published."
+          actions={<CTAButton to="/testimonials" variant="secondary">All testimonials</CTAButton>}
+        />
+        <div className="mt-10 grid gap-6 md:grid-cols-3">
+          {Array.from({ length: 3 }).map((_, i) => (
+            <TestimonialCard
+              key={i}
+              quote="Approved testimonial text pending."
+              name={`Testimonial Placeholder 0${i + 1}`}
+              meta="Approved attribution pending"
+            />
+          ))}
+        </div>
+      </Section>
+
+      {/* 10. Partner / supplier recognition */}
+      <Section tone="muted" label="Partners and suppliers">
+        <SectionHeading
+          eyebrow="Partners"
+          title="Partner and supplier recognition"
+          description="Approved partner and supplier marks will be supplied in a later module."
+          align="center"
+        />
+        <div className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5">
+          {Array.from({ length: 5 }).map((_, i) => (
+            <div
+              key={i}
+              className="flex h-20 items-center justify-center rounded-xl border border-dashed border-border bg-surface px-4 text-center text-xs text-muted-foreground"
+            >
+              Partner logo placeholder 0{i + 1}
+            </div>
+          ))}
+        </div>
+      </Section>
+
+      {/* 11. Appointment CTA */}
+      <Section label="Book an appointment">
+        <div className="grid gap-10 rounded-3xl border border-border bg-primary-soft p-6 md:p-10 lg:grid-cols-2 lg:gap-14">
+          <div>
+            <SectionHeading
+              eyebrow="Appointments"
+              title="Book an appointment with our team"
+              description="Send your appointment details straight to our team on WhatsApp, or call the centre during opening hours."
+            />
+            <div className="mt-8 flex flex-wrap gap-3">
+              <CTAButton to={cta.primary.to} size="lg">
+                {cta.primary.label}
+              </CTAButton>
+              <CTAButton to={cta.secondary.to} size="lg" variant="secondary">
+                {cta.secondary.label}
+              </CTAButton>
+            </div>
+          </div>
+          <div className="rounded-2xl border border-border bg-surface p-6">
+            <ContactBlock />
+          </div>
+        </div>
+        <div className="mt-10">
+          <ContentPlaceholder
+            title="Additional homepage content"
+            note="Reserved for approved copy blocks introduced in later modules."
+          />
+        </div>
+      </Section>
+    </>
   );
 }
