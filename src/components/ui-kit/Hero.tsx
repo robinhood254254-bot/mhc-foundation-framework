@@ -105,7 +105,7 @@ export function Hero({
       i += 1;
       setTyped(current.headline.slice(0, i));
       if (i >= current.headline.length) window.clearInterval(id);
-    }, 20);
+    }, 60);
     return () => window.clearInterval(id);
   }, [current.headline, reduce]);
 
