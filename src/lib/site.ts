@@ -72,7 +72,20 @@ export const mainNav: NavItem[] = [
     ],
   },
   { label: "Hearing Aids", to: "/hearing-aids" },
-  { label: "Hearing Test", to: "/hearing-test" },
+  {
+    label: "Hearing Test",
+    to: "/hearing-test",
+    children: [
+      { label: "Pure Tone Audiometry", to: "/hearing-test/pure-tone-audiometry", description: "The reference audiogram: air, bone and speech testing." },
+      { label: "Paediatric Hearing Assessment", to: "/hearing-test/paediatric-hearing-assessment", description: "Play and visual reinforcement testing for babies and children." },
+      { label: "Tympanometry", to: "/hearing-test/tympanometry-impedance-audiometry", description: "Impedance audiometry and acoustic reflexes for the middle ear." },
+      { label: "BERA", to: "/hearing-test/brainstem-evoked-response-audiometry", description: "Objective brainstem evoked response audiometry." },
+      { label: "Caloric Test", to: "/hearing-test/caloric-test", description: "Balance testing for dizziness and vertigo." },
+      { label: "Vestibular Rehabilitation", to: "/hearing-test/vestibular-rehabilitation", description: "Individually prescribed balance retraining." },
+      { label: "Tinnitus Assessment", to: "/hearing-test/tinnitus-assessment-and-management", description: "Evaluation and management of ringing in the ears." },
+      { label: "Hearing Aid Fitting", to: "/hearing-test/hearing-aid-fitting-and-verification", description: "Programming, verification and aftercare." },
+    ],
+  },
   {
     label: "Hearing Education",
     to: "/hearing-education",

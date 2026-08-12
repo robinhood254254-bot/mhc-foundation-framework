@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { ShieldCheck } from "lucide-react";
+import { Quote, ShieldCheck } from "lucide-react";
 import { CTAButton } from "@/components/ui-kit/CTAButton";
 import { ImageContainer } from "@/components/ui-kit/ImageContainer";
 import { cn } from "@/lib/utils";
@@ -13,6 +13,8 @@ export type HeroSlide = {
   focal?: "center" | "top" | "bottom" | "left" | "right" | undefined;
 };
 
+export type HeroQuote = { quote: string; name: string; meta: string };
+
 export type HeroProps = {
   eyebrow?: string | undefined;
   headline: string;
@@ -24,7 +26,8 @@ export type HeroProps = {
   overlay?: number | undefined;
   overlayTone?: "dark" | "light" | undefined;
   trustIndicator?: string | undefined;
-  trustCard?: { quote: string; name: string; meta: string } | undefined;
+  /** Rotating patient voices shown beneath the hero imagery. */
+  quotes?: HeroQuote[] | undefined;
   intervalMs?: number | undefined;
 };
 
@@ -38,7 +41,7 @@ export function Hero({
   overlay = 55,
   overlayTone = "dark",
   trustIndicator,
-  trustCard,
+  quotes,
   intervalMs = 6500,
 }: HeroProps) {
   const [active, setActive] = useState(0);
@@ -100,16 +103,17 @@ export function Hero({
                 )}
               >
                 <ImageContainer
-                  ratio="hero"
+                  ratio="portrait"
                   alt={slide.alt}
                   label={slide.label}
                   src={slide.src}
                   position={slide.focal ?? "center"}
                   rounded="2xl"
                   priority={i === 0}
+                  sizes="(min-width: 1024px) 46vw, 92vw"
                   className="shadow-lift"
                 />
-                {slide.src ? (
+                {slide.src && overlay > 0 ? (
                   <div
                     aria-hidden="true"
                     className={cn(
@@ -126,7 +130,7 @@ export function Hero({
           </div>
 
           {slides.length > 1 ? (
-            <div className="mt-4 flex items-center gap-2" role="tablist" aria-label="Hero images">
+            <div className="mt-5 flex items-center gap-2" role="tablist" aria-label="Hero images">
               {slides.map((slide, i) => (
                 <button
                   key={slide.label}
@@ -143,13 +147,27 @@ export function Hero({
             </div>
           ) : null}
 
-          {trustCard ? (
-            <figure className="mt-5 rounded-2xl border border-border bg-surface p-5 shadow-card lg:absolute lg:-bottom-10 lg:-left-10 lg:mt-0 lg:max-w-xs">
-              <blockquote className="text-sm leading-relaxed text-foreground">{trustCard.quote}</blockquote>
-              <figcaption className="mt-3 text-xs text-muted-foreground">
-                <span className="font-semibold text-ink">{trustCard.name}</span> · {trustCard.meta}
-              </figcaption>
-            </figure>
+          {quotes && quotes.length ? (
+            <div className="relative mt-6 min-h-[9.5rem] sm:min-h-[8rem]" aria-live="polite">
+              {quotes.map((q, i) => (
+                <figure
+                  key={q.name}
+                  aria-hidden={i !== active % quotes.length}
+                  className={cn(
+                    "rounded-2xl border border-border bg-surface p-5 shadow-card transition-opacity duration-700",
+                    i === active % quotes.length
+                      ? "relative opacity-100"
+                      : "pointer-events-none absolute inset-0 opacity-0",
+                  )}
+                >
+                  <Quote className="size-5 text-primary" aria-hidden="true" />
+                  <blockquote className="mt-2 text-sm leading-relaxed text-foreground">{q.quote}</blockquote>
+                  <figcaption className="mt-3 text-xs text-muted-foreground">
+                    <span className="font-semibold text-ink">{q.name}</span> · {q.meta}
+                  </figcaption>
+                </figure>
+              ))}
+            </div>
           ) : null}
         </div>
       </div>

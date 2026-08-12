@@ -12,6 +12,14 @@ import displayCounter from "@/assets/display-counter.png.asset.json";
 import deviceDisplay from "@/assets/device-display.jpeg.asset.json";
 import batteries1 from "@/assets/batteries-1.jpeg.asset.json";
 import batteries2 from "@/assets/batteries-2.jpeg.asset.json";
+import ptaTerry from "@/assets/pta-terry.jpeg.asset.json";
+import ptaPaediatric from "@/assets/pta-paediatric.jpeg.asset.json";
+import ptaSetup from "@/assets/pta-setup.jpeg.asset.json";
+import tympanometryLeft from "@/assets/tympanometry-left.jpeg.asset.json";
+import tympanometryRight from "@/assets/tympanometry-right.jpeg.asset.json";
+import tympanometryResults from "@/assets/tympanometry-results.jpeg.asset.json";
+import audiologistReview from "@/assets/audiologist-review.jpeg.asset.json";
+import hearingAidLifestyle from "@/assets/hearing-aid-lifestyle.png.asset.json";
 
 export const media = {
   drMahin: {
@@ -53,5 +61,37 @@ export const media = {
   batteries2: {
     url: batteries2.url,
     alt: "Size 675 and size 13 hearing aid batteries available at Mombasa Hearing Centre",
+  },
+  ptaTerry: {
+    url: ptaTerry.url,
+    alt: "Madam Terry recording pure tone audiometry thresholds while a patient wears audiometric headphones",
+  },
+  ptaPaediatric: {
+    url: ptaPaediatric.url,
+    alt: "Paediatric audiometry station with children's headphones, audiometer and stacking-ring play toys",
+  },
+  ptaSetup: {
+    url: ptaSetup.url,
+    alt: "Audiologist preparing the audiometer and audiogram form before a hearing test",
+  },
+  tympanometryLeft: {
+    url: tympanometryLeft.url,
+    alt: "Lead audiologist performing tympanometry on a patient's left ear with a handheld probe",
+  },
+  tympanometryRight: {
+    url: tympanometryRight.url,
+    alt: "Lead audiologist performing tympanometry on a patient's right ear",
+  },
+  tympanometryResults: {
+    url: tympanometryResults.url,
+    alt: "Tympanometry and acoustic reflex results for both ears displayed on the clinical software",
+  },
+  audiologistReview: {
+    url: audiologistReview.url,
+    alt: "Lead audiologist at the Mombasa Hearing Centre testing workstation",
+  },
+  hearingAidLifestyle: {
+    url: hearingAidLifestyle.url,
+    alt: "Woman wearing a behind-the-ear hearing aid at home",
   },
 } as const;

@@ -17,7 +17,8 @@ import { ImageContainer } from "@/components/ui-kit/ImageContainer";
 import { ContactBlock } from "@/components/ui-kit/ContactBlock";
 import { cta, site } from "@/lib/site";
 import { media } from "@/lib/media";
-import { featuredTestimonials } from "@/lib/testimonials";
+import { hearingTests } from "@/lib/hearing-tests";
+import { featuredTestimonials, patientVoices } from "@/lib/testimonials";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -50,10 +51,10 @@ const heroSlides = [
 ];
 
 const trust = [
-  { value: `${site.experienceYears}+ years`, label: "Experience placeholder", icon: <Award className="size-4" /> },
-  { value: "Specialist care", label: "Positioning placeholder", icon: <Ear className="size-4" /> },
-  { value: "Mombasa, Kenya", label: "NSSF Building, Nkrumah Rd", icon: <ShieldCheck className="size-4" /> },
-  { value: "Patient support", label: "Support placeholder", icon: <HeartHandshake className="size-4" /> },
+  { value: `${site.experienceYears}+ years`, label: "Serving Mombasa and the coast", icon: <Award className="size-4" /> },
+  { value: "Audiologist-led", label: "Every test run by a clinician", icon: <Ear className="size-4" /> },
+  { value: "Nkrumah Road", label: "NSSF Building, 5th Floor, Mombasa", icon: <ShieldCheck className="size-4" /> },
+  { value: "Lifelong aftercare", label: "Servicing, batteries and reviews on site", icon: <HeartHandshake className="size-4" /> },
 ];
 
 function Home() {
@@ -61,19 +62,17 @@ function Home() {
     <>
       {/* 1. Hero */}
       <Hero
-        eyebrow={`Specialist hearing care · ${site.experienceYears}+ years`}
+        eyebrow={`Specialist hearing care · ${site.experienceYears}+ years in Mombasa`}
         headline="Hearing care built around you, in the heart of Mombasa"
-        subheadline="Headline and supporting copy are placeholders. Approved messaging will be supplied in a later module."
+        subheadline="Audiologist-led hearing tests, balance diagnostics and hearing aid fitting at NSSF Building on Nkrumah Road. We measure carefully, explain plainly, and stay with you long after the fitting."
         primaryCta={{ label: cta.primary.label, to: cta.primary.to }}
         secondaryCta={{ label: cta.hearingTest.label, to: cta.hearingTest.to }}
         slides={heroSlides}
-        trustIndicator="Trust indicator placeholder — approved wording pending."
-        trustCard={{
-          quote: "Approved testimonial or trust statement will appear here.",
-          name: "Trust card placeholder",
-          meta: "Attribution pending",
-        }}
+        overlay={0}
+        trustIndicator="Diagnostic testing, fitting and aftercare under one roof since 2003"
+        quotes={patientVoices}
       />
+
 
       {/* 2. Trust / Experience strip */}
       <section aria-label="Experience" className="border-y border-border bg-surface">
@@ -117,14 +116,31 @@ function Home() {
           <div>
             <SectionHeading
               eyebrow="Why us"
-              title="Why Mombasa Hearing Centre"
-              description="Approved differentiators will be supplied in a later module."
+              title="Why patients keep coming back"
+              description="Families travel from across Mombasa, Kilifi and Kwale to be seen here. These are the reasons they give."
             />
             <div className="mt-8 grid gap-4 sm:grid-cols-2">
-              {Array.from({ length: 4 }).map((_, i) => (
-                <Card key={i} className="p-5">
-                  <h3 className="text-sm font-semibold text-ink">Reason Placeholder 0{i + 1}</h3>
-                  <p className="mt-2 text-sm text-muted-foreground">Approved supporting text pending.</p>
+              {[
+                {
+                  title: "Diagnosis before devices",
+                  body: "No one is sold a hearing aid before their hearing has been properly measured and explained.",
+                },
+                {
+                  title: "Stock held on site",
+                  body: "Devices, batteries and accessories are kept in the centre, so patients travelling far are rarely sent away empty handed.",
+                },
+                {
+                  title: "Care in your language",
+                  body: "Results, options and instructions are explained in English or Kiswahili, with family welcome in the room.",
+                },
+                {
+                  title: "We stay with you",
+                  body: "Reviews, re-programming, cleaning and repairs continue for the life of the device, not just the first month.",
+                },
+              ].map((reason) => (
+                <Card key={reason.title} className="p-5">
+                  <h3 className="text-sm font-semibold text-ink">{reason.title}</h3>
+                  <p className="mt-2 text-sm text-muted-foreground">{reason.body}</p>
                 </Card>
               ))}
             </div>
@@ -168,31 +184,53 @@ function Home() {
         </div>
       </Section>
 
-      {/* 7. Hearing test */}
+      {/* 7. Hearing and balance tests */}
       <Section label="Hearing test">
-        <div className="grid gap-8 rounded-3xl border border-border bg-surface p-6 shadow-card md:p-10 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] lg:items-center">
-          <div>
-            <SectionHeading
-              eyebrow="Hearing Test"
-              title="Check your hearing"
-              description="A dedicated hearing test experience. Approved test content and logic will be supplied in a later module."
+        <SectionHeading
+          eyebrow="Diagnostics"
+          title="Hearing and balance tests we perform"
+          description="From the standard audiogram to objective brainstem and balance testing, every assessment is run by an audiologist on calibrated equipment and explained to you the same day."
+          actions={
+            <CTAButton to={cta.hearingTest.to} variant="secondary">
+              All hearing tests
+            </CTAButton>
+          }
+        />
+        <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {hearingTests.slice(0, 6).map((test) => (
+            <ServiceCard
+              key={test.slug}
+              title={test.name}
+              description={test.summary}
+              to={`/hearing-test/${test.slug}`}
+              icon={<Stethoscope className="size-5" />}
             />
+          ))}
+        </div>
+        <div className="mt-10 grid gap-8 rounded-3xl border border-border bg-surface p-6 shadow-card md:p-10 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] lg:items-center">
+          <div>
+            <h3 className="text-2xl font-bold text-ink md:text-3xl">Not sure which test you need?</h3>
+            <p className="mt-3 text-muted-foreground">
+              Most people start with a full diagnostic hearing assessment. It takes under an hour, covers otoscopy,
+              pure tone audiometry, speech testing and tympanometry, and tells us exactly what to do next. Call the
+              centre and our team will guide you.
+            </p>
             <div className="mt-8 flex flex-wrap gap-3">
-              <CTAButton to={cta.hearingTest.to}>{cta.hearingTest.label}</CTAButton>
-              <CTAButton to={cta.primary.to} variant="secondary">
-                {cta.primary.label}
+              <CTAButton to={cta.primary.to}>{cta.primary.label}</CTAButton>
+              <CTAButton to={cta.secondary.to} variant="secondary">
+                {cta.secondary.label}
               </CTAButton>
             </div>
           </div>
           <ImageContainer
             ratio="landscape"
-            alt={media.audiologistTerry.alt}
-            src={media.audiologistTerry.url}
-            position="top"
+            alt={media.tympanometryResults.alt}
+            src={media.tympanometryResults.url}
             rounded="2xl"
           />
         </div>
       </Section>
+
 
       {/* 8. Hearing education */}
       <Section tone="muted" label="Hearing education">
