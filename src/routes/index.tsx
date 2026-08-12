@@ -51,10 +51,10 @@ const heroSlides = [
 ];
 
 const trust = [
-  { value: `${site.experienceYears}+ years`, label: "Experience placeholder", icon: <Award className="size-4" /> },
-  { value: "Specialist care", label: "Positioning placeholder", icon: <Ear className="size-4" /> },
-  { value: "Mombasa, Kenya", label: "NSSF Building, Nkrumah Rd", icon: <ShieldCheck className="size-4" /> },
-  { value: "Patient support", label: "Support placeholder", icon: <HeartHandshake className="size-4" /> },
+  { value: `${site.experienceYears}+ years`, label: "Serving Mombasa and the coast", icon: <Award className="size-4" /> },
+  { value: "Audiologist-led", label: "Every test run by a clinician", icon: <Ear className="size-4" /> },
+  { value: "Nkrumah Road", label: "NSSF Building, 5th Floor, Mombasa", icon: <ShieldCheck className="size-4" /> },
+  { value: "Lifelong aftercare", label: "Servicing, batteries and reviews on site", icon: <HeartHandshake className="size-4" /> },
 ];
 
 function Home() {
