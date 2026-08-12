@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { PageHeader, Section, ContentPlaceholder } from "@/components/ui-kit/Page";
+import { PageHeader, Section } from "@/components/ui-kit/Page";
 
 export const Route = createFileRoute("/accessibility")({
   head: () => ({
