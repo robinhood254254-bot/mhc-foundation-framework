@@ -572,7 +572,7 @@ export const hearingTests: HearingTest[] = [
     performedBy: "Audiologist, with ENT referral where the history requires it",
     comfort:
       "Entirely non invasive. The most valuable part is often the conversation, since understanding the mechanism reduces the alarm it creates.",
-    hero: { url: media.hearingAidLifestyle.url, alt: media.hearingAidLifestyle.alt },
+    hero: { url: media.tinnitusDiagram.url, alt: media.tinnitusDiagram.alt },
     gallery: [
       {
         url: media.hearingAidLifestyle.url,
@@ -665,7 +665,7 @@ export const hearingTests: HearingTest[] = [
     suitableFor: "Anyone whose assessment shows amplification will help, from children to elders",
     performedBy: "Lead audiologist and audiology team",
     comfort: "Comfortable throughout. Nothing uncomfortable is done without warning.",
-    hero: { url: media.tympanometryLeft.url, alt: media.tympanometryLeft.alt },
+    hero: { url: media.hearingAidLifestyle.url, alt: media.hearingAidLifestyle.alt },
     gallery: [
       {
         url: media.tympanometryLeft.url,

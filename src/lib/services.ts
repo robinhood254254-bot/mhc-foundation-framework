@@ -151,7 +151,7 @@ export const services: Service[] = [
       "People with noise-exposed occupations along the port and industrial areas",
       "Patients with tinnitus that is one-sided or pulsing, which needs prompt review",
     ],
-    image: { url: media.audiologistReview.url, alt: media.audiologistReview.alt },
+    image: { url: media.tinnitusDiagram.url, alt: media.tinnitusDiagram.alt },
     relatedTests: ["tinnitus-assessment-and-management"],
   },
   {

@@ -20,6 +20,7 @@ import tympanometryRight from "@/assets/tympanometry-right.jpeg.asset.json";
 import tympanometryResults from "@/assets/tympanometry-results.jpeg.asset.json";
 import audiologistReview from "@/assets/audiologist-review.jpeg.asset.json";
 import hearingAidLifestyle from "@/assets/hearing-aid-lifestyle.png.asset.json";
+import tinnitusDiagram from "@/assets/tinnitus-diagram.png.asset.json";
 
 export const media = {
   drMahin: {
@@ -89,6 +90,10 @@ export const media = {
   audiologistReview: {
     url: audiologistReview.url,
     alt: "Lead audiologist at the Mombasa Hearing Centre testing workstation",
+  },
+  tinnitusDiagram: {
+    url: tinnitusDiagram.url,
+    alt: "Medical illustration of the ear showing common causes of tinnitus: damage to cilia in the inner ear, injuries, earwax blockage and ear infections",
   },
   hearingAidLifestyle: {
     url: hearingAidLifestyle.url,
