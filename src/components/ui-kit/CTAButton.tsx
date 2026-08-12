@@ -4,7 +4,7 @@ import type { ReactNode } from "react";
 import { cn } from "@/lib/utils";
 
 export const ctaVariants = cva(
-  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full font-semibold transition-[transform,background-color,color,box-shadow] duration-200 disabled:pointer-events-none disabled:opacity-60 active:translate-y-px [&_svg]:size-[1.1em] [&_svg]:shrink-0",
+  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full font-semibold transition-[transform,background-color,color,box-shadow] duration-200 hover:scale-[1.04] disabled:pointer-events-none disabled:opacity-60 active:translate-y-px [&_svg]:size-[1.1em] [&_svg]:shrink-0",
   {
     variants: {
       variant: {
@@ -23,8 +23,9 @@ export const ctaVariants = cva(
         lg: "min-h-14 px-8 text-base",
       },
       block: { true: "w-full", false: "" },
+      attention: { true: "animate-attention", false: "" },
     },
-    defaultVariants: { variant: "primary", size: "md", block: false },
+    defaultVariants: { variant: "primary", size: "md", block: false, attention: false },
   },
 );
 
@@ -40,8 +41,8 @@ type CTAProps =
   | (BaseProps & { to?: never; href?: never; onClick?: () => void; type?: "button" | "submit" });
 
 export function CTAButton(props: CTAProps) {
-  const { className, children, icon, variant, size, block } = props;
-  const cls = cn(ctaVariants({ variant, size, block }), className);
+  const { className, children, icon, variant, size, block, attention } = props;
+  const cls = cn(ctaVariants({ variant, size, block, attention }), className);
   const inner = (
     <>
       {children}

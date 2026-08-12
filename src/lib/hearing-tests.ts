@@ -333,7 +333,7 @@ export const hearingTests: HearingTest[] = [
     performedBy: "Audiologist, referred to ENT or neurology when retrocochlear findings appear",
     comfort:
       "Painless. Small self adhesive electrodes are placed on the forehead and behind the ears after the skin is cleaned.",
-    hero: null,
+    hero: { url: media.audiologistReview.url, alt: media.audiologistReview.alt },
     gallery: [],
     whyItMatters: [
       "It estimates hearing thresholds objectively when behavioural testing is impossible or unreliable.",
@@ -413,7 +413,7 @@ export const hearingTests: HearingTest[] = [
     performedBy: "Lead audiologist, with ENT liaison where the history suggests a medical cause",
     comfort:
       "Brief and manageable. Each irrigation causes a spinning sensation lasting under a minute, which settles while you rest.",
-    hero: null,
+    hero: { url: media.tympanometryResults.url, alt: media.tympanometryResults.alt },
     gallery: [],
     whyItMatters: [
       "Dizziness is one of the most misdiagnosed complaints in general practice, and caloric testing gives objective evidence of which ear is at fault.",
@@ -493,7 +493,7 @@ export const hearingTests: HearingTest[] = [
     performedBy: "Audiologist, with referral to physiotherapy and ENT where required",
     comfort:
       "Exercises are graded to a level you can tolerate. Mild symptom provocation is expected and is part of how compensation is built.",
-    hero: null,
+    hero: { url: media.ptaSetup.url, alt: media.ptaSetup.alt },
     gallery: [],
     whyItMatters: [
       "It reduces dizziness and the fear of falling, which is a major cause of loss of independence in older adults.",

@@ -39,6 +39,7 @@ function ArticleDetail() {
   return (
     <>
       <PageHeader
+        image={{ url: article.image.url }}
         eyebrow={article.category}
         title={article.title}
         intro={article.excerpt}

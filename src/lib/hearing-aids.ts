@@ -233,7 +233,7 @@ export const hearingAids: HearingAid[] = [
     summary:
       "Handcrafted custom in-ear hearing aids making up to fifty-five million personalised adjustments an hour, with 2-Way Audio, Edge Mode and remote programming.",
     image: {
-      url: evolvImg.url,
+      url: (evolvImg as { url: string }).url,
       alt: "Pair of black Starkey Evolv AI custom in-the-ear hearing aids with removal wires",
     },
     intro: [

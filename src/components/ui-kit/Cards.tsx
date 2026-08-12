@@ -31,27 +31,53 @@ export function ServiceCard({
   description,
   to,
   icon,
+  src,
+  imageAlt,
 }: {
   title: string;
   description: string;
   to: string;
   icon?: ReactNode;
+  src?: string | undefined;
+  imageAlt?: string | undefined;
 }) {
   return (
-    <Card interactive className="group p-6 md:p-7">
-      <div className="mb-5 flex size-12 items-center justify-center rounded-xl bg-primary-soft text-primary">
-        {icon ?? <span className="text-sm font-bold">MHC</span>}
+    <Card interactive className="group transition-transform duration-300 hover:-translate-y-1">
+      {src ? (
+        <div className="relative overflow-hidden">
+          <ImageContainer
+            ratio="landscape"
+            alt={imageAlt ?? title}
+            label={imageAlt ?? title}
+            src={src}
+            rounded="none"
+            className="border-0 border-b"
+            imgClassName="transition-transform duration-500 group-hover:scale-105"
+          />
+          {icon ? (
+            <span className="absolute bottom-3 left-3 flex size-10 items-center justify-center rounded-xl bg-surface/95 text-primary shadow-card backdrop-blur">
+              {icon}
+            </span>
+          ) : null}
+        </div>
+      ) : null}
+      <div className={cn("flex flex-1 flex-col", src ? "p-5 md:p-6" : "p-6 md:p-7")}>
+        {!src ? (
+          <div className="mb-5 flex size-12 items-center justify-center rounded-xl bg-primary-soft text-primary">
+            {icon ?? <span className="text-sm font-bold">MHC</span>}
+          </div>
+        ) : null}
+        <h3 className="text-lg font-semibold text-ink">{title}</h3>
+        <p className="mt-2 flex-1 text-sm leading-relaxed text-muted-foreground">{description}</p>
+        <Link
+          to={to}
+          className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-primary"
+        >
+          Learn more
+          <ArrowUpRight className="size-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+          <span className="absolute inset-0" aria-hidden="true" />
+        </Link>
       </div>
-      <h3 className="text-lg font-semibold text-ink">{title}</h3>
-      <p className="mt-2 flex-1 text-sm leading-relaxed text-muted-foreground">{description}</p>
-      <Link
-        to={to}
-        className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-primary"
-      >
-        Learn more
-        <ArrowUpRight className="size-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-        <span className="absolute inset-0" aria-hidden="true" />
-      </Link>
     </Card>
   );
 }

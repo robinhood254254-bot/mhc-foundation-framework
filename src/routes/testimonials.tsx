@@ -36,6 +36,7 @@ function Page() {
   return (
     <>
       <PageHeader
+        image={{ url: media.receptionTeam.url }}
         eyebrow="Testimonials"
         title="Patient Testimonials"
         intro="Every review below is published on our Google Business Profile by a patient who visited the centre. We reproduce them as written, without editing the reviewer's words."

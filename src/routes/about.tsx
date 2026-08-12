@@ -71,6 +71,7 @@ function Page() {
   return (
     <>
       <PageHeader
+        image={{ url: media.teamGroup.url }}
         eyebrow="About"
         title="About Mombasa Hearing Centre"
         intro="A specialist hearing-care organisation serving Mombasa, the Coast region and Kenya at large — combining experienced clinicians, modern audiology equipment and a genuinely welcoming centre."

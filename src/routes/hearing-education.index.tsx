@@ -3,6 +3,7 @@ import { PageHeader, Section } from "@/components/ui-kit/Page";
 import { SectionHeading } from "@/components/ui-kit/SectionHeading";
 import { ArticleCard, DownloadResourceCard } from "@/components/ui-kit/Cards";
 import { CTAButton } from "@/components/ui-kit/CTAButton";
+import { media } from "@/lib/media";
 import { cta } from "@/lib/site";
 import { articles } from "@/lib/education";
 import { brochures } from "@/lib/hearing-aids";
@@ -31,6 +32,7 @@ function Page() {
   return (
     <>
       <PageHeader
+        image={{ url: media.audiologistReview.url }}
         eyebrow="Hearing Education"
         title="Understand your hearing"
         intro="Good decisions start with good information. These guides are written by our clinical team for patients on this coast, in plain language and without sales talk."

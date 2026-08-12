@@ -271,3 +271,58 @@
   background-size: 22px 22px;
   background-position: 0 0, 0 11px, 11px -11px, -11px 0;
 }
+
+/* ---------- Motion utilities (respect reduce-motion) ---------- */
+@keyframes mhc-attention {
+  0%, 92%, 100% { box-shadow: 0 0 0 0 color-mix(in oklab, var(--color-primary) 45%, transparent); }
+  96% { box-shadow: 0 0 0 10px color-mix(in oklab, var(--color-primary) 0%, transparent); }
+}
+@keyframes mhc-bob {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-7px); }
+}
+@keyframes mhc-zoom-beat {
+  0%, 86%, 100% { transform: scale(1); }
+  92% { transform: scale(1.16); }
+}
+@keyframes mhc-caret {
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+@keyframes mhc-fade-up {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: none; }
+}
+
+@utility animate-attention {
+  animation: mhc-attention 3.2s ease-out infinite;
+}
+@utility animate-bob {
+  animation: mhc-bob 2.2s ease-in-out infinite;
+}
+@utility animate-zoom-beat {
+  animation: mhc-zoom-beat 5s ease-in-out infinite;
+}
+@utility animate-caret {
+  animation: mhc-caret 1s step-end infinite;
+}
+@utility animate-fade-up {
+  animation: mhc-fade-up 0.6s ease-out both;
+}
+
+.reduce-motion *,
+.reduce-motion *::before,
+.reduce-motion *::after {
+  animation: none !important;
+  transition-duration: 0.01ms !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-attention,
+  .animate-bob,
+  .animate-zoom-beat,
+  .animate-caret,
+  .animate-fade-up {
+    animation: none !important;
+  }
+}

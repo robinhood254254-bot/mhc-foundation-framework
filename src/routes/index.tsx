@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Award, Ear, HeartHandshake, ShieldCheck, Stethoscope } from "lucide-react";
+import { Award, Ear, HeartHandshake, ShieldCheck } from "lucide-react";
 import { Hero } from "@/components/ui-kit/Hero";
 import { Section } from "@/components/ui-kit/Page";
 import { SectionHeading } from "@/components/ui-kit/SectionHeading";
@@ -22,6 +22,7 @@ import { services } from "@/lib/services";
 import { hearingAids } from "@/lib/hearing-aids";
 import { articles } from "@/lib/education";
 import { featuredTestimonials, patientVoices } from "@/lib/testimonials";
+import { serviceIcons, testIcons } from "@/lib/icons";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -53,6 +54,33 @@ const heroSlides = [
   { src: media.audiologistTerry.url, alt: media.audiologistTerry.alt, label: "Audiology assessment", focal: "top" as const },
 ];
 
+const heroMessages = [
+  {
+    headline: "Hearing care built around you, in the heart of Mombasa",
+    subheadline:
+      "Audiologist-led hearing tests, balance diagnostics and hearing aid fitting at NSSF Building on Nkrumah Road. We measure carefully, explain plainly, and stay with you long after the fitting.",
+    backdrop: { src: hearingAids[0]!.image.url, alt: hearingAids[0]!.image.alt },
+  },
+  {
+    headline: "Your hearing is our concern",
+    subheadline:
+      "Every visit starts with measurement, not a sales pitch. Otoscopy, pure tone audiometry, speech testing and tympanometry, with your audiogram printed and explained before you leave.",
+    backdrop: { src: hearingAids[1]!.image.url, alt: hearingAids[1]!.image.alt },
+  },
+  {
+    headline: "Starkey technology, fitted and verified here",
+    subheadline:
+      "As an authorised Starkey partner we prescribe from your own audiogram, verify the fitting on the day, and keep devices, batteries and accessories in stock at the centre.",
+    backdrop: { src: hearingAids[2]!.image.url, alt: hearingAids[2]!.image.alt },
+  },
+  {
+    headline: "Aftercare that lasts as long as your device",
+    subheadline:
+      "Reviews, re-programming, cleaning and repairs continue for the life of the hearing aid, in English or Kiswahili, with your family welcome in the room.",
+    backdrop: { src: hearingAids[3]!.image.url, alt: hearingAids[3]!.image.alt },
+  },
+];
+
 const trust = [
   { value: `${site.experienceYears}+ years`, label: "Serving Mombasa and the coast", icon: <Award className="size-4" /> },
   { value: "Audiologist-led", label: "Every test run by a clinician", icon: <Ear className="size-4" /> },
@@ -71,6 +99,7 @@ function Home() {
         primaryCta={{ label: cta.primary.label, to: cta.primary.to }}
         secondaryCta={{ label: cta.hearingTest.label, to: cta.hearingTest.to }}
         slides={heroSlides}
+        messages={heroMessages}
         overlay={0}
         trustIndicator="Diagnostic testing, fitting and aftercare under one roof since 2003"
         quotes={patientVoices}
@@ -101,7 +130,9 @@ function Home() {
               title={service.name}
               description={service.summary}
               to={`/services/${service.slug}`}
-              icon={<Stethoscope className="size-5" />}
+              icon={serviceIcons[service.slug]}
+              src={service.image.url}
+              imageAlt={service.image.alt}
             />
           ))}
         </div>
@@ -208,7 +239,9 @@ function Home() {
               title={test.name}
               description={test.summary}
               to={`/hearing-test/${test.slug}`}
-              icon={<Stethoscope className="size-5" />}
+              icon={testIcons[test.slug]}
+              src={test.hero?.url}
+              imageAlt={test.hero?.alt ?? test.name}
             />
           ))}
         </div>

@@ -45,6 +45,7 @@ function ServiceDetail() {
   return (
     <>
       <PageHeader
+        image={{ url: service.image.url }}
         eyebrow="Service"
         title={service.name}
         intro={service.summary}

@@ -15,6 +15,13 @@ export type HeroSlide = {
 
 export type HeroQuote = { quote: string; name: string; meta: string };
 
+/** A rotating headline / subheadline pair, optionally paired with a product backdrop. */
+export type HeroMessage = {
+  headline: string;
+  subheadline: string;
+  backdrop?: { src: string; alt: string; caption?: string } | undefined;
+};
+
 export type HeroProps = {
   eyebrow?: string | undefined;
   headline: string;
@@ -29,7 +36,27 @@ export type HeroProps = {
   /** Rotating patient voices shown beneath the hero imagery. */
   quotes?: HeroQuote[] | undefined;
   intervalMs?: number | undefined;
+  /** Rotating headline set, typed out one character at a time. */
+  messages?: HeroMessage[] | undefined;
 };
+
+function usePrefersReducedMotion() {
+  const [reduce, setReduce] = useState(false);
+  useEffect(() => {
+    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const read = () =>
+      setReduce(mq.matches || document.documentElement.classList.contains("reduce-motion"));
+    read();
+    mq.addEventListener("change", read);
+    const obs = new MutationObserver(read);
+    obs.observe(document.documentElement, { attributes: true, attributeFilter: ["class"] });
+    return () => {
+      mq.removeEventListener("change", read);
+      obs.disconnect();
+    };
+  }, []);
+  return reduce;
+}
 
 export function Hero({
   eyebrow,
@@ -43,19 +70,44 @@ export function Hero({
   trustIndicator,
   quotes,
   intervalMs = 6500,
+  messages,
 }: HeroProps) {
+  const reduce = usePrefersReducedMotion();
+  const set: HeroMessage[] = messages?.length ? messages : [{ headline, subheadline }];
+  const [step, setStep] = useState(0);
+  const [typed, setTyped] = useState(reduce ? set[0]!.headline : "");
   const [active, setActive] = useState(0);
   const paused = useRef(false);
 
+  const current = set[step % set.length]!;
+
+  /* Rotate the message set, and keep the photography in step with it. */
   useEffect(() => {
-    if (slides.length < 2) return;
-    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (reduce || document.documentElement.classList.contains("reduce-motion")) return;
+    if (set.length < 2 && slides.length < 2) return;
+    if (reduce) return;
     const id = window.setInterval(() => {
-      if (!paused.current) setActive((i) => (i + 1) % slides.length);
+      if (paused.current) return;
+      setStep((s) => s + 1);
+      setActive((i) => (i + 1) % Math.max(slides.length, 1));
     }, intervalMs);
     return () => window.clearInterval(id);
-  }, [slides.length, intervalMs]);
+  }, [set.length, slides.length, intervalMs, reduce]);
+
+  /* Typewriter for the active headline. */
+  useEffect(() => {
+    if (reduce) {
+      setTyped(current.headline);
+      return;
+    }
+    setTyped("");
+    let i = 0;
+    const id = window.setInterval(() => {
+      i += 1;
+      setTyped(current.headline.slice(0, i));
+      if (i >= current.headline.length) window.clearInterval(id);
+    }, 32);
+    return () => window.clearInterval(id);
+  }, [current.headline, reduce]);
 
   return (
     <section
@@ -64,17 +116,45 @@ export function Hero({
       onMouseEnter={() => (paused.current = true)}
       onMouseLeave={() => (paused.current = false)}
     >
-      <div className="container-page grid gap-10 py-12 md:py-16 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:items-center lg:gap-16 lg:py-24">
+      {/* Rotating Starkey product backdrop, changing with the headline. */}
+      <div aria-hidden="true" className="pointer-events-none absolute inset-0">
+        {set.map((m, i) =>
+          m.backdrop ? (
+            <img
+              key={m.backdrop.src}
+              src={m.backdrop.src}
+              alt=""
+              className={cn(
+                "absolute top-1/2 left-1/2 w-[min(46rem,120%)] -translate-x-1/2 -translate-y-1/2 object-contain opacity-0 transition-all duration-1000 ease-out lg:left-[34%]",
+                i === step % set.length && "scale-100 opacity-[0.14]",
+                i !== step % set.length && "scale-95",
+              )}
+            />
+          ) : null,
+        )}
+        <div className="absolute inset-0 bg-gradient-to-b from-surface-2/40 via-transparent to-surface-2" />
+      </div>
+
+      <div className="relative container-page grid gap-8 py-8 md:gap-10 md:py-10 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:items-center lg:gap-12 lg:py-12">
         <div className="max-w-xl">
           {eyebrow ? <p className="eyebrow">{eyebrow}</p> : null}
-          <h1 className="mt-4 text-4xl leading-[1.05] font-bold text-ink sm:text-5xl lg:text-6xl">
-            {headline}
+          <h1 className="mt-3 min-h-[3.4em] text-[2rem] leading-[1.08] font-bold text-ink sm:min-h-[2.6em] sm:text-5xl lg:text-[3.25rem]">
+            <span>{typed}</span>
+            {!reduce ? (
+              <span aria-hidden="true" className="animate-caret ml-1 inline-block text-primary">
+                |
+              </span>
+            ) : null}
+            <span className="sr-only">{current.headline}</span>
           </h1>
-          <p className="mt-5 text-base leading-relaxed text-muted-foreground md:text-lg">
-            {subheadline}
+          <p
+            key={current.subheadline}
+            className="animate-fade-up mt-4 min-h-[6.5rem] text-base leading-relaxed text-muted-foreground md:text-lg"
+          >
+            {current.subheadline}
           </p>
-          <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-            <CTAButton to={primaryCta.to} size="lg">
+          <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+            <CTAButton to={primaryCta.to} size="lg" attention>
               {primaryCta.label}
             </CTAButton>
             {secondaryCta ? (
@@ -84,7 +164,7 @@ export function Hero({
             ) : null}
           </div>
           {trustIndicator ? (
-            <p className="mt-7 flex items-center gap-2 text-sm font-medium text-foreground">
+            <p className="mt-5 flex items-center gap-2 text-sm font-medium text-foreground">
               <ShieldCheck className="size-4 shrink-0 text-primary" aria-hidden="true" />
               {trustIndicator}
             </p>
@@ -103,7 +183,7 @@ export function Hero({
                 )}
               >
                 <ImageContainer
-                  ratio="portrait"
+                  ratio="landscape"
                   alt={slide.alt}
                   label={slide.label}
                   src={slide.src}
@@ -130,14 +210,17 @@ export function Hero({
           </div>
 
           {slides.length > 1 ? (
-            <div className="mt-5 flex items-center gap-2" role="tablist" aria-label="Hero images">
+            <div className="mt-4 flex items-center gap-2" role="tablist" aria-label="Hero images">
               {slides.map((slide, i) => (
                 <button
                   key={slide.label}
                   role="tab"
                   aria-selected={i === active}
                   aria-label={`Show image ${i + 1}: ${slide.label}`}
-                  onClick={() => setActive(i)}
+                  onClick={() => {
+                    setActive(i);
+                    setStep(i);
+                  }}
                   className={cn(
                     "h-2 rounded-full transition-all",
                     i === active ? "w-8 bg-primary" : "w-2 bg-border hover:bg-primary/50",
@@ -148,7 +231,7 @@ export function Hero({
           ) : null}
 
           {quotes && quotes.length ? (
-            <div className="relative mt-6 min-h-[9.5rem] sm:min-h-[8rem]" aria-live="polite">
+            <div className="relative mt-5 min-h-[9.5rem] sm:min-h-[8rem]" aria-live="polite">
               {quotes.map((q, i) => (
                 <figure
                   key={q.name}
