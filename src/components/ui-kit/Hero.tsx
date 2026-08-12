@@ -69,7 +69,7 @@ export function Hero({
   overlayTone = "dark",
   trustIndicator,
   quotes,
-  intervalMs = 4200,
+  intervalMs = 9000,
   messages,
 }: HeroProps) {
   const reduce = usePrefersReducedMotion();
