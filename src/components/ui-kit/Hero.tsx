@@ -69,7 +69,7 @@ export function Hero({
   overlayTone = "dark",
   trustIndicator,
   quotes,
-  intervalMs = 6500,
+  intervalMs = 4200,
   messages,
 }: HeroProps) {
   const reduce = usePrefersReducedMotion();
@@ -105,7 +105,7 @@ export function Hero({
       i += 1;
       setTyped(current.headline.slice(0, i));
       if (i >= current.headline.length) window.clearInterval(id);
-    }, 32);
+    }, 20);
     return () => window.clearInterval(id);
   }, [current.headline, reduce]);
 
@@ -125,8 +125,8 @@ export function Hero({
               src={m.backdrop.src}
               alt=""
               className={cn(
-                "absolute top-1/2 left-1/2 w-[min(46rem,120%)] -translate-x-1/2 -translate-y-1/2 object-contain opacity-0 transition-all duration-1000 ease-out lg:left-[34%]",
-                i === step % set.length && "scale-100 opacity-[0.14]",
+                "absolute top-1/2 left-1/2 w-[min(52rem,130%)] -translate-x-1/2 -translate-y-1/2 object-contain opacity-0 transition-all duration-1000 ease-out lg:left-[36%]",
+                i === step % set.length && "scale-100 opacity-[0.38]",
                 i !== step % set.length && "scale-95",
               )}
             />
@@ -135,10 +135,10 @@ export function Hero({
         <div className="absolute inset-0 bg-gradient-to-b from-surface-2/40 via-transparent to-surface-2" />
       </div>
 
-      <div className="relative container-page grid gap-8 py-8 md:gap-10 md:py-10 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:items-center lg:gap-12 lg:py-12">
+      <div className="relative container-page grid gap-6 py-6 md:gap-8 md:py-8 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:items-center lg:gap-10 lg:py-8">
         <div className="max-w-xl">
           {eyebrow ? <p className="eyebrow">{eyebrow}</p> : null}
-          <h1 className="mt-3 min-h-[3.4em] text-[2rem] leading-[1.08] font-bold text-ink sm:min-h-[2.6em] sm:text-5xl lg:text-[3.25rem]">
+          <h1 className="mt-2 min-h-[3.4em] text-[2rem] leading-[1.08] font-bold text-ink sm:min-h-[2.6em] sm:text-5xl lg:text-[3.25rem]">
             <span>{typed}</span>
             {!reduce ? (
               <span aria-hidden="true" className="animate-caret ml-1 inline-block text-primary">
@@ -149,11 +149,11 @@ export function Hero({
           </h1>
           <p
             key={current.subheadline}
-            className="animate-fade-up mt-4 min-h-[6.5rem] text-base leading-relaxed text-muted-foreground md:text-lg"
+            className="animate-fade-up mt-3 min-h-[5.5rem] text-base leading-relaxed text-muted-foreground md:text-lg"
           >
             {current.subheadline}
           </p>
-          <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+          <div className="mt-5 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
             <CTAButton to={primaryCta.to} size="lg" attention>
               {primaryCta.label}
             </CTAButton>

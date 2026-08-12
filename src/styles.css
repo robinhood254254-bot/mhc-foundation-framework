@@ -274,8 +274,8 @@
 
 /* ---------- Motion utilities (respect reduce-motion) ---------- */
 @keyframes mhc-attention {
-  0%, 92%, 100% { box-shadow: 0 0 0 0 color-mix(in oklab, var(--color-primary) 45%, transparent); }
-  96% { box-shadow: 0 0 0 10px color-mix(in oklab, var(--color-primary) 0%, transparent); }
+  0%, 70%, 100% { box-shadow: 0 0 0 0 color-mix(in oklab, var(--color-primary) 40%, transparent); }
+  85% { box-shadow: 0 0 0 12px color-mix(in oklab, var(--color-primary) 0%, transparent); }
 }
 @keyframes mhc-bob {
   0%, 100% { transform: translateY(0); }
@@ -289,13 +289,25 @@
   0%, 49% { opacity: 1; }
   50%, 100% { opacity: 0; }
 }
+@keyframes mhc-reveal-left {
+  from { opacity: 0; transform: translateX(-42px); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes mhc-reveal-right {
+  from { opacity: 0; transform: translateX(42px); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes mhc-reveal-up {
+  from { opacity: 0; transform: translateY(28px); }
+  to { opacity: 1; transform: none; }
+}
 @keyframes mhc-fade-up {
   from { opacity: 0; transform: translateY(14px); }
   to { opacity: 1; transform: none; }
 }
 
 @utility animate-attention {
-  animation: mhc-attention 3.2s ease-out infinite;
+  animation: mhc-attention 6s cubic-bezier(0.4, 0, 0.2, 1) infinite;
 }
 @utility animate-bob {
   animation: mhc-bob 2.2s ease-in-out infinite;
@@ -308,6 +320,18 @@
 }
 @utility animate-fade-up {
   animation: mhc-fade-up 0.6s ease-out both;
+}
+@utility reveal-left {
+  animation: mhc-reveal-left 0.75s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+@utility reveal-right {
+  animation: mhc-reveal-right 0.75s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+@utility reveal-up {
+  animation: mhc-reveal-up 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+@utility reveal-idle {
+  opacity: 0;
 }
 
 .reduce-motion *,
@@ -322,7 +346,13 @@
   .animate-bob,
   .animate-zoom-beat,
   .animate-caret,
-  .animate-fade-up {
+  .animate-fade-up,
+  .reveal-left,
+  .reveal-right,
+  .reveal-up,
+  .reveal-idle {
+    opacity: 1 !important;
+    transform: none !important;
     animation: none !important;
   }
 }
