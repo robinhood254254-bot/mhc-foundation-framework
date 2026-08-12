@@ -122,14 +122,21 @@ export function TestimonialCard({
   quote,
   name,
   meta,
+  rating,
 }: {
   quote: string;
   name: string;
   meta: string;
+  rating?: number | undefined;
 }) {
   return (
     <Card className="p-6 md:p-7">
-      <div aria-hidden="true" className="font-display text-4xl leading-none text-primary/30">
+      {rating ? (
+        <p className="text-sm tracking-[0.2em] text-primary" aria-label={`${rating} out of 5 stars`}>
+          <span aria-hidden="true">{"★".repeat(rating)}</span>
+        </p>
+      ) : null}
+      <div aria-hidden="true" className="mt-1 font-display text-4xl leading-none text-primary/30">
         &ldquo;
       </div>
       <blockquote className="mt-2 flex-1 text-sm leading-relaxed text-foreground">{quote}</blockquote>
