@@ -32,7 +32,7 @@ function Page() {
   return (
     <>
       <PageHeader
-        image={ url: media.audiologistReview.url }
+        image={{ url: media.audiologistReview.url }}
         eyebrow="Hearing Education"
         title="Understand your hearing"
         intro="Good decisions start with good information. These guides are written by our clinical team for patients on this coast, in plain language and without sales talk."

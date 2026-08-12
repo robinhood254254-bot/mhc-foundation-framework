@@ -62,7 +62,7 @@ function ContactPage() {
   return (
     <>
       <PageHeader
-        image={ url: media.receptionEntrance.url }
+        image={{ url: media.receptionEntrance.url }}
         eyebrow="Contact"
         title="Contact Mombasa Hearing Centre"
         intro="Reach our team by phone, WhatsApp or email, or visit us on the 5th floor of the NSSF Building on Nkrumah Road in Mombasa."

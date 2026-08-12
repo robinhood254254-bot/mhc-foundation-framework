@@ -33,7 +33,7 @@ function Page() {
   return (
     <>
       <PageHeader
-        image={ url: media.receptionTeam.url }
+        image={{ url: media.receptionTeam.url }}
         eyebrow="Services"
         title="Hearing services at Mombasa Hearing Centre"
         intro={`Everything from the first hearing test to lifelong aftercare happens under one roof on Nkrumah Road. ${site.experienceYears} years of practice on this coast have taught us that careful measurement, plain explanation and steady follow-up matter more than anything else.`}
