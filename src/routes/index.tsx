@@ -17,7 +17,7 @@ import { ImageContainer } from "@/components/ui-kit/ImageContainer";
 import { ContactBlock } from "@/components/ui-kit/ContactBlock";
 import { cta, site } from "@/lib/site";
 import { media } from "@/lib/media";
-import { featuredTestimonials } from "@/lib/testimonials";
+import { featuredTestimonials, patientVoices } from "@/lib/testimonials";
 
 export const Route = createFileRoute("/")({
   head: () => ({
