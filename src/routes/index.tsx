@@ -17,6 +17,7 @@ import { ImageContainer } from "@/components/ui-kit/ImageContainer";
 import { ContactBlock } from "@/components/ui-kit/ContactBlock";
 import { cta, site } from "@/lib/site";
 import { media } from "@/lib/media";
+import { featuredTestimonials } from "@/lib/testimonials";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -219,17 +220,12 @@ function Home() {
         <SectionHeading
           eyebrow="Testimonials"
           title="Patient experiences"
-          description="Only approved, verified testimonials will be published."
+          description="Verified reviews from patients who visited Mombasa Hearing Centre, published on our Google Business Profile."
           actions={<CTAButton to="/testimonials" variant="secondary">All testimonials</CTAButton>}
         />
         <div className="mt-10 grid gap-6 md:grid-cols-3">
-          {Array.from({ length: 3 }).map((_, i) => (
-            <TestimonialCard
-              key={i}
-              quote="Approved testimonial text pending."
-              name={`Testimonial Placeholder 0${i + 1}`}
-              meta="Approved attribution pending"
-            />
+          {featuredTestimonials.map((t) => (
+            <TestimonialCard key={t.name} quote={t.quote} name={t.name} meta={t.meta} rating={t.rating} />
           ))}
         </div>
       </Section>
