@@ -214,7 +214,11 @@ export function AccessibilityPanel() {
         onClick={() => setOpen((o) => !o)}
         aria-expanded={open}
         aria-label={t("Accessibility")}
-        className="grid size-12 place-items-center rounded-full bg-primary text-primary-foreground shadow-lift transition-transform hover:scale-105 md:size-14"
+        className={cn(
+          "grid size-12 place-items-center rounded-full bg-primary text-primary-foreground shadow-lift transition-transform hover:scale-110 md:size-14",
+          !open && "animate-zoom-beat",
+        )}
+
       >
         <Accessibility className="size-6" aria-hidden="true" />
       </button>
