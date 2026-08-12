@@ -16,6 +16,7 @@ import { CTAButton } from "@/components/ui-kit/CTAButton";
 import { ImageContainer } from "@/components/ui-kit/ImageContainer";
 import { ContactBlock } from "@/components/ui-kit/ContactBlock";
 import { cta, site } from "@/lib/site";
+import { media } from "@/lib/media";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -41,10 +42,10 @@ export const Route = createFileRoute("/")({
 });
 
 const heroSlides = [
-  { alt: "Hearing care at Mombasa Hearing Centre", label: "Hero image 1 — approved centre photograph", focal: "center" as const },
-  { alt: "Audiologist with a patient", label: "Hero image 2 — approved clinical photograph", focal: "top" as const },
-  { alt: "Hearing aid fitting", label: "Hero image 3 — approved fitting photograph", focal: "center" as const },
-  { alt: "Hearing assessment booth", label: "Hero image 4 — approved assessment photograph", focal: "center" as const },
+  { src: media.receptionEntrance.url, alt: media.receptionEntrance.alt, label: "Mombasa Hearing Centre reception", focal: "center" as const },
+  { src: media.teamGroup.url, alt: media.teamGroup.alt, label: "Our team", focal: "center" as const },
+  { src: media.drMahin.url, alt: media.drMahin.alt, label: "Dr Mahin Abdilahi Mohamed", focal: "top" as const },
+  { src: media.audiologistTerry.url, alt: media.audiologistTerry.alt, label: "Audiology assessment", focal: "top" as const },
 ];
 
 const trust = [
