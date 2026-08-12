@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { ShieldCheck } from "lucide-react";
+import { Quote, ShieldCheck } from "lucide-react";
 import { CTAButton } from "@/components/ui-kit/CTAButton";
 import { ImageContainer } from "@/components/ui-kit/ImageContainer";
 import { cn } from "@/lib/utils";
