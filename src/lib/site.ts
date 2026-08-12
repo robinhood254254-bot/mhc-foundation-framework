@@ -77,6 +77,7 @@ export const mainNav: NavItem[] = [
     ],
   },
   { label: "Contact", to: "/contact" },
+  { label: "Book Appointment", to: "/book-appointment" },
 ];
 
 export const footerServiceLinks: NavItem[] = [
