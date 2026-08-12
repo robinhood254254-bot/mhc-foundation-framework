@@ -12,9 +12,15 @@ export function ContactBlock({
   const rows = [
     {
       icon: Phone,
-      label: "Phone",
+      label: "Mobile",
       value: contact.phoneDisplay,
       href: contact.phoneHref,
+    },
+    {
+      icon: Phone,
+      label: "Telephone",
+      value: contact.landlineDisplay,
+      href: contact.landlineHref,
     },
     {
       icon: MessageCircle,
