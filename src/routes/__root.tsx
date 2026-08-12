@@ -15,6 +15,7 @@ import { I18nProvider } from "@/lib/i18n";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { AccessibilityPanel } from "@/components/a11y/AccessibilityPanel";
+import { FloatingActions } from "@/components/ui-kit/FloatingActions";
 
 function NotFoundComponent() {
   return (
@@ -165,6 +166,7 @@ function RootComponent() {
           </main>
           <Footer />
           <AccessibilityPanel />
+          <FloatingActions />
         </div>
       </I18nProvider>
     </QueryClientProvider>

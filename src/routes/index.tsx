@@ -16,6 +16,7 @@ import { CTAButton } from "@/components/ui-kit/CTAButton";
 import { ImageContainer } from "@/components/ui-kit/ImageContainer";
 import { ContactBlock } from "@/components/ui-kit/ContactBlock";
 import { cta, site } from "@/lib/site";
+import { media } from "@/lib/media";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -41,10 +42,10 @@ export const Route = createFileRoute("/")({
 });
 
 const heroSlides = [
-  { alt: "Hearing care at Mombasa Hearing Centre", label: "Hero image 1 — approved centre photograph", focal: "center" as const },
-  { alt: "Audiologist with a patient", label: "Hero image 2 — approved clinical photograph", focal: "top" as const },
-  { alt: "Hearing aid fitting", label: "Hero image 3 — approved fitting photograph", focal: "center" as const },
-  { alt: "Hearing assessment booth", label: "Hero image 4 — approved assessment photograph", focal: "center" as const },
+  { src: media.receptionEntrance.url, alt: media.receptionEntrance.alt, label: "Mombasa Hearing Centre reception", focal: "center" as const },
+  { src: media.teamGroup.url, alt: media.teamGroup.alt, label: "Our team", focal: "center" as const },
+  { src: media.drMahin.url, alt: media.drMahin.alt, label: "Dr Mahin Abdilahi Mohamed", focal: "top" as const },
+  { src: media.audiologistTerry.url, alt: media.audiologistTerry.alt, label: "Audiology assessment", focal: "top" as const },
 ];
 
 const trust = [
@@ -108,8 +109,8 @@ function Home() {
         <div className="grid gap-10 lg:grid-cols-2 lg:items-center lg:gap-14">
           <ImageContainer
             ratio="landscape"
-            alt="Inside Mombasa Hearing Centre"
-            label="Approved photograph: centre interior or team"
+            alt={media.receptionTeam.alt}
+            src={media.receptionTeam.url}
             rounded="2xl"
           />
           <div>
@@ -135,11 +136,12 @@ function Home() {
         <DoctorProfile
           doctor={{
             name: "Dr Mahin Abdilahi Mohamed",
-            title: "Lead Audiologist",
-            qualifications: ["Qualification placeholder 01", "Qualification placeholder 02"],
-            experience: "Over two decades of working experience",
-            bio: "Approved professional biography will be supplied in a later module.",
-            portraitLabel: "Approved portrait of Dr Mahin Abdilahi Mohamed (supplied in the next phase)",
+            title: "Lead Audiologist & Founder",
+            qualifications: ["Audiology", "Hearing aid fitting & rehabilitation", "Paediatric hearing care"],
+            experience: "Over two decades of clinical hearing-care experience",
+            bio: "Dr Mahin leads the clinical team at Mombasa Hearing Centre, with more than twenty years spent assessing and managing hearing loss across all age groups. He is known for explaining results clearly and for the long-term relationships he builds with the families in his care.",
+            portraitSrc: media.drMahin.url,
+            portraitLabel: media.drMahin.alt,
           }}
         />
       </Section>
@@ -183,8 +185,9 @@ function Home() {
           </div>
           <ImageContainer
             ratio="landscape"
-            alt="Hearing assessment"
-            label="Approved photograph: hearing assessment"
+            alt={media.audiologistTerry.alt}
+            src={media.audiologistTerry.url}
+            position="top"
             rounded="2xl"
           />
         </div>
