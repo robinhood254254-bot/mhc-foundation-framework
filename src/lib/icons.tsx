@@ -32,6 +32,6 @@ export const testIcons: Record<string, ReactNode> = {
   "brainstem-evoked-response-audiometry": <Brain className="size-5" />,
   "caloric-test": <Waves className="size-5" />,
   "vestibular-rehabilitation": <HeartPulse className="size-5" />,
-  "tinnitus-assessment": <Activity className="size-5" />,
+  "tinnitus-assessment-and-management": <Activity className="size-5" />,
   "hearing-aid-fitting-and-verification": <Ear className="size-5" />,
 };
