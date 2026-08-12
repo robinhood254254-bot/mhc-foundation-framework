@@ -1,10 +1,10 @@
 import { Link } from "@tanstack/react-router";
-import logo from "@/assets/mhc-logo.png.asset.json";
+import logo from "@/assets/mhc-logo-mark.png.asset.json";
 import { cn } from "@/lib/utils";
 import { site } from "@/lib/site";
 
 export function Logo({ className, size = "md" }: { className?: string; size?: "sm" | "md" | "lg" }) {
-  const h = size === "sm" ? "h-9" : size === "lg" ? "h-16" : "h-12";
+  const h = size === "sm" ? "h-12" : size === "lg" ? "h-24" : "h-16 md:h-20";
   return (
     <Link
       to="/"
@@ -15,8 +15,8 @@ export function Logo({ className, size = "md" }: { className?: string; size?: "s
         src={logo.url}
         alt={`${site.name} logo`}
         className={cn(h, "w-auto object-contain")}
-        width={240}
-        height={96}
+        width={925}
+        height={491}
       />
     </Link>
   );
