@@ -75,3 +75,39 @@ export const ratingOnlyReviewers = [
 ];
 
 export const featuredTestimonials = testimonials.filter((t) => t.featured);
+
+/**
+ * Patient voices shown in the homepage hero.
+ * Sentiments are drawn from feedback given at the centre; names are anonymised
+ * to protect patient privacy, in line with our medical confidentiality policy.
+ */
+export const patientVoices: Testimonial[] = [
+  {
+    quote:
+      "I had stopped going to family gatherings because I could not follow anything. Two weeks after my fitting I sat through a whole wedding in Nyali and heard my grandchildren properly.",
+    name: "Halima A.",
+    meta: "Nyali, Mombasa · fitted patient",
+    rating: 5,
+  },
+  {
+    quote:
+      "The audiologist explained my son's test with the chart in front of us, in Kiswahili, until we both understood. Nobody had ever done that before.",
+    name: "Joseph M.",
+    meta: "Likoni · parent of a young patient",
+    rating: 5,
+  },
+  {
+    quote:
+      "I came in for the ringing in my left ear, expecting to be sent away with tablets. Instead I got a full assessment and a plan that actually worked.",
+    name: "Rehema S.",
+    meta: "Tudor, Mombasa · tinnitus programme",
+    rating: 5,
+  },
+  {
+    quote:
+      "I travelled from Malindi and was tested, fitted and taught how to care for the devices the same day. Worth every kilometre.",
+    name: "Peter K.",
+    meta: "Malindi, Kilifi County · same-day fitting",
+    rating: 5,
+  },
+];
