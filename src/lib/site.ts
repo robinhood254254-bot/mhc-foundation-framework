@@ -15,11 +15,14 @@ export const site = {
 export const contact = {
   phoneDisplay: "+254 722 825 006",
   phoneHref: "tel:+254722825006",
+  phoneAltDisplay: "+254 723 102 898",
+  phoneAltHref: "tel:+254723102898",
   whatsappNumber: "254722825006",
   whatsappDisplay: "+254 722 825 006",
   email: "msahearing@yahoo.com",
   addressLine1: "NSSF Building, 5th Flr, Nkrumah Rd",
   addressLine2: "Mombasa, Kenya",
+  mapQuery: "Mombasa Hearing Centre, NSSF Building, Nkrumah Road, Mombasa, Kenya",
   hours: [
     { days: "Monday – Friday", time: "8:00 am – 4:00 pm" },
     { days: "Saturday", time: "9:00 am – 4:00 pm" },
@@ -27,12 +30,15 @@ export const contact = {
   ],
 };
 
+export const mapEmbedSrc = `https://www.google.com/maps?q=${encodeURIComponent(contact.mapQuery)}&output=embed`;
+export const mapDirectionsUrl = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(contact.mapQuery)}`;
+
 export function whatsappLink(message: string) {
   return `https://wa.me/${contact.whatsappNumber}?text=${encodeURIComponent(message)}`;
 }
 
 export const cta = {
-  primary: { label: "Book an Appointment", to: "/contact" as const },
+  primary: { label: "Book an Appointment", to: "/book-appointment" as const },
   secondary: { label: "Talk to Our Team", to: "/contact" as const },
   hearingTest: { label: "Take a Hearing Test", to: "/hearing-test" as const },
 };
