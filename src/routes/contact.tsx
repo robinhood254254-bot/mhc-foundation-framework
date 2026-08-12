@@ -3,7 +3,15 @@ import { MessageCircle, Phone, Mail, MapPin, Clock, Navigation } from "lucide-re
 import { PageHeader, Section } from "@/components/ui-kit/Page";
 import { ImageContainer } from "@/components/ui-kit/ImageContainer";
 import { CTAButton } from "@/components/ui-kit/CTAButton";
-import { contact, cta, googlePlaceUrl, googleStreetViewUrl, mapDirectionsUrl, mapEmbedSrc, whatsappLink } from "@/lib/site";
+import {
+  contact,
+  cta,
+  googlePlaceUrl,
+  googleStreetViewUrl,
+  mapDirectionsUrl,
+  mapEmbedSrc,
+  whatsappLink,
+} from "@/lib/site";
 import { media } from "@/lib/media";
 
 export const Route = createFileRoute("/contact")({
@@ -18,7 +26,8 @@ export const Route = createFileRoute("/contact")({
       { property: "og:title", content: "Contact Mombasa Hearing Centre | Nkrumah Road, Mombasa" },
       {
         property: "og:description",
-        content: "Phone, WhatsApp, email, opening hours and directions to our Mombasa hearing centre.",
+        content:
+          "Phone, WhatsApp, email, opening hours and directions to our Mombasa hearing centre.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "/contact" },
@@ -73,7 +82,10 @@ function ContactPage() {
       <Section label="Contact channels">
         <div className="grid gap-6 md:grid-cols-3">
           {channels.map((c) => (
-            <div key={c.title} className="rounded-2xl border border-border bg-surface p-6 shadow-card">
+            <div
+              key={c.title}
+              className="rounded-2xl border border-border bg-surface p-6 shadow-card"
+            >
               <span className="inline-flex size-11 items-center justify-center rounded-xl bg-primary-soft text-primary">
                 <c.icon className="size-5" aria-hidden="true" />
               </span>
@@ -83,7 +95,9 @@ function ContactPage() {
                   <li key={l.label}>
                     <a
                       href={l.href}
-                      {...(l.href.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                      {...(l.href.startsWith("http")
+                        ? { target: "_blank", rel: "noopener noreferrer" }
+                        : {})}
                       className="text-sm font-semibold text-foreground hover:text-primary"
                     >
                       {l.label}
@@ -101,11 +115,14 @@ function ContactPage() {
         <div className="grid gap-10 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:items-start lg:gap-14">
           <div>
             <p className="eyebrow">Visit us</p>
-            <h2 className="mt-3 text-3xl font-bold text-ink md:text-4xl">Where to find the centre</h2>
+            <h2 className="mt-3 text-3xl font-bold text-ink md:text-4xl">
+              Where to find the centre
+            </h2>
             <p className="mt-4 leading-relaxed text-muted-foreground">
-              Mombasa Hearing Centre is located inside the NSSF Building on Nkrumah Road, in the heart of Mombasa
-              Island. Take the lift to the 5th floor and follow the Mombasa Hearing Centre signage and arrow to our
-              entrance — our reception team will welcome you and complete your registration.
+              Mombasa Hearing Centre is located inside the NSSF Building on Nkrumah Road, in the
+              heart of Mombasa Island. Take the lift to the 5th floor and follow the Mombasa Hearing
+              Centre signage and arrow to our entrance — our reception team will welcome you and
+              complete your registration.
             </p>
 
             <div className="mt-8 space-y-5">
@@ -147,7 +164,9 @@ function ContactPage() {
                 Street view of the building
               </CTAButton>
               <CTAButton
-                href={whatsappLink("Hello Mombasa Hearing Centre, I need help finding your offices.")}
+                href={whatsappLink(
+                  "Hello Mombasa Hearing Centre, I need help finding your offices.",
+                )}
                 variant="secondary"
                 icon={<MessageCircle aria-hidden="true" />}
               >
@@ -179,7 +198,8 @@ function ContactPage() {
               position="center"
             />
             <figcaption className="mt-3 text-sm text-muted-foreground">
-              Our signage outside the entrance, with an arrow pointing the way to Mombasa Hearing Centre.
+              Our signage outside the entrance, with an arrow pointing the way to Mombasa Hearing
+              Centre.
             </figcaption>
           </figure>
           <figure>
@@ -190,7 +210,8 @@ function ContactPage() {
               rounded="2xl"
             />
             <figcaption className="mt-3 text-sm text-muted-foreground">
-              Inside our reception, where patients are welcomed and registered before their appointment.
+              Inside our reception, where patients are welcomed and registered before their
+              appointment.
             </figcaption>
           </figure>
         </div>
@@ -200,8 +221,8 @@ function ContactPage() {
         <div className="rounded-3xl border border-border bg-primary-soft p-6 text-center md:p-10">
           <h2 className="text-2xl font-bold text-ink md:text-3xl">Ready to book your visit?</h2>
           <p className="mx-auto mt-3 max-w-2xl leading-relaxed text-muted-foreground">
-            Appointments are handled on a separate booking page so we can capture your preferred date, time and
-            reason for visiting.
+            Appointments are handled on a separate booking page so we can capture your preferred
+            date, time and reason for visiting.
           </p>
           <div className="mt-7 flex flex-wrap justify-center gap-3">
             <CTAButton to="/book-appointment" size="lg">

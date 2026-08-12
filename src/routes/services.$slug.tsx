@@ -65,7 +65,10 @@ function ServiceDetail() {
           <div>
             <h2 className="text-2xl font-bold text-ink md:text-3xl">About this service</h2>
             {service.intro.map((p) => (
-              <p key={p.slice(0, 40)} className="mt-4 text-base leading-relaxed text-muted-foreground md:text-lg">
+              <p
+                key={p.slice(0, 40)}
+                className="mt-4 text-base leading-relaxed text-muted-foreground md:text-lg"
+              >
                 {p}
               </p>
             ))}
@@ -74,7 +77,10 @@ function ServiceDetail() {
             <ul className="mt-4 space-y-3">
               {service.includes.map((item) => (
                 <li key={item} className="flex gap-3 text-sm leading-relaxed text-muted-foreground">
-                  <CheckCircle2 className="mt-0.5 size-4 shrink-0 text-primary" aria-hidden="true" />
+                  <CheckCircle2
+                    className="mt-0.5 size-4 shrink-0 text-primary"
+                    aria-hidden="true"
+                  />
                   <span>{item}</span>
                 </li>
               ))}
@@ -82,7 +88,12 @@ function ServiceDetail() {
           </div>
 
           <div className="space-y-6">
-            <ImageContainer ratio="landscape" src={service.image.url} alt={service.image.alt} rounded="2xl" />
+            <ImageContainer
+              ratio="landscape"
+              src={service.image.url}
+              alt={service.image.alt}
+              rounded="2xl"
+            />
             <aside className="rounded-3xl border border-border bg-surface-2 p-6 md:p-8">
               <span className="grid size-10 place-items-center rounded-xl bg-primary-soft text-primary">
                 <Users className="size-5" aria-hidden="true" />
@@ -90,8 +101,14 @@ function ServiceDetail() {
               <p className="eyebrow mt-4">Who it is for</p>
               <ul className="mt-4 space-y-3">
                 {service.whoItIsFor.map((item) => (
-                  <li key={item} className="flex gap-3 text-sm leading-relaxed text-muted-foreground">
-                    <span className="mt-2 size-1.5 shrink-0 rounded-full bg-primary" aria-hidden="true" />
+                  <li
+                    key={item}
+                    className="flex gap-3 text-sm leading-relaxed text-muted-foreground"
+                  >
+                    <span
+                      className="mt-2 size-1.5 shrink-0 rounded-full bg-primary"
+                      aria-hidden="true"
+                    />
                     <span>{item}</span>
                   </li>
                 ))}
@@ -118,7 +135,9 @@ function ServiceDetail() {
                 className="rounded-2xl border border-border bg-surface p-6 shadow-card transition-shadow hover:shadow-lift"
               >
                 <h3 className="text-base font-semibold text-ink">{test!.name}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{test!.summary}</p>
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                  {test!.summary}
+                </p>
               </Link>
             ))}
           </div>
@@ -169,7 +188,10 @@ function ServiceDetail() {
           ))}
         </div>
         <div className="mt-10">
-          <Link to="/services" className="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:underline">
+          <Link
+            to="/services"
+            className="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:underline"
+          >
             <ArrowLeft className="size-4" aria-hidden="true" />
             Back to all services
           </Link>

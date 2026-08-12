@@ -57,16 +57,21 @@ function Page() {
         />
         <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {services.map((service, i) => (
-            <Reveal key={service.slug} direction={i % 2 === 0 ? "left" : "right"} delay={i * 70} className="h-full">
+            <Reveal
+              key={service.slug}
+              direction={i % 2 === 0 ? "left" : "right"}
+              delay={i * 70}
+              className="h-full"
+            >
               <ServiceCard
-                            key={service.slug}
-                            title={service.name}
-                            description={service.summary}
-                            to={`/services/${service.slug}`}
-                            icon={serviceIcons[service.slug]}
-                            src={service.image.url}
-                            imageAlt={service.image.alt}
-                          />
+                key={service.slug}
+                title={service.name}
+                description={service.summary}
+                to={`/services/${service.slug}`}
+                icon={serviceIcons[service.slug]}
+                src={service.image.url}
+                imageAlt={service.image.alt}
+              />
             </Reveal>
           ))}
         </div>
@@ -74,7 +79,12 @@ function Page() {
 
       <Section tone="muted" label="How care works here">
         <div className="grid gap-10 lg:grid-cols-2 lg:items-center lg:gap-14">
-          <ImageContainer ratio="landscape" src={media.receptionTeam.url} alt={media.receptionTeam.alt} rounded="2xl" />
+          <ImageContainer
+            ratio="landscape"
+            src={media.receptionTeam.url}
+            alt={media.receptionTeam.alt}
+            rounded="2xl"
+          />
           <div>
             <SectionHeading
               eyebrow="Your visit"
@@ -117,10 +127,12 @@ function Page() {
 
       <Section label="Book">
         <div className="rounded-3xl border border-border bg-primary-soft p-6 md:p-10">
-          <h2 className="text-2xl font-bold text-ink md:text-3xl">Not sure which service you need?</h2>
+          <h2 className="text-2xl font-bold text-ink md:text-3xl">
+            Not sure which service you need?
+          </h2>
           <p className="mt-3 max-w-2xl text-muted-foreground">
-            Most people start with a diagnostic hearing assessment, and everything else follows from what it shows.
-            Send us a message and our team will point you to the right appointment.
+            Most people start with a diagnostic hearing assessment, and everything else follows from
+            what it shows. Send us a message and our team will point you to the right appointment.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <CTAButton to={cta.primary.to} size="lg">

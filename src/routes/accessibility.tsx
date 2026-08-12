@@ -1,13 +1,22 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageHeader, Section } from "@/components/ui-kit/Page";
+import { media } from "@/lib/media";
 
 export const Route = createFileRoute("/accessibility")({
   head: () => ({
     meta: [
       { title: "Accessibility | Mombasa Hearing Centre" },
-      { name: "description", content: "Accessibility statement and available accessibility controls on the Mombasa Hearing Centre website." },
+      {
+        name: "description",
+        content:
+          "Accessibility statement and available accessibility controls on the Mombasa Hearing Centre website.",
+      },
       { property: "og:title", content: "Accessibility | Mombasa Hearing Centre" },
-      { property: "og:description", content: "Accessibility statement and available accessibility controls on the Mombasa Hearing Centre website." },
+      {
+        property: "og:description",
+        content:
+          "Accessibility statement and available accessibility controls on the Mombasa Hearing Centre website.",
+      },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "/accessibility" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -21,6 +30,7 @@ function Page() {
   return (
     <>
       <PageHeader
+        image={{ url: media.receptionTeam.url }}
         eyebrow="Accessibility"
         title="Accessibility"
         intro="Accessibility controls are available site-wide from the button in the bottom-left corner of every page."
@@ -43,9 +53,9 @@ function Page() {
           <section>
             <h2 className="text-2xl font-bold text-ink">Our commitment</h2>
             <p className="mt-4 text-base leading-relaxed text-muted-foreground">
-              A hearing care practice of all places should be usable by everyone. This site is built to meet the
-              Web Content Accessibility Guidelines 2.1 at level AA, and accessibility is treated as part of the build
-              rather than an afterthought.
+              A hearing care practice of all places should be usable by everyone. This site is built
+              to meet the Web Content Accessibility Guidelines 2.1 at level AA, and accessibility is
+              treated as part of the build rather than an afterthought.
             </p>
           </section>
           <section>
@@ -60,7 +70,10 @@ function Page() {
                 "Motion is reduced automatically when your device requests it",
               ].map((item) => (
                 <li key={item} className="flex gap-3 text-sm leading-relaxed text-muted-foreground">
-                  <span className="mt-2 size-1.5 shrink-0 rounded-full bg-primary" aria-hidden="true" />
+                  <span
+                    className="mt-2 size-1.5 shrink-0 rounded-full bg-primary"
+                    aria-hidden="true"
+                  />
                   <span>{item}</span>
                 </li>
               ))}
@@ -69,18 +82,20 @@ function Page() {
           <section>
             <h2 className="text-2xl font-bold text-ink">Accessibility at the centre</h2>
             <p className="mt-4 text-base leading-relaxed text-muted-foreground">
-              Our rooms are on the fifth floor of NSSF Building, North Wing, served by lift. Consultations are given in
-              English or Kiswahili, family members are welcome in the room, and our team is used to communicating
-              clearly with patients who have significant hearing loss. If you need written instructions rather than
-              spoken ones, tell the front desk and we will provide them.
+              Our rooms are on the fifth floor of NSSF Building, North Wing, served by lift.
+              Consultations are given in English or Kiswahili, family members are welcome in the
+              room, and our team is used to communicating clearly with patients who have significant
+              hearing loss. If you need written instructions rather than spoken ones, tell the front
+              desk and we will provide them.
             </p>
           </section>
           <section>
             <h2 className="text-2xl font-bold text-ink">Tell us if something does not work</h2>
             <p className="mt-4 text-base leading-relaxed text-muted-foreground">
-              If any part of this site or of our service is difficult for you to use, we want to hear about it. Call
-              the centre, send a WhatsApp message or email us, describe the problem and the page it happened on, and we
-              will correct it and reply with an alternative way to get the information you needed.
+              If any part of this site or of our service is difficult for you to use, we want to
+              hear about it. Call the centre, send a WhatsApp message or email us, describe the
+              problem and the page it happened on, and we will correct it and reply with an
+              alternative way to get the information you needed.
             </p>
           </section>
         </div>

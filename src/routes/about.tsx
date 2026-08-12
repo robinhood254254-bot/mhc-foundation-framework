@@ -17,10 +17,14 @@ export const Route = createFileRoute("/about")({
         content:
           "Meet the team behind Mombasa Hearing Centre — specialist hearing care, audiology and hearing aid services at NSSF Building, Nkrumah Road, Mombasa.",
       },
-      { property: "og:title", content: "About Mombasa Hearing Centre | Specialist Hearing Care in Mombasa" },
+      {
+        property: "og:title",
+        content: "About Mombasa Hearing Centre | Specialist Hearing Care in Mombasa",
+      },
       {
         property: "og:description",
-        content: "Our people, our centre and our approach to hearing care in Mombasa and the wider Coast region.",
+        content:
+          "Our people, our centre and our approach to hearing care in Mombasa and the wider Coast region.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "/about" },
@@ -58,7 +62,8 @@ const team = [
   {
     src: media.teamGroup.url,
     alt: media.teamGroup.alt,
-    caption: "The Mombasa Hearing Centre team — clinical and front-of-house staff together at the centre.",
+    caption:
+      "The Mombasa Hearing Centre team — clinical and front-of-house staff together at the centre.",
   },
   {
     src: media.receptionTeam.url,
@@ -94,21 +99,21 @@ function Page() {
             </h2>
             <div className="mt-5 space-y-4 leading-relaxed text-muted-foreground">
               <p>
-                {site.name} is a dedicated hearing-care centre based on the 5th floor of the NSSF Building on Nkrumah
-                Road, Mombasa. We support children, adults and older patients who are living with hearing difficulty,
-                tinnitus or ear-health concerns, and we help families understand what those difficulties mean day to
-                day.
+                {site.name} is a dedicated hearing-care centre based on the 5th floor of the NSSF
+                Building on Nkrumah Road, Mombasa. We support children, adults and older patients
+                who are living with hearing difficulty, tinnitus or ear-health concerns, and we help
+                families understand what those difficulties mean day to day.
               </p>
               <p>
-                Our team brings more than {site.experienceYears} years of combined clinical experience in audiology and
-                hearing rehabilitation. Patients come to us from across Mombasa County and the wider Coast region, as
-                well as from other parts of Kenya, for assessments, hearing devices, servicing and long-term follow-up
-                care.
+                Our team brings more than {site.experienceYears} years of combined clinical
+                experience in audiology and hearing rehabilitation. Patients come to us from across
+                Mombasa County and the wider Coast region, as well as from other parts of Kenya, for
+                assessments, hearing devices, servicing and long-term follow-up care.
               </p>
               <p>
-                The centre is purpose-arranged for hearing work: a quiet assessment environment, calibrated audiometry
-                equipment, a dedicated fitting and demonstration area, and a reception team that keeps appointments
-                running on time.
+                The centre is purpose-arranged for hearing work: a quiet assessment environment,
+                calibrated audiometry equipment, a dedicated fitting and demonstration area, and a
+                reception team that keeps appointments running on time.
               </p>
             </div>
           </div>
@@ -123,7 +128,10 @@ function Page() {
         />
         <div className="mt-10 grid gap-6 sm:grid-cols-2">
           {values.map((v) => (
-            <div key={v.title} className="rounded-2xl border border-border bg-surface p-6 shadow-card">
+            <div
+              key={v.title}
+              className="rounded-2xl border border-border bg-surface p-6 shadow-card"
+            >
               <span className="inline-flex size-11 items-center justify-center rounded-xl bg-primary-soft text-primary">
                 <v.icon className="size-5" aria-hidden="true" />
               </span>
@@ -139,7 +147,11 @@ function Page() {
           doctor={{
             name: "Dr Mahin Abdilahi Mohamed",
             title: "Lead Audiologist & Founder",
-            qualifications: ["Audiology", "Hearing aid fitting & rehabilitation", "Paediatric hearing care"],
+            qualifications: [
+              "Audiology",
+              "Hearing aid fitting & rehabilitation",
+              "Paediatric hearing care",
+            ],
             experience: "Over two decades of clinical hearing-care experience",
             bio: "Dr Mahin leads the clinical team at Mombasa Hearing Centre. He has spent over twenty years assessing and managing hearing loss across all age groups, from newborn and paediatric referrals to adults and older patients adapting to hearing devices. He is known for taking the time to explain results clearly and for building long-term relationships with the families under his care.",
             portraitSrc: media.drMahin.url,
@@ -152,16 +164,19 @@ function Page() {
         <div className="grid gap-10 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)] lg:items-center lg:gap-14">
           <div>
             <p className="eyebrow">Audiology</p>
-            <h2 className="mt-3 text-3xl font-bold text-ink md:text-4xl">Madam Terry, Audiologist</h2>
+            <h2 className="mt-3 text-3xl font-bold text-ink md:text-4xl">
+              Madam Terry, Audiologist
+            </h2>
             <div className="mt-5 space-y-4 leading-relaxed text-muted-foreground">
               <p>
-                Madam Terry carries out hearing assessments at the centre, including pure tone audiometry and the
-                related diagnostic tests used to map the type and degree of a hearing loss.
+                Madam Terry carries out hearing assessments at the centre, including pure tone
+                audiometry and the related diagnostic tests used to map the type and degree of a
+                hearing loss.
               </p>
               <p>
-                She talks patients through each step before it happens, keeps the test environment calm for children
-                and anxious first-time visitors, and produces the audiogram that guides the clinical recommendation
-                you receive.
+                She talks patients through each step before it happens, keeps the test environment
+                calm for children and anxious first-time visitors, and produces the audiogram that
+                guides the clinical recommendation you receive.
               </p>
             </div>
             <div className="mt-8 flex flex-wrap gap-3">
@@ -206,19 +221,34 @@ function Page() {
         />
         <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           <figure>
-            <ImageContainer ratio="landscape" alt={media.displayCounter.alt} src={media.displayCounter.url} rounded="2xl" />
+            <ImageContainer
+              ratio="landscape"
+              alt={media.displayCounter.alt}
+              src={media.displayCounter.url}
+              rounded="2xl"
+            />
             <figcaption className="mt-3 text-sm text-muted-foreground">
               Our fitting and demonstration counter inside the centre.
             </figcaption>
           </figure>
           <figure>
-            <ImageContainer ratio="landscape" alt={media.deviceDisplay.alt} src={media.deviceDisplay.url} rounded="2xl" />
+            <ImageContainer
+              ratio="landscape"
+              alt={media.deviceDisplay.alt}
+              src={media.deviceDisplay.url}
+              rounded="2xl"
+            />
             <figcaption className="mt-3 text-sm text-muted-foreground">
               Devices and accessories kept in stock for demonstration and fitting.
             </figcaption>
           </figure>
           <figure>
-            <ImageContainer ratio="landscape" alt={media.batteries2.alt} src={media.batteries2.url} rounded="2xl" />
+            <ImageContainer
+              ratio="landscape"
+              alt={media.batteries2.alt}
+              src={media.batteries2.url}
+              rounded="2xl"
+            />
             <figcaption className="mt-3 text-sm text-muted-foreground">
               Hearing aid batteries in the common sizes, available at the centre.
             </figcaption>
@@ -231,10 +261,13 @@ function Page() {
           <span className="inline-flex size-12 items-center justify-center rounded-2xl bg-surface text-primary">
             <Award className="size-6" aria-hidden="true" />
           </span>
-          <h2 className="mt-5 text-2xl font-bold text-ink md:text-3xl">Come and see us in Mombasa</h2>
+          <h2 className="mt-5 text-2xl font-bold text-ink md:text-3xl">
+            Come and see us in Mombasa
+          </h2>
           <p className="mx-auto mt-3 max-w-2xl leading-relaxed text-muted-foreground">
-            Whether you are noticing a change in your hearing or supporting a family member who is, our team is ready
-            to help. Book an appointment or get in touch and we will guide you from there.
+            Whether you are noticing a change in your hearing or supporting a family member who is,
+            our team is ready to help. Book an appointment or get in touch and we will guide you
+            from there.
           </p>
           <div className="mt-7 flex flex-wrap justify-center gap-3">
             <CTAButton to={cta.primary.to} size="lg">

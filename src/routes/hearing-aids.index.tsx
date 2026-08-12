@@ -80,16 +80,21 @@ function Page() {
         />
         <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {hearingAids.map((aid, i) => (
-            <Reveal key={aid.slug} direction={i % 2 === 0 ? "left" : "right"} delay={i * 70} className="h-full">
+            <Reveal
+              key={aid.slug}
+              direction={i % 2 === 0 ? "left" : "right"}
+              delay={i * 70}
+              className="h-full"
+            >
               <ProductCard
-                            key={aid.slug}
-                            category={aid.category}
-                            title={aid.name}
-                            description={aid.summary}
-                            imageLabel={aid.image.alt}
-                            src={aid.image.url}
-                            to={`/hearing-aids/${aid.slug}`}
-                          />
+                key={aid.slug}
+                category={aid.category}
+                title={aid.name}
+                description={aid.summary}
+                imageLabel={aid.image.alt}
+                src={aid.image.url}
+                to={`/hearing-aids/${aid.slug}`}
+              />
             </Reveal>
           ))}
         </div>
@@ -132,10 +137,22 @@ function Page() {
         />
         <ol className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
           {[
-            { t: "Assessment", b: "A full diagnostic hearing assessment establishes the prescription target for each ear." },
-            { t: "Selection", b: "We match style, power and features to your audiogram, dexterity, ear anatomy and daily life." },
-            { t: "Fitting and verification", b: "The device is programmed to prescription and checked in your ear, not just in software." },
-            { t: "Aftercare", b: "Reviews at two weeks, six weeks and three months, then servicing and remote fine-tuning for life." },
+            {
+              t: "Assessment",
+              b: "A full diagnostic hearing assessment establishes the prescription target for each ear.",
+            },
+            {
+              t: "Selection",
+              b: "We match style, power and features to your audiogram, dexterity, ear anatomy and daily life.",
+            },
+            {
+              t: "Fitting and verification",
+              b: "The device is programmed to prescription and checked in your ear, not just in software.",
+            },
+            {
+              t: "Aftercare",
+              b: "Reviews at two weeks, six weeks and three months, then servicing and remote fine-tuning for life.",
+            },
           ].map((s, i) => (
             <li key={s.t} className="rounded-2xl border border-border bg-surface p-6 shadow-card">
               <span className="grid size-9 place-items-center rounded-xl bg-primary text-sm font-bold text-primary-foreground">
@@ -165,8 +182,9 @@ function Page() {
         <div className="rounded-3xl border border-border bg-primary-soft p-6 md:p-10">
           <h2 className="text-2xl font-bold text-ink md:text-3xl">Try before you decide</h2>
           <p className="mt-3 max-w-2xl text-muted-foreground">
-            Come in for a hearing assessment and a demonstration. You will hear the difference in the room before any
-            commitment is made, and we will tell you honestly if a hearing aid is not what you need.
+            Come in for a hearing assessment and a demonstration. You will hear the difference in
+            the room before any commitment is made, and we will tell you honestly if a hearing aid
+            is not what you need.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <CTAButton to={cta.primary.to} size="lg">

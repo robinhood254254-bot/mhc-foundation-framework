@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { PageHeader, Section } from "@/components/ui-kit/Page";
 import { LegalBody, type LegalSection } from "@/components/ui-kit/LegalBody";
 import { contact, site } from "@/lib/site";
+import { media } from "@/lib/media";
 
 const title = "Privacy Policy | Mombasa Hearing Centre";
 const description =
@@ -32,7 +33,9 @@ const sections: LegalSection[] = [
   },
   {
     heading: "Information we collect",
-    body: ["We collect only what we need in order to provide hearing care and to run the practice."],
+    body: [
+      "We collect only what we need in order to provide hearing care and to run the practice.",
+    ],
     list: [
       "Identity and contact details: name, telephone number, email address, physical address and, where relevant, next of kin",
       "Clinical information: case history, otoscopy findings, audiograms, tympanograms, balance test results, hearing aid prescriptions and fitting records",
@@ -89,6 +92,7 @@ function Page() {
   return (
     <>
       <PageHeader
+        image={{ url: media.drMahin.url }}
         eyebrow="Legal"
         title="Privacy Policy"
         intro="Hearing care depends on trust. This policy sets out exactly what we record about you, why we record it, who can see it and what you can ask us to do with it."
