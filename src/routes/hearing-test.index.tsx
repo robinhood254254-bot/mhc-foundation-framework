@@ -1,11 +1,12 @@
 import { Link, createFileRoute } from "@tanstack/react-router";
-import { ArrowRight, Baby, Brain, Ear, Gauge, Headphones, HeartPulse, Waves } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { PageHeader, Section } from "@/components/ui-kit/Page";
 import { SectionHeading } from "@/components/ui-kit/SectionHeading";
 import { CTAButton } from "@/components/ui-kit/CTAButton";
 import { ImageContainer } from "@/components/ui-kit/ImageContainer";
 import { cta } from "@/lib/site";
 import { hearingTests } from "@/lib/hearing-tests";
+import { testIcons } from "@/lib/icons";
 import { media } from "@/lib/media";
 
 export const Route = createFileRoute("/hearing-test/")({
@@ -31,17 +32,6 @@ export const Route = createFileRoute("/hearing-test/")({
   }),
   component: HearingTestIndex,
 });
-
-const icons: Record<string, typeof Ear> = {
-  "pure-tone-audiometry": Headphones,
-  "paediatric-hearing-assessment": Baby,
-  "tympanometry-impedance-audiometry": Gauge,
-  "brainstem-evoked-response-audiometry": Brain,
-  "caloric-test": Waves,
-  "vestibular-rehabilitation": HeartPulse,
-  "tinnitus-assessment-and-management": Ear,
-  "hearing-aid-fitting-and-verification": Headphones,
-};
 
 const journey = [
   {
@@ -119,28 +109,43 @@ function HearingTestIndex() {
         />
         <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {hearingTests.map((test) => {
-            const Icon = icons[test.slug] ?? Ear;
+            const icon = testIcons[test.slug];
             return (
               <Link
                 key={test.slug}
                 to="/hearing-test/$slug"
                 params={{ slug: test.slug }}
-                className="group flex flex-col rounded-2xl border border-border bg-surface p-6 shadow-card transition-shadow hover:shadow-lift focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-none"
+                className="group flex flex-col overflow-hidden rounded-2xl border border-border bg-surface shadow-card transition-all duration-300 hover:-translate-y-1 hover:shadow-lift focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-none"
               >
-                <span className="grid size-11 shrink-0 place-items-center rounded-xl bg-primary-soft text-primary">
-                  <Icon className="size-5" aria-hidden="true" />
-                </span>
-                <h3 className="mt-5 text-lg font-semibold text-ink">{test.name}</h3>
-                {test.alsoKnownAs ? (
-                  <p className="mt-1 text-xs font-medium tracking-wide text-primary/80 uppercase">
-                    {test.alsoKnownAs}
-                  </p>
-                ) : null}
-                <p className="mt-3 flex-1 text-sm leading-relaxed text-muted-foreground">{test.summary}</p>
-                <span className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-primary">
-                  Read more
-                  <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" aria-hidden="true" />
-                </span>
+                <div className="relative overflow-hidden">
+                  <ImageContainer
+                    ratio="landscape"
+                    src={test.hero?.url}
+                    alt={test.hero?.alt ?? test.name}
+                    label={test.name}
+                    rounded="none"
+                    className="border-0 border-b"
+                    imgClassName="transition-transform duration-500 group-hover:scale-105"
+                  />
+                  {icon ? (
+                    <span className="absolute bottom-3 left-3 grid size-10 place-items-center rounded-xl bg-surface/95 text-primary shadow-card backdrop-blur">
+                      {icon}
+                    </span>
+                  ) : null}
+                </div>
+                <div className="flex flex-1 flex-col p-5 md:p-6">
+                  <h3 className="text-lg font-semibold text-ink">{test.name}</h3>
+                  {test.alsoKnownAs ? (
+                    <p className="mt-1 text-xs font-medium tracking-wide text-primary/80 uppercase">
+                      {test.alsoKnownAs}
+                    </p>
+                  ) : null}
+                  <p className="mt-3 flex-1 text-sm leading-relaxed text-muted-foreground">{test.summary}</p>
+                  <span className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-primary">
+                    Read more
+                    <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" aria-hidden="true" />
+                  </span>
+                </div>
               </Link>
             );
           })}

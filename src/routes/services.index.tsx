@@ -1,6 +1,4 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Baby, Ear, Headphones, ShieldCheck, Stethoscope, Waves, Wrench } from "lucide-react";
-import type { ReactNode } from "react";
 import { PageHeader, Section } from "@/components/ui-kit/Page";
 import { SectionHeading } from "@/components/ui-kit/SectionHeading";
 import { ServiceCard } from "@/components/ui-kit/Cards";
@@ -8,6 +6,7 @@ import { CTAButton } from "@/components/ui-kit/CTAButton";
 import { ImageContainer } from "@/components/ui-kit/ImageContainer";
 import { cta, site } from "@/lib/site";
 import { services } from "@/lib/services";
+import { serviceIcons } from "@/lib/icons";
 import { media } from "@/lib/media";
 
 const title = "Hearing Services in Mombasa | Mombasa Hearing Centre";
@@ -29,16 +28,6 @@ export const Route = createFileRoute("/services/")({
   }),
   component: Page,
 });
-
-const icons: Record<string, ReactNode> = {
-  "diagnostic-hearing-assessment": <Stethoscope className="size-5" />,
-  "paediatric-hearing-care": <Baby className="size-5" />,
-  "hearing-aid-fitting-and-verification": <Headphones className="size-5" />,
-  "hearing-aid-repairs-servicing-and-supplies": <Wrench className="size-5" />,
-  "tinnitus-assessment-and-management": <Ear className="size-5" />,
-  "balance-and-vestibular-care": <Waves className="size-5" />,
-  "custom-ear-moulds-and-hearing-protection": <ShieldCheck className="size-5" />,
-};
 
 function Page() {
   return (
@@ -71,7 +60,9 @@ function Page() {
               title={service.name}
               description={service.summary}
               to={`/services/${service.slug}`}
-              icon={icons[service.slug] ?? <Stethoscope className="size-5" />}
+              icon={serviceIcons[service.slug]}
+              src={service.image.url}
+              imageAlt={service.image.alt}
             />
           ))}
         </div>
