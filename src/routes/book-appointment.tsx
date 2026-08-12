@@ -184,6 +184,7 @@ function BookAppointmentPage() {
   return (
     <>
       <PageHeader
+        image={ url: media.receptionEntrance.url }
         eyebrow="Appointments"
         title="Book an Appointment"
         intro="Request a visit with the Mombasa Hearing Centre clinical team. Appointments help us set aside enough time for a careful, unhurried consultation."

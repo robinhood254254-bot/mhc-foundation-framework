@@ -56,6 +56,7 @@ function Page() {
   return (
     <>
       <PageHeader
+        image={ url: media.displayCounter.url }
         eyebrow="Hearing Aids"
         title="Starkey hearing aids, fitted and supported in Mombasa"
         intro="We are an authorised Starkey partner. Every device below is prescribed from your own audiogram, programmed and verified at the centre, and supported here for the life of the device with servicing, batteries and re-programming."

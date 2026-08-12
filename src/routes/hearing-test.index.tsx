@@ -56,6 +56,7 @@ function HearingTestIndex() {
   return (
     <>
       <PageHeader
+        image={ url: media.ptaTerry.url }
         eyebrow="Diagnostics"
         title="Hearing and balance tests"
         intro="Accurate diagnosis is where good hearing care begins. Our audiologists run a full diagnostic range at NSSF Building on Nkrumah Road, from the standard audiogram to objective brainstem and balance testing, with results explained to you the same day."
