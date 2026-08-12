@@ -49,7 +49,7 @@ function TestDetail() {
   return (
     <>
       <PageHeader
-        image={{ url: test.hero?.url }}
+        {...(test.hero ? { image: { url: test.hero.url } } : {})}
         eyebrow={test.alsoKnownAs ?? "Diagnostics"}
         title={test.name}
         intro={test.summary}
