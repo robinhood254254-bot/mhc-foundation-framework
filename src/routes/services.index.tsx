@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageHeader, Section } from "@/components/ui-kit/Page";
+import { Reveal } from "@/components/ui-kit/Reveal";
 import { SectionHeading } from "@/components/ui-kit/SectionHeading";
 import { ServiceCard } from "@/components/ui-kit/Cards";
 import { CTAButton } from "@/components/ui-kit/CTAButton";
@@ -55,16 +56,18 @@ function Page() {
           description="Each service is delivered by our own clinical team on calibrated equipment, and every finding is explained to you before you leave the centre."
         />
         <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {services.map((service) => (
-            <ServiceCard
-              key={service.slug}
-              title={service.name}
-              description={service.summary}
-              to={`/services/${service.slug}`}
-              icon={serviceIcons[service.slug]}
-              src={service.image.url}
-              imageAlt={service.image.alt}
-            />
+          {services.map((service, i) => (
+            <Reveal key={service.slug} direction={i % 2 === 0 ? "left" : "right"} delay={i * 70}>
+              <ServiceCard
+                            key={service.slug}
+                            title={service.name}
+                            description={service.summary}
+                            to={`/services/${service.slug}`}
+                            icon={serviceIcons[service.slug]}
+                            src={service.image.url}
+                            imageAlt={service.image.alt}
+                          />
+            </Reveal>
           ))}
         </div>
       </Section>

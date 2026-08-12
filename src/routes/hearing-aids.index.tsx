@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { BatteryCharging, Droplets, Radio, Sparkles } from "lucide-react";
 import { PageHeader, Section } from "@/components/ui-kit/Page";
+import { Reveal } from "@/components/ui-kit/Reveal";
 import { SectionHeading } from "@/components/ui-kit/SectionHeading";
 import { ProductCard, DownloadResourceCard, Card } from "@/components/ui-kit/Cards";
 import { CTAButton } from "@/components/ui-kit/CTAButton";
@@ -78,16 +79,18 @@ function Page() {
           description="From invisible custom devices to ultra-power behind-the-ear units for profound loss, the right choice depends on your audiogram, your ear anatomy, your dexterity and the way you actually live."
         />
         <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {hearingAids.map((aid) => (
-            <ProductCard
-              key={aid.slug}
-              category={aid.category}
-              title={aid.name}
-              description={aid.summary}
-              imageLabel={aid.image.alt}
-              src={aid.image.url}
-              to={`/hearing-aids/${aid.slug}`}
-            />
+          {hearingAids.map((aid, i) => (
+            <Reveal key={aid.slug} direction={i % 2 === 0 ? "left" : "right"} delay={i * 70}>
+              <ProductCard
+                            key={aid.slug}
+                            category={aid.category}
+                            title={aid.name}
+                            description={aid.summary}
+                            imageLabel={aid.image.alt}
+                            src={aid.image.url}
+                            to={`/hearing-aids/${aid.slug}`}
+                          />
+            </Reveal>
           ))}
         </div>
       </Section>

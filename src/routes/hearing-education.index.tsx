@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageHeader, Section } from "@/components/ui-kit/Page";
+import { Reveal } from "@/components/ui-kit/Reveal";
 import { SectionHeading } from "@/components/ui-kit/SectionHeading";
 import { ArticleCard, DownloadResourceCard } from "@/components/ui-kit/Cards";
 import { CTAButton } from "@/components/ui-kit/CTAButton";
@@ -43,16 +44,18 @@ function Page() {
       <Section label="Articles">
         <SectionHeading eyebrow="Guides" title="Articles from our clinical team" />
         <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {articles.map((article) => (
-            <ArticleCard
-              key={article.slug}
-              category={article.category}
-              title={article.title}
-              excerpt={article.excerpt}
-              imageLabel={article.image.alt}
-              src={article.image.url}
-              to={`/hearing-education/${article.slug}`}
-            />
+          {articles.map((article, i) => (
+            <Reveal key={article.slug} direction={i % 2 === 0 ? "left" : "right"} delay={i * 70}>
+              <ArticleCard
+                            key={article.slug}
+                            category={article.category}
+                            title={article.title}
+                            excerpt={article.excerpt}
+                            imageLabel={article.image.alt}
+                            src={article.image.url}
+                            to={`/hearing-education/${article.slug}`}
+                          />
+            </Reveal>
           ))}
         </div>
       </Section>

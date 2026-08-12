@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Award, Ear, HeartHandshake, ShieldCheck } from "lucide-react";
 import { Hero } from "@/components/ui-kit/Hero";
 import { Section } from "@/components/ui-kit/Page";
+import { Reveal } from "@/components/ui-kit/Reveal";
 import { SectionHeading } from "@/components/ui-kit/SectionHeading";
 import {
   ArticleCard,
@@ -124,16 +125,18 @@ function Home() {
           actions={<CTAButton to="/services" variant="secondary">All services</CTAButton>}
         />
         <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {services.slice(0, 6).map((service) => (
-            <ServiceCard
-              key={service.slug}
-              title={service.name}
-              description={service.summary}
-              to={`/services/${service.slug}`}
-              icon={serviceIcons[service.slug]}
-              src={service.image.url}
-              imageAlt={service.image.alt}
-            />
+          {services.slice(0, 6).map((service, i) => (
+            <Reveal key={service.slug} direction={i % 2 === 0 ? "left" : "right"} delay={i * 70}>
+              <ServiceCard
+                            key={service.slug}
+                            title={service.name}
+                            description={service.summary}
+                            to={`/services/${service.slug}`}
+                            icon={serviceIcons[service.slug]}
+                            src={service.image.url}
+                            imageAlt={service.image.alt}
+                          />
+            </Reveal>
           ))}
         </div>
       </Section>
@@ -206,16 +209,18 @@ function Home() {
           actions={<CTAButton to="/hearing-aids" variant="secondary">View hearing aids</CTAButton>}
         />
         <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {hearingAids.slice(0, 4).map((aid) => (
-            <ProductCard
-              key={aid.slug}
-              category={aid.category}
-              title={aid.name}
-              description={aid.summary}
-              imageLabel={aid.image.alt}
-              src={aid.image.url}
-              to={`/hearing-aids/${aid.slug}`}
-            />
+          {hearingAids.slice(0, 4).map((aid, i) => (
+            <Reveal key={aid.slug} direction={i % 2 === 0 ? "left" : "right"} delay={i * 70}>
+              <ProductCard
+                            key={aid.slug}
+                            category={aid.category}
+                            title={aid.name}
+                            description={aid.summary}
+                            imageLabel={aid.image.alt}
+                            src={aid.image.url}
+                            to={`/hearing-aids/${aid.slug}`}
+                          />
+            </Reveal>
           ))}
         </div>
       </Section>
@@ -233,16 +238,18 @@ function Home() {
           }
         />
         <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {hearingTests.slice(0, 6).map((test) => (
-            <ServiceCard
-              key={test.slug}
-              title={test.name}
-              description={test.summary}
-              to={`/hearing-test/${test.slug}`}
-              icon={testIcons[test.slug]}
-              src={test.hero?.url}
-              imageAlt={test.hero?.alt ?? test.name}
-            />
+          {hearingTests.slice(0, 6).map((test, i) => (
+            <Reveal key={test.slug} direction={i % 2 === 0 ? "left" : "right"} delay={i * 70}>
+              <ServiceCard
+                            key={test.slug}
+                            title={test.name}
+                            description={test.summary}
+                            to={`/hearing-test/${test.slug}`}
+                            icon={testIcons[test.slug]}
+                            src={test.hero?.url}
+                            imageAlt={test.hero?.alt ?? test.name}
+                          />
+            </Reveal>
           ))}
         </div>
         <div className="mt-10 grid gap-8 rounded-3xl border border-border bg-surface p-6 shadow-card md:p-10 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] lg:items-center">
@@ -279,16 +286,18 @@ function Home() {
           actions={<CTAButton to="/hearing-education" variant="secondary">All resources</CTAButton>}
         />
         <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {articles.map((article) => (
-            <ArticleCard
-              key={article.slug}
-              category={article.category}
-              title={article.title}
-              excerpt={article.excerpt}
-              imageLabel={article.image.alt}
-              src={article.image.url}
-              to={`/hearing-education/${article.slug}`}
-            />
+          {articles.map((article, i) => (
+            <Reveal key={article.slug} direction={i % 2 === 0 ? "left" : "right"} delay={i * 70}>
+              <ArticleCard
+                            key={article.slug}
+                            category={article.category}
+                            title={article.title}
+                            excerpt={article.excerpt}
+                            imageLabel={article.image.alt}
+                            src={article.image.url}
+                            to={`/hearing-education/${article.slug}`}
+                          />
+            </Reveal>
           ))}
         </div>
       </Section>
@@ -302,8 +311,10 @@ function Home() {
           actions={<CTAButton to="/testimonials" variant="secondary">All testimonials</CTAButton>}
         />
         <div className="mt-10 grid gap-6 md:grid-cols-3">
-          {featuredTestimonials.map((t) => (
-            <TestimonialCard key={t.name} quote={t.quote} name={t.name} meta={t.meta} rating={t.rating} />
+          {featuredTestimonials.map((t, i) => (
+            <Reveal key={t.name} direction={i % 2 === 0 ? "left" : "right"} delay={i * 70}>
+              <TestimonialCard key={t.name} quote={t.quote} name={t.name} meta={t.meta} rating={t.rating} />
+            </Reveal>
           ))}
         </div>
       </Section>
