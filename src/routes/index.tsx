@@ -80,28 +80,22 @@ const heroSlides = [
 
 const heroMessages = [
   {
-    headline: "Hearing care built around you, in the heart of Mombasa",
+    headline: "Hearing loss, ringing ears and balance problems — solved here",
     subheadline:
-      "Audiologist-led hearing tests, balance diagnostics and hearing aid fitting at NSSF Building on Nkrumah Road. We measure carefully, explain plainly, and stay with you long after the fitting.",
+      "We diagnose the real cause with full hearing tests, tinnitus assessments and vestibular care at NSSF Building on Nkrumah Road, then guide you to the right treatment or device.",
     backdrop: { src: hearingAids[0]!.image.url, alt: hearingAids[0]!.image.alt },
+  },
+  {
+    headline: "For adults, children and seniors across Mombasa",
+    subheadline:
+      "Whether phone calls sound muffled, a child misses words in class, or a parent withdraws from conversations, our audiologists test carefully and explain the results in English or Kiswahili.",
+    backdrop: { src: hearingAids[1]!.image.url, alt: hearingAids[1]!.image.alt },
   },
   {
     headline: "Your hearing is our concern",
     subheadline:
-      "Every visit starts with measurement, not a sales pitch. Otoscopy, pure tone audiometry, speech testing and tympanometry, with your audiogram printed and explained before you leave.",
-    backdrop: { src: hearingAids[1]!.image.url, alt: hearingAids[1]!.image.alt },
-  },
-  {
-    headline: "Starkey technology, fitted and verified here",
-    subheadline:
-      "As an authorised Starkey partner we prescribe from your own audiogram, verify the fitting on the day, and keep devices, batteries and accessories in stock at the centre.",
+      "Start with a professional hearing assessment. Book an appointment online or walk into the NSSF Building, North Wing, 5th Floor, Room 1 — we are ready to help.",
     backdrop: { src: hearingAids[2]!.image.url, alt: hearingAids[2]!.image.alt },
-  },
-  {
-    headline: "Aftercare that lasts as long as your device",
-    subheadline:
-      "Reviews, re-programming, cleaning and repairs continue for the life of the hearing aid, in English or Kiswahili, with your family welcome in the room.",
-    backdrop: { src: hearingAids[3]!.image.url, alt: hearingAids[3]!.image.alt },
   },
 ];
 
