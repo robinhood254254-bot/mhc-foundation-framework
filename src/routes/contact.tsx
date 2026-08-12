@@ -3,7 +3,7 @@ import { MessageCircle, Phone, Mail, MapPin, Clock, Navigation } from "lucide-re
 import { PageHeader, Section } from "@/components/ui-kit/Page";
 import { ImageContainer } from "@/components/ui-kit/ImageContainer";
 import { CTAButton } from "@/components/ui-kit/CTAButton";
-import { contact, cta, mapDirectionsUrl, mapEmbedSrc, whatsappLink } from "@/lib/site";
+import { contact, cta, googlePlaceUrl, googleStreetViewUrl, mapDirectionsUrl, mapEmbedSrc, whatsappLink } from "@/lib/site";
 import { media } from "@/lib/media";
 
 export const Route = createFileRoute("/contact")({
@@ -138,6 +138,12 @@ function ContactPage() {
             <div className="mt-8 flex flex-wrap gap-3">
               <CTAButton href={mapDirectionsUrl} icon={<Navigation aria-hidden="true" />}>
                 Get directions
+              </CTAButton>
+              <CTAButton href={googlePlaceUrl} variant="secondary">
+                View us on Google
+              </CTAButton>
+              <CTAButton href={googleStreetViewUrl} variant="secondary">
+                Street view of the building
               </CTAButton>
               <CTAButton
                 href={whatsappLink("Hello Mombasa Hearing Centre, I need help finding your offices.")}
