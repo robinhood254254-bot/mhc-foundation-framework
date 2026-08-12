@@ -1,26 +1,24 @@
-import { useState, type FormEvent } from "react";
 import { createFileRoute } from "@tanstack/react-router";
-import { MessageCircle } from "lucide-react";
+import { MessageCircle, Phone, Mail, MapPin, Clock, Navigation } from "lucide-react";
 import { PageHeader, Section } from "@/components/ui-kit/Page";
-import { ContactBlock } from "@/components/ui-kit/ContactBlock";
 import { ImageContainer } from "@/components/ui-kit/ImageContainer";
 import { CTAButton } from "@/components/ui-kit/CTAButton";
-import { FormStatus, SelectField, TextAreaField, TextField } from "@/components/ui-kit/FormField";
-import { site, whatsappLink } from "@/lib/site";
+import { contact, cta, mapDirectionsUrl, mapEmbedSrc, whatsappLink } from "@/lib/site";
+import { media } from "@/lib/media";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
-      { title: "Book an Appointment | Mombasa Hearing Centre" },
+      { title: "Contact Mombasa Hearing Centre | Nkrumah Road, Mombasa" },
       {
         name: "description",
         content:
-          "Book an appointment or contact Mombasa Hearing Centre at NSSF Building, 5th Floor, Nkrumah Road, Mombasa.",
+          "Contact Mombasa Hearing Centre: phone, WhatsApp, email, opening hours and directions to NSSF Building, 5th Floor, Nkrumah Road, Mombasa, Kenya.",
       },
-      { property: "og:title", content: "Book an Appointment | Mombasa Hearing Centre" },
+      { property: "og:title", content: "Contact Mombasa Hearing Centre | Nkrumah Road, Mombasa" },
       {
         property: "og:description",
-        content: "Request an appointment with Mombasa Hearing Centre or reach us on phone, WhatsApp or email.",
+        content: "Phone, WhatsApp, email, opening hours and directions to our Mombasa hearing centre.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "/contact" },
@@ -31,168 +29,181 @@ export const Route = createFileRoute("/contact")({
   component: ContactPage,
 });
 
-type Errors = Partial<Record<"name" | "phone" | "reason", string>>;
-
-function BookingForm() {
-  const [values, setValues] = useState({
-    name: "",
-    phone: "",
-    email: "",
-    reason: "",
-    date: "",
-    time: "",
-    notes: "",
-  });
-  const [errors, setErrors] = useState<Errors>({});
-  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
-
-  const set = (key: keyof typeof values) => (e: { target: { value: string } }) =>
-    setValues((v) => ({ ...v, [key]: e.target.value }));
-
-  const onSubmit = (e: FormEvent) => {
-    e.preventDefault();
-    const next: Errors = {};
-    if (!values.name.trim()) next.name = "Please enter your full name.";
-    if (!/^[0-9+\s()-]{7,}$/.test(values.phone.trim())) next.phone = "Please enter a valid phone number.";
-    if (!values.reason) next.reason = "Please select a reason for your visit.";
-    setErrors(next);
-    if (Object.keys(next).length > 0) {
-      setStatus("error");
-      return;
-    }
-
-    setStatus("loading");
-    const message = [
-      `New appointment request — ${site.name}`,
-      "",
-      `Name: ${values.name}`,
-      `Phone: ${values.phone}`,
-      values.email ? `Email: ${values.email}` : null,
-      `Reason: ${values.reason}`,
-      values.date ? `Preferred date: ${values.date}` : null,
-      values.time ? `Preferred time: ${values.time}` : null,
-      values.notes ? `Notes: ${values.notes}` : null,
-    ]
-      .filter(Boolean)
-      .join("\n");
-
-    const url = whatsappLink(message);
-    window.setTimeout(() => {
-      setStatus("success");
-      window.open(url, "_blank", "noopener,noreferrer");
-    }, 400);
-  };
-
-  return (
-    <form onSubmit={onSubmit} noValidate className="space-y-5">
-      <div className="grid gap-5 sm:grid-cols-2">
-        <TextField
-          label="Full name"
-          name="name"
-          required
-          autoComplete="name"
-          value={values.name}
-          onChange={set("name")}
-          error={errors.name}
-          placeholder="Your full name"
-        />
-        <TextField
-          label="Phone number"
-          name="phone"
-          type="tel"
-          required
-          autoComplete="tel"
-          value={values.phone}
-          onChange={set("phone")}
-          error={errors.phone}
-          placeholder="+254 7XX XXX XXX"
-        />
-      </div>
-      <TextField
-        label="Email address"
-        name="email"
-        type="email"
-        autoComplete="email"
-        value={values.email}
-        onChange={set("email")}
-        placeholder="you@example.com"
-      />
-      <SelectField
-        label="Reason for visit"
-        name="reason"
-        required
-        value={values.reason}
-        onChange={set("reason")}
-        error={errors.reason}
-        options={[
-          { value: "", label: "Select a reason" },
-          { value: "Hearing test", label: "Hearing test" },
-          { value: "Hearing aid consultation", label: "Hearing aid consultation" },
-          { value: "Follow-up appointment", label: "Follow-up appointment" },
-          { value: "General enquiry", label: "General enquiry" },
-        ]}
-      />
-      <div className="grid gap-5 sm:grid-cols-2">
-        <TextField label="Preferred date" name="date" type="date" value={values.date} onChange={set("date")} />
-        <TextField label="Preferred time" name="time" type="time" value={values.time} onChange={set("time")} />
-      </div>
-      <TextAreaField
-        label="Additional notes"
-        name="notes"
-        value={values.notes}
-        onChange={set("notes")}
-        placeholder="Anything you would like us to know before your visit."
-      />
-
-      {status === "error" ? <FormStatus state="error" message="Please correct the highlighted fields." /> : null}
-      {status === "success" ? (
-        <FormStatus
-          state="success"
-          message="Opening WhatsApp with your appointment details. If nothing happens, use the WhatsApp button below."
-        />
-      ) : null}
-
-      <CTAButton type="submit" size="lg" block icon={<MessageCircle aria-hidden="true" />}>
-        {status === "loading" ? "Preparing your request…" : "Submit booking via WhatsApp"}
-      </CTAButton>
-      <p className="text-xs text-muted-foreground">
-        Submitting opens WhatsApp with your appointment details pre-filled so you can send them to our team. No data is
-        stored on this website.
-      </p>
-    </form>
-  );
-}
+const channels = [
+  {
+    icon: Phone,
+    title: "Call the centre",
+    lines: [
+      { label: contact.phoneDisplay, href: contact.phoneHref },
+      { label: contact.phoneAltDisplay, href: contact.phoneAltHref },
+    ],
+    note: "Best for urgent questions and same-week appointment changes.",
+  },
+  {
+    icon: MessageCircle,
+    title: "WhatsApp",
+    lines: [
+      {
+        label: contact.whatsappDisplay,
+        href: whatsappLink("Hello Mombasa Hearing Centre, I would like to make an enquiry."),
+      },
+    ],
+    note: "Send us a message any time; we reply during opening hours.",
+  },
+  {
+    icon: Mail,
+    title: "Email",
+    lines: [{ label: contact.email, href: `mailto:${contact.email}` }],
+    note: "Ideal for referrals, reports and detailed enquiries.",
+  },
+];
 
 function ContactPage() {
   return (
     <>
       <PageHeader
         eyebrow="Contact"
-        title="Book an Appointment"
-        intro="Send us your appointment details on WhatsApp, or reach the centre directly by phone or email."
+        title="Contact Mombasa Hearing Centre"
+        intro="Reach our team by phone, WhatsApp or email, or visit us on the 5th floor of the NSSF Building on Nkrumah Road in Mombasa."
         breadcrumbs={[{ label: "Contact" }]}
+        actions={<CTAButton to={cta.primary.to}>{cta.primary.label}</CTAButton>}
       />
-      <Section>
-        <div className="grid gap-10 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)] lg:gap-14">
-          <div className="rounded-2xl border border-border bg-surface p-6 shadow-card md:p-8">
-            <h2 className="text-xl font-bold text-ink">Appointment request</h2>
-            <p className="mt-2 mb-6 text-sm text-muted-foreground">
-              Fields marked with an asterisk are required.
-            </p>
-            <BookingForm />
-          </div>
-          <aside className="space-y-8">
-            <div className="rounded-2xl border border-border bg-surface p-6">
-              <h2 className="text-lg font-bold text-ink">Visit the centre</h2>
-              <ContactBlock className="mt-5" />
+
+      <Section label="Contact channels">
+        <div className="grid gap-6 md:grid-cols-3">
+          {channels.map((c) => (
+            <div key={c.title} className="rounded-2xl border border-border bg-surface p-6 shadow-card">
+              <span className="inline-flex size-11 items-center justify-center rounded-xl bg-primary-soft text-primary">
+                <c.icon className="size-5" aria-hidden="true" />
+              </span>
+              <h2 className="mt-4 text-lg font-bold text-ink">{c.title}</h2>
+              <ul className="mt-3 space-y-1.5">
+                {c.lines.map((l) => (
+                  <li key={l.label}>
+                    <a
+                      href={l.href}
+                      {...(l.href.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                      className="text-sm font-semibold text-foreground hover:text-primary"
+                    >
+                      {l.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+              <p className="mt-3 text-sm text-muted-foreground">{c.note}</p>
             </div>
+          ))}
+        </div>
+      </Section>
+
+      <Section tone="muted" label="Visit us">
+        <div className="grid gap-10 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:items-start lg:gap-14">
+          <div>
+            <p className="eyebrow">Visit us</p>
+            <h2 className="mt-3 text-3xl font-bold text-ink md:text-4xl">Where to find the centre</h2>
+            <p className="mt-4 leading-relaxed text-muted-foreground">
+              Mombasa Hearing Centre is located inside the NSSF Building on Nkrumah Road, in the heart of Mombasa
+              Island. Take the lift to the 5th floor and follow the Mombasa Hearing Centre signage and arrow to our
+              entrance — our reception team will welcome you and complete your registration.
+            </p>
+
+            <div className="mt-8 space-y-5">
+              <div className="flex gap-3">
+                <MapPin className="mt-0.5 size-5 shrink-0 text-primary" aria-hidden="true" />
+                <div>
+                  <p className="text-sm font-bold text-ink">Address</p>
+                  <p className="text-sm text-muted-foreground">
+                    {contact.addressLine1}
+                    <br />
+                    {contact.addressLine2}
+                  </p>
+                </div>
+              </div>
+              <div className="flex gap-3">
+                <Clock className="mt-0.5 size-5 shrink-0 text-primary" aria-hidden="true" />
+                <div>
+                  <p className="text-sm font-bold text-ink">Opening hours</p>
+                  <dl className="mt-1 space-y-1 text-sm">
+                    {contact.hours.map((h) => (
+                      <div key={h.days} className="flex flex-wrap gap-x-3">
+                        <dt className="text-muted-foreground">{h.days}</dt>
+                        <dd className="font-semibold text-ink">{h.time}</dd>
+                      </div>
+                    ))}
+                  </dl>
+                </div>
+              </div>
+            </div>
+
+            <div className="mt-8 flex flex-wrap gap-3">
+              <CTAButton href={mapDirectionsUrl} icon={<Navigation aria-hidden="true" />}>
+                Get directions
+              </CTAButton>
+              <CTAButton
+                href={whatsappLink("Hello Mombasa Hearing Centre, I need help finding your offices.")}
+                variant="secondary"
+                icon={<MessageCircle aria-hidden="true" />}
+              >
+                Ask for directions
+              </CTAButton>
+            </div>
+          </div>
+
+          <div className="overflow-hidden rounded-2xl border border-border bg-surface shadow-card">
+            <iframe
+              title="Map showing Mombasa Hearing Centre, NSSF Building, Nkrumah Road, Mombasa"
+              src={mapEmbedSrc}
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              className="h-[380px] w-full border-0 lg:h-[460px]"
+            />
+          </div>
+        </div>
+      </Section>
+
+      <Section label="Finding our entrance">
+        <div className="grid gap-6 md:grid-cols-2">
+          <figure>
             <ImageContainer
               ratio="landscape"
-              alt="Mombasa Hearing Centre location"
-              label="Approved location photograph or map embed"
+              alt={media.signage.alt}
+              src={media.signage.url}
+              rounded="2xl"
+              position="center"
+            />
+            <figcaption className="mt-3 text-sm text-muted-foreground">
+              Our signage outside the entrance, with an arrow pointing the way to Mombasa Hearing Centre.
+            </figcaption>
+          </figure>
+          <figure>
+            <ImageContainer
+              ratio="landscape"
+              alt={media.receptionEntrance.alt}
+              src={media.receptionEntrance.url}
               rounded="2xl"
             />
-          </aside>
+            <figcaption className="mt-3 text-sm text-muted-foreground">
+              Inside our reception, where patients are welcomed and registered before their appointment.
+            </figcaption>
+          </figure>
+        </div>
+      </Section>
+
+      <Section tone="muted" label="Book an appointment">
+        <div className="rounded-3xl border border-border bg-primary-soft p-6 text-center md:p-10">
+          <h2 className="text-2xl font-bold text-ink md:text-3xl">Ready to book your visit?</h2>
+          <p className="mx-auto mt-3 max-w-2xl leading-relaxed text-muted-foreground">
+            Appointments are handled on a separate booking page so we can capture your preferred date, time and
+            reason for visiting.
+          </p>
+          <div className="mt-7 flex flex-wrap justify-center gap-3">
+            <CTAButton to="/book-appointment" size="lg">
+              Book an Appointment
+            </CTAButton>
+            <CTAButton to="/about" size="lg" variant="secondary">
+              About the Centre
+            </CTAButton>
+          </div>
         </div>
       </Section>
     </>

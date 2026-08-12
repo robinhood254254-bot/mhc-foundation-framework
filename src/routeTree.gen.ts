@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as AccessibilityRouteImport } from './routes/accessibility'
+import { Route as BookAppointmentRouteImport } from './routes/book-appointment'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as HearingAidsRouteRouteImport } from './routes/hearing-aids.route'
 import { Route as HearingEducationRouteRouteImport } from './routes/hearing-education.route'
@@ -41,6 +42,11 @@ const AboutRoute = AboutRouteImport.update({
 const AccessibilityRoute = AccessibilityRouteImport.update({
   id: '/accessibility',
   path: '/accessibility',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BookAppointmentRoute = BookAppointmentRouteImport.update({
+  id: '/book-appointment',
+  path: '/book-appointment',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ContactRoute = ContactRouteImport.update({
@@ -126,6 +132,7 @@ export interface FileRoutesByFullPath {
   '/services': typeof ServicesRouteRouteWithChildren
   '/about': typeof AboutRoute
   '/accessibility': typeof AccessibilityRoute
+  '/book-appointment': typeof BookAppointmentRoute
   '/contact': typeof ContactRoute
   '/hearing-test': typeof HearingTestRoute
   '/medical-disclaimer': typeof MedicalDisclaimerRoute
@@ -143,6 +150,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/accessibility': typeof AccessibilityRoute
+  '/book-appointment': typeof BookAppointmentRoute
   '/contact': typeof ContactRoute
   '/hearing-test': typeof HearingTestRoute
   '/medical-disclaimer': typeof MedicalDisclaimerRoute
@@ -164,6 +172,7 @@ export interface FileRoutesById {
   '/services': typeof ServicesRouteRouteWithChildren
   '/about': typeof AboutRoute
   '/accessibility': typeof AccessibilityRoute
+  '/book-appointment': typeof BookAppointmentRoute
   '/contact': typeof ContactRoute
   '/hearing-test': typeof HearingTestRoute
   '/medical-disclaimer': typeof MedicalDisclaimerRoute
@@ -186,6 +195,7 @@ export interface FileRouteTypes {
     | '/services'
     | '/about'
     | '/accessibility'
+    | '/book-appointment'
     | '/contact'
     | '/hearing-test'
     | '/medical-disclaimer'
@@ -203,6 +213,7 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/accessibility'
+    | '/book-appointment'
     | '/contact'
     | '/hearing-test'
     | '/medical-disclaimer'
@@ -223,6 +234,7 @@ export interface FileRouteTypes {
     | '/services'
     | '/about'
     | '/accessibility'
+    | '/book-appointment'
     | '/contact'
     | '/hearing-test'
     | '/medical-disclaimer'
@@ -244,6 +256,7 @@ export interface RootRouteChildren {
   ServicesRouteRoute: typeof ServicesRouteRouteWithChildren
   AboutRoute: typeof AboutRoute
   AccessibilityRoute: typeof AccessibilityRoute
+  BookAppointmentRoute: typeof BookAppointmentRoute
   ContactRoute: typeof ContactRoute
   HearingTestRoute: typeof HearingTestRoute
   MedicalDisclaimerRoute: typeof MedicalDisclaimerRoute
@@ -273,6 +286,13 @@ declare module '@tanstack/react-router' {
       path: '/accessibility'
       fullPath: '/accessibility'
       preLoaderRoute: typeof AccessibilityRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/book-appointment': {
+      id: '/book-appointment'
+      path: '/book-appointment'
+      fullPath: '/book-appointment'
+      preLoaderRoute: typeof BookAppointmentRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/contact': {
@@ -432,6 +452,7 @@ const rootRouteChildren: RootRouteChildren = {
   ServicesRouteRoute: ServicesRouteRouteWithChildren,
   AboutRoute: AboutRoute,
   AccessibilityRoute: AccessibilityRoute,
+  BookAppointmentRoute: BookAppointmentRoute,
   ContactRoute: ContactRoute,
   HearingTestRoute: HearingTestRoute,
   MedicalDisclaimerRoute: MedicalDisclaimerRoute,
