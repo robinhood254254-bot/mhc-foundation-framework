@@ -61,11 +61,15 @@ export function ProductCard({
   category,
   to,
   imageLabel,
+  src,
+  description,
 }: {
   title: string;
   category: string;
   to: string;
   imageLabel: string;
+  src?: string | undefined;
+  description?: string | undefined;
 }) {
   return (
     <Card interactive className="group">
@@ -73,13 +77,18 @@ export function ProductCard({
         ratio="square"
         alt={imageLabel}
         label={imageLabel}
+        src={src}
         rounded="none"
-        className="border-0 border-b"
+        className="border-0 border-b bg-surface-2"
+        imgClassName="object-contain p-6"
       />
-      <div className="p-5">
+      <div className="flex flex-1 flex-col p-5">
         <p className="eyebrow">{category}</p>
         <h3 className="mt-2 text-base font-semibold text-ink">{title}</h3>
-        <Link to={to} className="mt-3 inline-flex items-center gap-1.5 text-sm font-semibold text-primary">
+        {description ? (
+          <p className="mt-2 flex-1 text-sm leading-relaxed text-muted-foreground">{description}</p>
+        ) : null}
+        <Link to={to} className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-primary">
           View details
           <ArrowUpRight className="size-4" />
           <span className="absolute inset-0" aria-hidden="true" />
@@ -94,20 +103,32 @@ export function ArticleCard({
   category,
   to,
   imageLabel,
+  src,
+  excerpt,
   ratio = "article",
 }: {
   title: string;
   category: string;
   to: string;
   imageLabel: string;
+  src?: string | undefined;
+  excerpt?: string | undefined;
   ratio?: ImageRatio;
 }) {
   return (
     <Card interactive className="group">
-      <ImageContainer ratio={ratio} alt={imageLabel} label={imageLabel} rounded="none" className="border-0 border-b" />
+      <ImageContainer
+        ratio={ratio}
+        alt={imageLabel}
+        label={imageLabel}
+        src={src}
+        rounded="none"
+        className="border-0 border-b"
+      />
       <div className="flex flex-1 flex-col p-5">
         <p className="eyebrow">{category}</p>
         <h3 className="mt-2 text-base leading-snug font-semibold text-ink">{title}</h3>
+        {excerpt ? <p className="mt-2 flex-1 text-sm leading-relaxed text-muted-foreground">{excerpt}</p> : null}
         <Link to={to} className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-primary">
           Read article
           <ArrowUpRight className="size-4" />

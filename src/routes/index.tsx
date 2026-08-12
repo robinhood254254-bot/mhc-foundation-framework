@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Award, Ear, HeartHandshake, ShieldCheck, Stethoscope } from "lucide-react";
 import { Hero } from "@/components/ui-kit/Hero";
-import { Section, ContentPlaceholder } from "@/components/ui-kit/Page";
+import { Section } from "@/components/ui-kit/Page";
 import { SectionHeading } from "@/components/ui-kit/SectionHeading";
 import {
   ArticleCard,
@@ -18,6 +18,9 @@ import { ContactBlock } from "@/components/ui-kit/ContactBlock";
 import { cta, site } from "@/lib/site";
 import { media } from "@/lib/media";
 import { hearingTests } from "@/lib/hearing-tests";
+import { services } from "@/lib/services";
+import { hearingAids } from "@/lib/hearing-aids";
+import { articles } from "@/lib/education";
 import { featuredTestimonials, patientVoices } from "@/lib/testimonials";
 
 export const Route = createFileRoute("/")({
@@ -87,17 +90,17 @@ function Home() {
       <Section label="Featured services">
         <SectionHeading
           eyebrow="Services"
-          title="Featured hearing services"
-          description="Approved service list and descriptions will be supplied in a later module."
+          title="What we do at the centre"
+          description="Diagnosis, hearing aids, tinnitus care, balance rehabilitation and hearing protection, all delivered by our own clinical team on Nkrumah Road."
           actions={<CTAButton to="/services" variant="secondary">All services</CTAButton>}
         />
         <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {Array.from({ length: 6 }).map((_, i) => (
+          {services.slice(0, 6).map((service) => (
             <ServiceCard
-              key={i}
-              title={`Service Placeholder 0${i + 1}`}
-              description="Approved service description pending."
-              to={`/services/service-placeholder-0${i + 1}`}
+              key={service.slug}
+              title={service.name}
+              description={service.summary}
+              to={`/services/${service.slug}`}
               icon={<Stethoscope className="size-5" />}
             />
           ))}
@@ -167,18 +170,20 @@ function Home() {
       <Section tone="muted" label="Hearing aids">
         <SectionHeading
           eyebrow="Hearing Aids"
-          title="Hearing aid range"
-          description="Approved product range and imagery will be supplied in a later module."
+          title="Starkey hearing aids fitted here"
+          description="We are an authorised Starkey partner. Devices are prescribed from your own audiogram, verified at the fitting, and serviced at the centre for the life of the device."
           actions={<CTAButton to="/hearing-aids" variant="secondary">View hearing aids</CTAButton>}
         />
         <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {Array.from({ length: 4 }).map((_, i) => (
+          {hearingAids.slice(0, 4).map((aid) => (
             <ProductCard
-              key={i}
-              category="Product placeholder"
-              title={`Hearing Aid Placeholder 0${i + 1}`}
-              imageLabel="Approved product photograph"
-              to={`/hearing-aids/product-placeholder-0${i + 1}`}
+              key={aid.slug}
+              category={aid.category}
+              title={aid.name}
+              description={aid.summary}
+              imageLabel={aid.image.alt}
+              src={aid.image.url}
+              to={`/hearing-aids/${aid.slug}`}
             />
           ))}
         </div>
@@ -236,18 +241,20 @@ function Home() {
       <Section tone="muted" label="Hearing education">
         <SectionHeading
           eyebrow="Hearing Education"
-          title="Patient education"
-          description="Approved educational articles will be supplied in a later module."
+          title="Understand your hearing"
+          description="Plain-language guides written by our clinical team for patients living and working on the coast."
           actions={<CTAButton to="/hearing-education" variant="secondary">All resources</CTAButton>}
         />
         <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {Array.from({ length: 3 }).map((_, i) => (
+          {articles.map((article) => (
             <ArticleCard
-              key={i}
-              category="Article placeholder"
-              title={`Education Article Placeholder 0${i + 1}`}
-              imageLabel="Approved article image"
-              to={`/hearing-education/article-placeholder-0${i + 1}`}
+              key={article.slug}
+              category={article.category}
+              title={article.title}
+              excerpt={article.excerpt}
+              imageLabel={article.image.alt}
+              src={article.image.url}
+              to={`/hearing-education/${article.slug}`}
             />
           ))}
         </div>
@@ -268,23 +275,40 @@ function Home() {
         </div>
       </Section>
 
-      {/* 10. Partner / supplier recognition */}
-      <Section tone="muted" label="Partners and suppliers">
-        <SectionHeading
-          eyebrow="Partners"
-          title="Partner and supplier recognition"
-          description="Approved partner and supplier marks will be supplied in a later module."
-          align="center"
-        />
-        <div className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5">
-          {Array.from({ length: 5 }).map((_, i) => (
-            <div
-              key={i}
-              className="flex h-20 items-center justify-center rounded-xl border border-dashed border-border bg-surface px-4 text-center text-xs text-muted-foreground"
-            >
-              Partner logo placeholder 0{i + 1}
+      {/* 10. Starkey partnership */}
+      <Section tone="muted" label="Starkey partnership">
+        <div className="grid gap-10 rounded-3xl border border-border bg-surface p-6 shadow-card md:p-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,0.9fr)] lg:items-center lg:gap-14">
+          <div>
+            <SectionHeading
+              eyebrow="Authorised partner"
+              title="Starkey technology, fitted and supported in Mombasa"
+              description="Starkey supplies the hearing aids we fit, from the invisible custom Signature Series to the flagship Omega AI platform. Being an authorised partner means genuine devices, manufacturer warranty support and access to the full accessory and battery range on site."
+            />
+            <ul className="mt-8 grid gap-3 sm:grid-cols-2">
+              {[
+                "Genuine Starkey devices and warranty handling",
+                "Batteries in sizes 10, 13, 312 and 675 held in stock",
+                "StarLink accessories, chargers and drying kits",
+                "TeleHear remote programming after the fitting",
+              ].map((point) => (
+                <li key={point} className="flex gap-3 text-sm leading-relaxed text-muted-foreground">
+                  <span className="mt-2 size-1.5 shrink-0 rounded-full bg-primary" aria-hidden="true" />
+                  <span>{point}</span>
+                </li>
+              ))}
+            </ul>
+            <div className="mt-8">
+              <CTAButton to="/hearing-aids" variant="secondary">
+                Explore the Starkey range
+              </CTAButton>
             </div>
-          ))}
+          </div>
+          <ImageContainer
+            ratio="landscape"
+            src={media.batteries2.url}
+            alt={media.batteries2.alt}
+            rounded="2xl"
+          />
         </div>
       </Section>
 
@@ -309,12 +333,6 @@ function Home() {
           <div className="rounded-2xl border border-border bg-surface p-6">
             <ContactBlock />
           </div>
-        </div>
-        <div className="mt-10">
-          <ContentPlaceholder
-            title="Additional homepage content"
-            note="Reserved for approved copy blocks introduced in later modules."
-          />
         </div>
       </Section>
     </>

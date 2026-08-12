@@ -12,9 +12,15 @@ export function ContactBlock({
   const rows = [
     {
       icon: Phone,
-      label: "Phone",
+      label: "Mobile",
       value: contact.phoneDisplay,
       href: contact.phoneHref,
+    },
+    {
+      icon: Phone,
+      label: "Telephone",
+      value: contact.landlineDisplay,
+      href: contact.landlineHref,
     },
     {
       icon: MessageCircle,
@@ -49,6 +55,7 @@ export function ContactBlock({
           <p className="text-xs tracking-wide text-muted-foreground uppercase">Address</p>
           <p className="text-sm font-medium text-foreground">{contact.addressLine1}</p>
           <p className="text-sm text-muted-foreground">{contact.addressLine2}</p>
+          <p className="text-sm text-muted-foreground">{contact.poBox}</p>
         </div>
       </div>
       <div className="flex min-w-0 items-start gap-3">

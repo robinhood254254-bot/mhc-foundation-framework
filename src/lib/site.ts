@@ -15,17 +15,18 @@ export const site = {
 export const contact = {
   phoneDisplay: "+254 722 825 006",
   phoneHref: "tel:+254722825006",
-  phoneAltDisplay: "+254 723 102 898",
-  phoneAltHref: "tel:+254723102898",
+  landlineDisplay: "041 231 4972",
+  landlineHref: "tel:+254412314972",
   whatsappNumber: "254722825006",
   whatsappDisplay: "+254 722 825 006",
   email: "msahearing@yahoo.com",
-  addressLine1: "NSSF Building, 5th Flr, Nkrumah Rd",
-  addressLine2: "Mombasa, Kenya",
+  poBox: "P.O. Box 86771, Mombasa",
+  addressLine1: "NSSF Building, North Wing, 5th Floor, Room 1",
+  addressLine2: "Nkrumah Road, Mombasa, Kenya",
   mapQuery: "Mombasa Hearing Centre, NSSF Building, Nkrumah Road, Mombasa, Kenya",
   hours: [
-    { days: "Monday – Friday", time: "8:00 am – 4:00 pm" },
-    { days: "Saturday", time: "9:00 am – 4:00 pm" },
+    { days: "Monday – Friday", time: "8:30 am – 5:00 pm" },
+    { days: "Saturday", time: "9:00 am – 12:00 noon" },
     { days: "Sunday & Public Holidays", time: "Closed" },
   ],
 };
@@ -63,15 +64,26 @@ export const mainNav: NavItem[] = [
     label: "Services",
     to: "/services",
     children: [
-      { label: "Service Placeholder 01", to: "/services/service-placeholder-01", description: "Approved description pending." },
-      { label: "Service Placeholder 02", to: "/services/service-placeholder-02", description: "Approved description pending." },
-      { label: "Service Placeholder 03", to: "/services/service-placeholder-03", description: "Approved description pending." },
-      { label: "Service Placeholder 04", to: "/services/service-placeholder-04", description: "Approved description pending." },
-      { label: "Service Placeholder 05", to: "/services/service-placeholder-05", description: "Approved description pending." },
-      { label: "Service Placeholder 06", to: "/services/service-placeholder-06", description: "Approved description pending." },
+      { label: "Diagnostic Hearing Assessment", to: "/services/diagnostic-hearing-assessment", description: "Full audiogram, speech testing and tympanometry in one visit." },
+      { label: "Paediatric Hearing Care", to: "/services/paediatric-hearing-care", description: "Testing and hearing aids for babies, toddlers and school children." },
+      { label: "Hearing Aid Fitting", to: "/services/hearing-aid-fitting-and-verification", description: "Prescription, programming and verified fitting of Starkey devices." },
+      { label: "Repairs, Servicing & Supplies", to: "/services/hearing-aid-repairs-servicing-and-supplies", description: "Cleaning, repairs, re-programming, batteries and accessories." },
+      { label: "Tinnitus Care", to: "/services/tinnitus-assessment-and-management", description: "Measurement, causes and a structured management plan." },
+      { label: "Balance & Vestibular Care", to: "/services/balance-and-vestibular-care", description: "Caloric testing and vestibular rehabilitation for dizziness." },
+      { label: "Ear Moulds & Hearing Protection", to: "/services/custom-ear-moulds-and-hearing-protection", description: "Custom noise, swim and musician protection made from your impressions." },
     ],
   },
-  { label: "Hearing Aids", to: "/hearing-aids" },
+  {
+    label: "Hearing Aids",
+    to: "/hearing-aids",
+    children: [
+      { label: "Starkey Signature Series", to: "/hearing-aids/signature-series", description: "Custom invisible and completely-in-canal devices." },
+      { label: "Starkey Omega AI", to: "/hearing-aids/omega-ai", description: "Flagship G3 Gen AI platform with Auracast and health tracking." },
+      { label: "Starkey Edge AI", to: "/hearing-aids/edge-ai", description: "Deep neural network processing with Edge Mode+." },
+      { label: "Starkey Evolv AI", to: "/hearing-aids/evolv-ai", description: "Handcrafted custom devices with 2-Way Audio." },
+      { label: "Starkey G Series AI", to: "/hearing-aids/g-series-ai", description: "Accessible range covering mild through profound loss." },
+    ],
+  },
   {
     label: "Hearing Test",
     to: "/hearing-test",
@@ -90,20 +102,20 @@ export const mainNav: NavItem[] = [
     label: "Hearing Education",
     to: "/hearing-education",
     children: [
-      { label: "Article Placeholder 01", to: "/hearing-education/article-placeholder-01", description: "Approved article pending." },
-      { label: "Article Placeholder 02", to: "/hearing-education/article-placeholder-02", description: "Approved article pending." },
-      { label: "Article Placeholder 03", to: "/hearing-education/article-placeholder-03", description: "Approved article pending." },
+      { label: "Early Signs of Hearing Loss", to: "/hearing-education/signs-of-hearing-loss", description: "Ten signs that justify booking a hearing test." },
+      { label: "Hearing Aid Care on the Coast", to: "/hearing-education/living-with-hearing-aids-in-a-coastal-climate", description: "Keeping devices working in heat and humidity." },
+      { label: "Protecting Your Hearing", to: "/hearing-education/protecting-your-hearing-from-noise", description: "Noise limits, protection and workplace screening." },
     ],
   },
   { label: "Contact", to: "/contact" },
 ];
 
 export const footerServiceLinks: NavItem[] = [
-  { label: "Service Placeholder 01", to: "/services/service-placeholder-01" },
-  { label: "Service Placeholder 02", to: "/services/service-placeholder-02" },
-  { label: "Service Placeholder 03", to: "/services/service-placeholder-03" },
-  { label: "Service Placeholder 04", to: "/services/service-placeholder-04" },
-  { label: "Service Placeholder 05", to: "/services/service-placeholder-05" },
+  { label: "Diagnostic Hearing Assessment", to: "/services/diagnostic-hearing-assessment" },
+  { label: "Paediatric Hearing Care", to: "/services/paediatric-hearing-care" },
+  { label: "Hearing Aid Fitting", to: "/services/hearing-aid-fitting-and-verification" },
+  { label: "Tinnitus Assessment & Management", to: "/services/tinnitus-assessment-and-management" },
+  { label: "Repairs, Servicing & Supplies", to: "/services/hearing-aid-repairs-servicing-and-supplies" },
 ];
 
 export const legalNav: NavItem[] = [

@@ -211,9 +211,9 @@ function BookAppointmentPage() {
                   <Phone className="size-4 text-primary" aria-hidden="true" />
                   {contact.phoneDisplay}
                 </a>
-                <a href={contact.phoneAltHref} className="flex items-center gap-2 font-semibold hover:text-primary">
+                <a href={contact.landlineHref} className="flex items-center gap-2 font-semibold hover:text-primary">
                   <Phone className="size-4 text-primary" aria-hidden="true" />
-                  {contact.phoneAltDisplay}
+                  {contact.landlineDisplay}
                 </a>
               </div>
               <div className="mt-6">

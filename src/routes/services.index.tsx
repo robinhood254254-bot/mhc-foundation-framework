@@ -1,16 +1,26 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { PageHeader, Section, ContentPlaceholder } from "@/components/ui-kit/Page";
-import { ServiceCard, ProductCard, ArticleCard, TestimonialCard } from "@/components/ui-kit/Cards";
+import { Baby, Ear, Headphones, ShieldCheck, Stethoscope, Waves, Wrench } from "lucide-react";
+import type { ReactNode } from "react";
+import { PageHeader, Section } from "@/components/ui-kit/Page";
+import { SectionHeading } from "@/components/ui-kit/SectionHeading";
+import { ServiceCard } from "@/components/ui-kit/Cards";
 import { CTAButton } from "@/components/ui-kit/CTAButton";
-import { cta } from "@/lib/site";
+import { ImageContainer } from "@/components/ui-kit/ImageContainer";
+import { cta, site } from "@/lib/site";
+import { services } from "@/lib/services";
+import { media } from "@/lib/media";
+
+const title = "Hearing Services in Mombasa | Mombasa Hearing Centre";
+const description =
+  "Diagnostic hearing assessments, paediatric hearing care, Starkey hearing aid fitting, tinnitus management, balance care, repairs and custom hearing protection in Mombasa.";
 
 export const Route = createFileRoute("/services/")({
   head: () => ({
     meta: [
-      { title: "Hearing Services | Mombasa Hearing Centre" },
-      { name: "description", content: "Specialist hearing-care services offered by Mombasa Hearing Centre. Approved service details are published progressively." },
-      { property: "og:title", content: "Hearing Services | Mombasa Hearing Centre" },
-      { property: "og:description", content: "Specialist hearing-care services offered by Mombasa Hearing Centre. Approved service details are published progressively." },
+      { title },
+      { name: "description", content: description },
+      { property: "og:title", content: title },
+      { property: "og:description", content: description },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "/services" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -20,26 +30,111 @@ export const Route = createFileRoute("/services/")({
   component: Page,
 });
 
+const icons: Record<string, ReactNode> = {
+  "diagnostic-hearing-assessment": <Stethoscope className="size-5" />,
+  "paediatric-hearing-care": <Baby className="size-5" />,
+  "hearing-aid-fitting-and-verification": <Headphones className="size-5" />,
+  "hearing-aid-repairs-servicing-and-supplies": <Wrench className="size-5" />,
+  "tinnitus-assessment-and-management": <Ear className="size-5" />,
+  "balance-and-vestibular-care": <Waves className="size-5" />,
+  "custom-ear-moulds-and-hearing-protection": <ShieldCheck className="size-5" />,
+};
+
 function Page() {
   return (
     <>
       <PageHeader
         eyebrow="Services"
-        title="Hearing Services"
-        intro="Approved service descriptions will be supplied in a later module. The structure below is ready to receive them."
+        title="Hearing services at Mombasa Hearing Centre"
+        intro={`Everything from the first hearing test to lifelong aftercare happens under one roof on Nkrumah Road. ${site.experienceYears} years of practice on this coast have taught us that careful measurement, plain explanation and steady follow-up matter more than anything else.`}
         breadcrumbs={[{ label: "Services" }]}
-        actions={<CTAButton to={cta.primary.to}>{cta.primary.label}</CTAButton>}
+        actions={
+          <>
+            <CTAButton to={cta.primary.to}>{cta.primary.label}</CTAButton>
+            <CTAButton to={cta.secondary.to} variant="secondary">
+              {cta.secondary.label}
+            </CTAButton>
+          </>
+        }
       />
-      <Section>
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {Array.from({ length: 6 }).map((_, i) => (
+
+      <Section label="All services">
+        <SectionHeading
+          eyebrow="What we do"
+          title="Complete hearing and balance care"
+          description="Each service is delivered by our own clinical team on calibrated equipment, and every finding is explained to you before you leave the centre."
+        />
+        <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {services.map((service) => (
             <ServiceCard
-              key={i}
-              title={`Service Placeholder 0${i + 1}`}
-              description="Approved service description pending."
-              to={`/services/service-placeholder-0${i + 1}`}
+              key={service.slug}
+              title={service.name}
+              description={service.summary}
+              to={`/services/${service.slug}`}
+              icon={icons[service.slug] ?? <Stethoscope className="size-5" />}
             />
           ))}
+        </div>
+      </Section>
+
+      <Section tone="muted" label="How care works here">
+        <div className="grid gap-10 lg:grid-cols-2 lg:items-center lg:gap-14">
+          <ImageContainer ratio="landscape" src={media.receptionTeam.url} alt={media.receptionTeam.alt} rounded="2xl" />
+          <div>
+            <SectionHeading
+              eyebrow="Your visit"
+              title="What happens from the moment you walk in"
+              description="A first appointment usually takes under an hour, and you leave with results in your hand rather than a promise to call."
+            />
+            <ol className="mt-8 space-y-5">
+              {[
+                {
+                  t: "Registration and history",
+                  b: "Our front desk registers you and takes a short history: when the difficulty started, any ear infections, noise exposure, medication and family history.",
+                },
+                {
+                  t: "Examination and testing",
+                  b: "The audiologist examines both ear canals, then runs the tests your symptoms call for, from pure tone audiometry through to tympanometry or balance assessment.",
+                },
+                {
+                  t: "Results explained",
+                  b: "Your audiogram is printed and explained in English or Kiswahili, with family welcome in the room, so the decision that follows is an informed one.",
+                },
+                {
+                  t: "Plan and follow-up",
+                  b: "Where treatment is needed we set it out clearly: medical referral, a hearing aid trial, tinnitus management or a review date. Aftercare continues for the life of the device.",
+                },
+              ].map((step, i) => (
+                <li key={step.t} className="grid grid-cols-[auto_minmax(0,1fr)] gap-4">
+                  <span className="grid size-9 shrink-0 place-items-center rounded-xl bg-primary text-sm font-bold text-primary-foreground">
+                    {i + 1}
+                  </span>
+                  <div>
+                    <h3 className="text-base font-semibold text-ink">{step.t}</h3>
+                    <p className="mt-1 text-sm leading-relaxed text-muted-foreground">{step.b}</p>
+                  </div>
+                </li>
+              ))}
+            </ol>
+          </div>
+        </div>
+      </Section>
+
+      <Section label="Book">
+        <div className="rounded-3xl border border-border bg-primary-soft p-6 md:p-10">
+          <h2 className="text-2xl font-bold text-ink md:text-3xl">Not sure which service you need?</h2>
+          <p className="mt-3 max-w-2xl text-muted-foreground">
+            Most people start with a diagnostic hearing assessment, and everything else follows from what it shows.
+            Send us a message and our team will point you to the right appointment.
+          </p>
+          <div className="mt-8 flex flex-wrap gap-3">
+            <CTAButton to={cta.primary.to} size="lg">
+              {cta.primary.label}
+            </CTAButton>
+            <CTAButton to={cta.secondary.to} size="lg" variant="secondary">
+              {cta.secondary.label}
+            </CTAButton>
+          </div>
         </div>
       </Section>
     </>

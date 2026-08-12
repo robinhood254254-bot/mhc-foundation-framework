@@ -35,7 +35,7 @@ const channels = [
     title: "Call the centre",
     lines: [
       { label: contact.phoneDisplay, href: contact.phoneHref },
-      { label: contact.phoneAltDisplay, href: contact.phoneAltHref },
+      { label: contact.landlineDisplay, href: contact.landlineHref },
     ],
     note: "Best for urgent questions and same-week appointment changes.",
   },
