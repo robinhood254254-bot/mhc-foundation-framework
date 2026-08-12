@@ -185,6 +185,10 @@
 }
 
 /* Accessibility: reduced motion (user toggle + OS preference) */
+.reduce-motion .reveal-idle {
+  opacity: 1 !important;
+}
+
 .reduce-motion *,
 .reduce-motion *::before,
 .reduce-motion *::after {
@@ -401,6 +405,10 @@
 }
 @utility reveal-idle {
   opacity: 0;
+}
+
+.reduce-motion .reveal-idle {
+  opacity: 1 !important;
 }
 
 .reduce-motion *,
