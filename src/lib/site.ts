@@ -33,10 +33,9 @@ export const contact = {
 export const mapEmbedSrc = `https://www.google.com/maps?q=${encodeURIComponent(contact.mapQuery)}&output=embed`;
 export const mapDirectionsUrl = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(contact.mapQuery)}`;
 
-/** Google Business Profile for Mombasa Hearing Centre (place id 0x18401318b2f42aa3:0xf5096ddf0971ff89). */
-export const googlePlaceUrl =
-  "https://www.google.com/maps/place/?q=place_id:ChIJoyr0shETQBgRif9xCd9tCfU";
-export const googleReviewsUrl = `${googlePlaceUrl}`;
+/** Google Business Profile for Mombasa Hearing Centre. */
+export const googlePlaceUrl = "https://maps.google.com/?cid=17656764618786340745";
+export const googleReviewsUrl = googlePlaceUrl;
 export const googleStreetViewUrl =
   "https://www.google.com/maps/@?api=1&map_action=pano&pano=1VntOj5wTLCAEU8tWAcgpA";
 
