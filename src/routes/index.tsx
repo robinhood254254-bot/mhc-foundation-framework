@@ -116,14 +116,31 @@ function Home() {
           <div>
             <SectionHeading
               eyebrow="Why us"
-              title="Why Mombasa Hearing Centre"
-              description="Approved differentiators will be supplied in a later module."
+              title="Why patients keep coming back"
+              description="Families travel from across Mombasa, Kilifi and Kwale to be seen here. These are the reasons they give."
             />
             <div className="mt-8 grid gap-4 sm:grid-cols-2">
-              {Array.from({ length: 4 }).map((_, i) => (
-                <Card key={i} className="p-5">
-                  <h3 className="text-sm font-semibold text-ink">Reason Placeholder 0{i + 1}</h3>
-                  <p className="mt-2 text-sm text-muted-foreground">Approved supporting text pending.</p>
+              {[
+                {
+                  title: "Diagnosis before devices",
+                  body: "No one is sold a hearing aid before their hearing has been properly measured and explained.",
+                },
+                {
+                  title: "Stock held on site",
+                  body: "Devices, batteries and accessories are kept in the centre, so patients travelling far are rarely sent away empty handed.",
+                },
+                {
+                  title: "Care in your language",
+                  body: "Results, options and instructions are explained in English or Kiswahili, with family welcome in the room.",
+                },
+                {
+                  title: "We stay with you",
+                  body: "Reviews, re-programming, cleaning and repairs continue for the life of the device, not just the first month.",
+                },
+              ].map((reason) => (
+                <Card key={reason.title} className="p-5">
+                  <h3 className="text-sm font-semibold text-ink">{reason.title}</h3>
+                  <p className="mt-2 text-sm text-muted-foreground">{reason.body}</p>
                 </Card>
               ))}
             </div>
