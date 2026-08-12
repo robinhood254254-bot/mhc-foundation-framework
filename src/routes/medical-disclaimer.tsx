@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { PageHeader, Section } from "@/components/ui-kit/Page";
 import { LegalBody, type LegalSection } from "@/components/ui-kit/LegalBody";
 import { contact } from "@/lib/site";
+import { media } from "@/lib/media";
 
 const title = "Medical Disclaimer | Mombasa Hearing Centre";
 const description =
@@ -74,6 +75,7 @@ function Page() {
   return (
     <>
       <PageHeader
+        image={{ url: media.audiologistTerry.url }}
         eyebrow="Legal"
         title="Medical Disclaimer"
         intro="A website can explain how hearing works and what we do about it. It cannot examine your ears. This page sets out where the information here stops and clinical care begins."

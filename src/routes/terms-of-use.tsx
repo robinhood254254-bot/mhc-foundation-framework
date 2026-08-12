@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { PageHeader, Section } from "@/components/ui-kit/Page";
 import { LegalBody, type LegalSection } from "@/components/ui-kit/LegalBody";
 import { contact, site } from "@/lib/site";
+import { media } from "@/lib/media";
 
 const title = "Terms of Use | Mombasa Hearing Centre";
 const description =
@@ -79,6 +80,7 @@ function Page() {
   return (
     <>
       <PageHeader
+        image={{ url: media.signage.url }}
         eyebrow="Legal"
         title="Terms of Use"
         intro="These terms explain what this website is for, what you can expect from the information published here, and the limits of what a website can do for your hearing."

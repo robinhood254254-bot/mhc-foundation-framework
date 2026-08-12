@@ -6,6 +6,7 @@ import { CTAButton } from "@/components/ui-kit/CTAButton";
 import { ImageContainer } from "@/components/ui-kit/ImageContainer";
 import { cta, site } from "@/lib/site";
 import { getHearingAid, hearingAids } from "@/lib/hearing-aids";
+import { media } from "@/lib/media";
 
 export const Route = createFileRoute("/hearing-aids/$slug")({
   loader: ({ params }) => {
@@ -16,7 +17,9 @@ export const Route = createFileRoute("/hearing-aids/$slug")({
   head: ({ params }) => {
     const aid = getHearingAid(params.slug);
     const title = aid ? `${aid.name} | ${site.name}` : `Hearing Aid | ${site.name}`;
-    const description = aid ? aid.summary.slice(0, 155) : "Starkey hearing aids fitted at Mombasa Hearing Centre.";
+    const description = aid
+      ? aid.summary.slice(0, 155)
+      : "Starkey hearing aids fitted at Mombasa Hearing Centre.";
     return {
       meta: [
         { title },
@@ -40,6 +43,7 @@ function ProductDetail() {
   return (
     <>
       <PageHeader
+        image={{ url: media.displayCounter.url }}
         eyebrow={`${aid.brand} · ${aid.category}`}
         title={aid.name}
         intro={aid.tagline}
@@ -68,9 +72,14 @@ function ProductDetail() {
             />
           </div>
           <div>
-            <h2 className="text-2xl font-bold text-ink md:text-3xl">About the {aid.name.replace("Starkey ", "")}</h2>
+            <h2 className="text-2xl font-bold text-ink md:text-3xl">
+              About the {aid.name.replace("Starkey ", "")}
+            </h2>
             {aid.intro.map((p) => (
-              <p key={p.slice(0, 40)} className="mt-4 text-base leading-relaxed text-muted-foreground">
+              <p
+                key={p.slice(0, 40)}
+                className="mt-4 text-base leading-relaxed text-muted-foreground"
+              >
                 {p}
               </p>
             ))}
@@ -93,7 +102,10 @@ function ProductDetail() {
         <SectionHeading eyebrow="Technology" title="What this device does" />
         <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {aid.features.map((f) => (
-            <div key={f.title} className="rounded-2xl border border-border bg-surface p-6 shadow-card">
+            <div
+              key={f.title}
+              className="rounded-2xl border border-border bg-surface p-6 shadow-card"
+            >
               <h3 className="text-base font-semibold text-ink">{f.title}</h3>
               <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{f.body}</p>
             </div>
@@ -118,8 +130,13 @@ function ProductDetail() {
             <h2 className="text-2xl font-bold text-ink">At a glance</h2>
             <dl className="mt-5 divide-y divide-border">
               {aid.specs.map((s) => (
-                <div key={s.label} className="grid grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] gap-4 py-3">
-                  <dt className="text-xs font-semibold tracking-wide text-muted-foreground uppercase">{s.label}</dt>
+                <div
+                  key={s.label}
+                  className="grid grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] gap-4 py-3"
+                >
+                  <dt className="text-xs font-semibold tracking-wide text-muted-foreground uppercase">
+                    {s.label}
+                  </dt>
                   <dd className="text-sm text-ink">{s.value}</dd>
                 </div>
               ))}
@@ -131,11 +148,17 @@ function ProductDetail() {
       <Section tone="muted" label="Suitability">
         <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:items-center">
           <div>
-            <SectionHeading eyebrow="Is it right for you" title={`Who the ${aid.name.replace("Starkey ", "")} suits`} />
+            <SectionHeading
+              eyebrow="Is it right for you"
+              title={`Who the ${aid.name.replace("Starkey ", "")} suits`}
+            />
             <ul className="mt-8 space-y-3">
               {aid.bestFor.map((b) => (
                 <li key={b} className="flex gap-3 text-sm leading-relaxed text-muted-foreground">
-                  <CheckCircle2 className="mt-0.5 size-4 shrink-0 text-primary" aria-hidden="true" />
+                  <CheckCircle2
+                    className="mt-0.5 size-4 shrink-0 text-primary"
+                    aria-hidden="true"
+                  />
                   <span>{b}</span>
                 </li>
               ))}
@@ -144,7 +167,8 @@ function ProductDetail() {
           <div className="rounded-3xl border border-border bg-surface p-6 shadow-card md:p-8">
             <h3 className="text-xl font-bold text-ink">Read the full brochure</h3>
             <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-              The official Starkey brochure covers colours, accessories, app features and technical detail in full.
+              The official Starkey brochure covers colours, accessories, app features and technical
+              detail in full.
             </p>
             <a
               href={aid.brochure.url}

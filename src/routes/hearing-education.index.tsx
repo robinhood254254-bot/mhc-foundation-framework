@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageHeader, Section } from "@/components/ui-kit/Page";
+import { Reveal } from "@/components/ui-kit/Reveal";
 import { SectionHeading } from "@/components/ui-kit/SectionHeading";
 import { ArticleCard, DownloadResourceCard } from "@/components/ui-kit/Cards";
 import { CTAButton } from "@/components/ui-kit/CTAButton";
@@ -43,16 +44,23 @@ function Page() {
       <Section label="Articles">
         <SectionHeading eyebrow="Guides" title="Articles from our clinical team" />
         <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {articles.map((article) => (
-            <ArticleCard
+          {articles.map((article, i) => (
+            <Reveal
               key={article.slug}
-              category={article.category}
-              title={article.title}
-              excerpt={article.excerpt}
-              imageLabel={article.image.alt}
-              src={article.image.url}
-              to={`/hearing-education/${article.slug}`}
-            />
+              direction={i % 2 === 0 ? "left" : "right"}
+              delay={i * 70}
+              className="h-full"
+            >
+              <ArticleCard
+                key={article.slug}
+                category={article.category}
+                title={article.title}
+                excerpt={article.excerpt}
+                imageLabel={article.image.alt}
+                src={article.image.url}
+                to={`/hearing-education/${article.slug}`}
+              />
+            </Reveal>
           ))}
         </div>
       </Section>
@@ -72,10 +80,12 @@ function Page() {
 
       <Section label="Book">
         <div className="rounded-3xl border border-border bg-primary-soft p-6 md:p-10">
-          <h2 className="text-2xl font-bold text-ink md:text-3xl">Still have a question about your hearing?</h2>
+          <h2 className="text-2xl font-bold text-ink md:text-3xl">
+            Still have a question about your hearing?
+          </h2>
           <p className="mt-3 max-w-2xl text-muted-foreground">
-            Reading only goes so far. A diagnostic hearing assessment takes under an hour and answers the question
-            properly.
+            Reading only goes so far. A diagnostic hearing assessment takes under an hour and
+            answers the question properly.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <CTAButton to={cta.primary.to} size="lg">

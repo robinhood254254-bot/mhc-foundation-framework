@@ -53,7 +53,8 @@ function BookingForm() {
     e.preventDefault();
     const next: Errors = {};
     if (!values.name.trim()) next.name = "Please enter your full name.";
-    if (!/^[0-9+\s()-]{7,}$/.test(values.phone.trim())) next.phone = "Please enter a valid phone number.";
+    if (!/^[0-9+\s()-]{7,}$/.test(values.phone.trim()))
+      next.phone = "Please enter a valid phone number.";
     if (!values.reason) next.reason = "Please select a reason for your visit.";
     setErrors(next);
     if (Object.keys(next).length > 0) {
@@ -135,8 +136,20 @@ function BookingForm() {
         ]}
       />
       <div className="grid gap-5 sm:grid-cols-2">
-        <TextField label="Preferred date" name="date" type="date" value={values.date} onChange={set("date")} />
-        <TextField label="Preferred time" name="time" type="time" value={values.time} onChange={set("time")} />
+        <TextField
+          label="Preferred date"
+          name="date"
+          type="date"
+          value={values.date}
+          onChange={set("date")}
+        />
+        <TextField
+          label="Preferred time"
+          name="time"
+          type="time"
+          value={values.time}
+          onChange={set("time")}
+        />
       </div>
       <TextAreaField
         label="Additional notes"
@@ -146,7 +159,9 @@ function BookingForm() {
         placeholder="Anything you would like us to know before your visit."
       />
 
-      {status === "error" ? <FormStatus state="error" message="Please correct the highlighted fields." /> : null}
+      {status === "error" ? (
+        <FormStatus state="error" message="Please correct the highlighted fields." />
+      ) : null}
       {status === "success" ? (
         <FormStatus
           state="success"
@@ -158,8 +173,8 @@ function BookingForm() {
         {status === "loading" ? "Preparing your request…" : "Send booking via WhatsApp"}
       </CTAButton>
       <p className="text-xs text-muted-foreground">
-        Submitting opens WhatsApp with your appointment details pre-filled so you can send them to our team. No
-        personal data is stored on this website.
+        Submitting opens WhatsApp with your appointment details pre-filled so you can send them to
+        our team. No personal data is stored on this website.
       </p>
     </form>
   );
@@ -208,18 +223,26 @@ function BookAppointmentPage() {
                 Our reception team is happy to book you in over the phone.
               </p>
               <div className="mt-5 space-y-3 text-sm">
-                <a href={contact.phoneHref} className="flex items-center gap-2 font-semibold hover:text-primary">
+                <a
+                  href={contact.phoneHref}
+                  className="flex items-center gap-2 font-semibold hover:text-primary"
+                >
                   <Phone className="size-4 text-primary" aria-hidden="true" />
                   {contact.phoneDisplay}
                 </a>
-                <a href={contact.landlineHref} className="flex items-center gap-2 font-semibold hover:text-primary">
+                <a
+                  href={contact.landlineHref}
+                  className="flex items-center gap-2 font-semibold hover:text-primary"
+                >
                   <Phone className="size-4 text-primary" aria-hidden="true" />
                   {contact.landlineDisplay}
                 </a>
               </div>
               <div className="mt-6">
                 <CTAButton
-                  href={whatsappLink("Hello Mombasa Hearing Centre, I would like to book an appointment.")}
+                  href={whatsappLink(
+                    "Hello Mombasa Hearing Centre, I would like to book an appointment.",
+                  )}
                   variant="secondary"
                   icon={<MessageCircle aria-hidden="true" />}
                 >

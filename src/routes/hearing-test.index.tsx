@@ -1,6 +1,7 @@
 import { Link, createFileRoute } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
 import { PageHeader, Section } from "@/components/ui-kit/Page";
+import { Reveal } from "@/components/ui-kit/Reveal";
 import { SectionHeading } from "@/components/ui-kit/SectionHeading";
 import { CTAButton } from "@/components/ui-kit/CTAButton";
 import { ImageContainer } from "@/components/ui-kit/ImageContainer";
@@ -109,45 +110,56 @@ function HearingTestIndex() {
           description="Select any assessment to read what it measures, how it is performed, how to prepare and what the results mean."
         />
         <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {hearingTests.map((test) => {
+          {hearingTests.map((test, i) => {
             const icon = testIcons[test.slug];
             return (
-              <Link
+              <Reveal
                 key={test.slug}
-                to="/hearing-test/$slug"
-                params={{ slug: test.slug }}
-                className="group flex flex-col overflow-hidden rounded-2xl border border-border bg-surface shadow-card transition-all duration-300 hover:-translate-y-1 hover:shadow-lift focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-none"
+                direction={i % 2 === 0 ? "left" : "right"}
+                delay={i * 70}
+                className="h-full"
               >
-                <div className="relative overflow-hidden">
-                  <ImageContainer
-                    ratio="landscape"
-                    src={test.hero?.url}
-                    alt={test.hero?.alt ?? test.name}
-                    label={test.name}
-                    rounded="none"
-                    className="border-0 border-b"
-                    imgClassName="transition-transform duration-500 group-hover:scale-105"
-                  />
-                  {icon ? (
-                    <span className="absolute bottom-3 left-3 grid size-10 place-items-center rounded-xl bg-surface/95 text-primary shadow-card backdrop-blur">
-                      {icon}
-                    </span>
-                  ) : null}
-                </div>
-                <div className="flex flex-1 flex-col p-5 md:p-6">
-                  <h3 className="text-lg font-semibold text-ink">{test.name}</h3>
-                  {test.alsoKnownAs ? (
-                    <p className="mt-1 text-xs font-medium tracking-wide text-primary/80 uppercase">
-                      {test.alsoKnownAs}
+                <Link
+                  to="/hearing-test/$slug"
+                  params={{ slug: test.slug }}
+                  className="group flex flex-col overflow-hidden rounded-2xl border border-border bg-surface shadow-card transition-all duration-300 hover:-translate-y-1 hover:shadow-lift focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-none"
+                >
+                  <div className="relative overflow-hidden">
+                    <ImageContainer
+                      ratio="landscape"
+                      src={test.hero?.url}
+                      alt={test.hero?.alt ?? test.name}
+                      label={test.name}
+                      rounded="none"
+                      className="border-0 border-b"
+                      imgClassName="transition-transform duration-500 group-hover:scale-105"
+                    />
+                    {icon ? (
+                      <span className="absolute bottom-3 left-3 grid size-10 place-items-center rounded-xl bg-surface/95 text-primary shadow-card backdrop-blur">
+                        {icon}
+                      </span>
+                    ) : null}
+                  </div>
+                  <div className="flex flex-1 flex-col p-5 md:p-6">
+                    <h3 className="text-lg font-semibold text-ink">{test.name}</h3>
+                    {test.alsoKnownAs ? (
+                      <p className="mt-1 text-xs font-medium tracking-wide text-primary/80 uppercase">
+                        {test.alsoKnownAs}
+                      </p>
+                    ) : null}
+                    <p className="mt-3 flex-1 text-sm leading-relaxed text-muted-foreground">
+                      {test.summary}
                     </p>
-                  ) : null}
-                  <p className="mt-3 flex-1 text-sm leading-relaxed text-muted-foreground">{test.summary}</p>
-                  <span className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-primary">
-                    Read more
-                    <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" aria-hidden="true" />
-                  </span>
-                </div>
-              </Link>
+                    <span className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-primary">
+                      Read more
+                      <ArrowRight
+                        className="size-4 transition-transform group-hover:translate-x-1"
+                        aria-hidden="true"
+                      />
+                    </span>
+                  </div>
+                </Link>
+              </Reveal>
             );
           })}
         </div>
@@ -173,7 +185,10 @@ function HearingTestIndex() {
                 "Sudden loss of hearing in one ear, which should be treated as urgent.",
               ].map((line) => (
                 <li key={line} className="flex gap-3">
-                  <span className="mt-2 size-1.5 shrink-0 rounded-full bg-primary" aria-hidden="true" />
+                  <span
+                    className="mt-2 size-1.5 shrink-0 rounded-full bg-primary"
+                    aria-hidden="true"
+                  />
                   <span>{line}</span>
                 </li>
               ))}
@@ -182,9 +197,10 @@ function HearingTestIndex() {
           <div className="rounded-3xl border border-border bg-primary-soft p-6 md:p-10">
             <h3 className="text-2xl font-bold text-ink">What your visit includes</h3>
             <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-              A standard diagnostic appointment covers history taking, otoscopic examination, pure tone audiometry with
-              masking where required, speech testing, tympanometry with acoustic reflexes, and a full explanation of the
-              findings. Additional tests are added when the history calls for them.
+              A standard diagnostic appointment covers history taking, otoscopic examination, pure
+              tone audiometry with masking where required, speech testing, tympanometry with
+              acoustic reflexes, and a full explanation of the findings. Additional tests are added
+              when the history calls for them.
             </p>
             <dl className="mt-7 grid gap-4 sm:grid-cols-2">
               {[
@@ -194,7 +210,9 @@ function HearingTestIndex() {
                 ["Languages", "English and Kiswahili"],
               ].map(([k, v]) => (
                 <div key={k} className="rounded-xl border border-border bg-surface p-4">
-                  <dt className="text-xs font-semibold tracking-wide text-muted-foreground uppercase">{k}</dt>
+                  <dt className="text-xs font-semibold tracking-wide text-muted-foreground uppercase">
+                    {k}
+                  </dt>
                   <dd className="mt-1 text-sm font-semibold text-ink">{v}</dd>
                 </div>
               ))}

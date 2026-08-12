@@ -15,7 +15,9 @@ export const Route = createFileRoute("/hearing-education/$slug")({
   head: ({ params }) => {
     const article = getArticle(params.slug);
     const title = article ? `${article.title} | ${site.name}` : `Article | ${site.name}`;
-    const description = article ? article.excerpt.slice(0, 155) : "Hearing education from Mombasa Hearing Centre.";
+    const description = article
+      ? article.excerpt.slice(0, 155)
+      : "Hearing education from Mombasa Hearing Centre.";
     return {
       meta: [
         { title },
@@ -43,7 +45,10 @@ function ArticleDetail() {
         eyebrow={article.category}
         title={article.title}
         intro={article.excerpt}
-        breadcrumbs={[{ label: "Hearing Education", to: "/hearing-education" }, { label: article.category }]}
+        breadcrumbs={[
+          { label: "Hearing Education", to: "/hearing-education" },
+          { label: article.category },
+        ]}
       />
 
       <Section>
@@ -66,15 +71,24 @@ function ArticleDetail() {
               <section key={section.heading}>
                 <h2 className="text-2xl font-bold text-ink md:text-3xl">{section.heading}</h2>
                 {section.body.map((p) => (
-                  <p key={p.slice(0, 40)} className="mt-4 text-base leading-relaxed text-muted-foreground">
+                  <p
+                    key={p.slice(0, 40)}
+                    className="mt-4 text-base leading-relaxed text-muted-foreground"
+                  >
                     {p}
                   </p>
                 ))}
                 {section.list ? (
                   <ul className="mt-5 space-y-3">
                     {section.list.map((item) => (
-                      <li key={item} className="flex gap-3 text-sm leading-relaxed text-muted-foreground">
-                        <span className="mt-2 size-1.5 shrink-0 rounded-full bg-primary" aria-hidden="true" />
+                      <li
+                        key={item}
+                        className="flex gap-3 text-sm leading-relaxed text-muted-foreground"
+                      >
+                        <span
+                          className="mt-2 size-1.5 shrink-0 rounded-full bg-primary"
+                          aria-hidden="true"
+                        />
                         <span>{item}</span>
                       </li>
                     ))}
@@ -87,7 +101,8 @@ function ArticleDetail() {
           <div className="mt-12 rounded-3xl border border-border bg-primary-soft p-6 md:p-8">
             <h2 className="text-xl font-bold text-ink">Book a hearing assessment</h2>
             <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-              Our audiologists test, explain and advise in one visit at NSSF Building on Nkrumah Road.
+              Our audiologists test, explain and advise in one visit at NSSF Building on Nkrumah
+              Road.
             </p>
             <div className="mt-6 flex flex-wrap gap-3">
               <CTAButton to={cta.primary.to}>{cta.primary.label}</CTAButton>

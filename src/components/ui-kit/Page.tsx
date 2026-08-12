@@ -23,8 +23,8 @@ export function PageHeader({
       {image ? (
         <div aria-hidden="true" className="pointer-events-none absolute inset-0">
           <img src={image.url} alt="" className="size-full object-cover object-center" />
-          <div className="absolute inset-0 bg-surface-2/85" />
-          <div className="absolute inset-0 bg-gradient-to-r from-surface-2 via-surface-2/80 to-surface-2/40" />
+          <div className="absolute inset-0 bg-surface-2/45" />
+          <div className="absolute inset-0 bg-gradient-to-r from-surface-2 via-surface-2/80 to-surface-2/25" />
         </div>
       ) : null}
       <div className="relative container-page py-10 md:py-14">

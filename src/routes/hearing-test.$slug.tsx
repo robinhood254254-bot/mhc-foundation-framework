@@ -1,5 +1,13 @@
 import { Link, createFileRoute, notFound } from "@tanstack/react-router";
-import { ArrowLeft, CalendarClock, CheckCircle2, ClipboardList, Clock, ShieldCheck, Users } from "lucide-react";
+import {
+  ArrowLeft,
+  CalendarClock,
+  CheckCircle2,
+  ClipboardList,
+  Clock,
+  ShieldCheck,
+  Users,
+} from "lucide-react";
 import { PageHeader, Section } from "@/components/ui-kit/Page";
 import { SectionHeading } from "@/components/ui-kit/SectionHeading";
 import { CTAButton } from "@/components/ui-kit/CTAButton";
@@ -68,13 +76,21 @@ function TestDetail() {
         <div className="grid gap-10 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)] lg:gap-14">
           <div>
             <h2 className="text-2xl font-bold text-ink md:text-3xl">What this assessment is</h2>
-            <p className="mt-4 text-base leading-relaxed text-muted-foreground md:text-lg">{test.intro}</p>
+            <p className="mt-4 text-base leading-relaxed text-muted-foreground md:text-lg">
+              {test.intro}
+            </p>
 
             <h3 className="mt-10 text-xl font-bold text-ink">Why it matters</h3>
             <ul className="mt-4 space-y-3">
               {test.whyItMatters.map((point) => (
-                <li key={point} className="flex gap-3 text-sm leading-relaxed text-muted-foreground">
-                  <CheckCircle2 className="mt-0.5 size-4 shrink-0 text-primary" aria-hidden="true" />
+                <li
+                  key={point}
+                  className="flex gap-3 text-sm leading-relaxed text-muted-foreground"
+                >
+                  <CheckCircle2
+                    className="mt-0.5 size-4 shrink-0 text-primary"
+                    aria-hidden="true"
+                  />
                   <span>{point}</span>
                 </li>
               ))}
@@ -125,7 +141,9 @@ function TestDetail() {
                   rounded="2xl"
                   className="shadow-card"
                 />
-                <figcaption className="mt-3 text-sm leading-relaxed text-muted-foreground">{shot.caption}</figcaption>
+                <figcaption className="mt-3 text-sm leading-relaxed text-muted-foreground">
+                  {shot.caption}
+                </figcaption>
               </figure>
             ))}
           </div>
@@ -140,7 +158,10 @@ function TestDetail() {
         />
         <ol className="mt-10 space-y-5">
           {test.steps.map((step, i) => (
-            <li key={step.title} className="rounded-2xl border border-border bg-surface p-6 shadow-card">
+            <li
+              key={step.title}
+              className="rounded-2xl border border-border bg-surface p-6 shadow-card"
+            >
               <div className="grid grid-cols-[auto_minmax(0,1fr)] items-start gap-4">
                 <span className="grid size-10 shrink-0 place-items-center rounded-xl bg-primary text-sm font-bold text-primary-foreground">
                   {i + 1}
@@ -165,7 +186,10 @@ function TestDetail() {
             <ul className="mt-5 space-y-3">
               {test.prepare.map((item) => (
                 <li key={item} className="flex gap-3 text-sm leading-relaxed text-muted-foreground">
-                  <span className="mt-2 size-1.5 shrink-0 rounded-full bg-primary" aria-hidden="true" />
+                  <span
+                    className="mt-2 size-1.5 shrink-0 rounded-full bg-primary"
+                    aria-hidden="true"
+                  />
                   <span>{item}</span>
                 </li>
               ))}
