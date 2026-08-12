@@ -61,19 +61,17 @@ function Home() {
     <>
       {/* 1. Hero */}
       <Hero
-        eyebrow={`Specialist hearing care · ${site.experienceYears}+ years`}
+        eyebrow={`Specialist hearing care · ${site.experienceYears}+ years in Mombasa`}
         headline="Hearing care built around you, in the heart of Mombasa"
-        subheadline="Headline and supporting copy are placeholders. Approved messaging will be supplied in a later module."
+        subheadline="Audiologist-led hearing tests, balance diagnostics and hearing aid fitting at NSSF Building on Nkrumah Road. We measure carefully, explain plainly, and stay with you long after the fitting."
         primaryCta={{ label: cta.primary.label, to: cta.primary.to }}
         secondaryCta={{ label: cta.hearingTest.label, to: cta.hearingTest.to }}
         slides={heroSlides}
-        trustIndicator="Trust indicator placeholder — approved wording pending."
-        trustCard={{
-          quote: "Approved testimonial or trust statement will appear here.",
-          name: "Trust card placeholder",
-          meta: "Attribution pending",
-        }}
+        overlay={0}
+        trustIndicator="Diagnostic testing, fitting and aftercare under one roof since 2003"
+        quotes={patientVoices}
       />
+
 
       {/* 2. Trust / Experience strip */}
       <section aria-label="Experience" className="border-y border-border bg-surface">
