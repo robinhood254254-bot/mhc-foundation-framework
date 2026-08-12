@@ -8,16 +8,26 @@ export function PageHeader({
   intro,
   breadcrumbs,
   actions,
+  image,
 }: {
   eyebrow?: string;
   title: string;
   intro?: string;
   breadcrumbs: { label: string; to?: string }[];
   actions?: ReactNode;
+  /** Optional approved centre photograph shown behind the page heading. */
+  image?: { url: string; alt?: string } | undefined;
 }) {
   return (
-    <section className="border-b border-border bg-surface-2">
-      <div className="container-page py-10 md:py-14">
+    <section className="relative overflow-hidden border-b border-border bg-surface-2">
+      {image ? (
+        <div aria-hidden="true" className="pointer-events-none absolute inset-0">
+          <img src={image.url} alt="" className="size-full object-cover object-center" />
+          <div className="absolute inset-0 bg-surface-2/85" />
+          <div className="absolute inset-0 bg-gradient-to-r from-surface-2 via-surface-2/80 to-surface-2/40" />
+        </div>
+      ) : null}
+      <div className="relative container-page py-10 md:py-14">
         <Breadcrumbs items={breadcrumbs} />
         {eyebrow ? <p className="eyebrow mt-6">{eyebrow}</p> : null}
         <h1 className="mt-3 max-w-3xl text-4xl font-bold text-ink md:text-5xl">{title}</h1>

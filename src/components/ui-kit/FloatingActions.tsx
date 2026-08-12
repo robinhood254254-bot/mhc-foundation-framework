@@ -44,7 +44,7 @@ export function FloatingActions() {
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Chat with Mombasa Hearing Centre on WhatsApp"
-        className="inline-flex items-center gap-2 rounded-full bg-[#25D366] px-4 py-3.5 font-semibold text-white shadow-lift transition-transform hover:scale-[1.03]"
+        className="animate-bob inline-flex items-center gap-2 rounded-full bg-[#25D366] px-4 py-3.5 font-semibold text-white shadow-lift transition-transform hover:scale-110"
       >
         <MessageCircle className="size-6" aria-hidden="true" />
         <span className="hidden text-sm sm:inline">Chat with us</span>
