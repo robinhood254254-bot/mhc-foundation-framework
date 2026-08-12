@@ -166,31 +166,53 @@ function Home() {
         </div>
       </Section>
 
-      {/* 7. Hearing test */}
+      {/* 7. Hearing and balance tests */}
       <Section label="Hearing test">
-        <div className="grid gap-8 rounded-3xl border border-border bg-surface p-6 shadow-card md:p-10 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] lg:items-center">
-          <div>
-            <SectionHeading
-              eyebrow="Hearing Test"
-              title="Check your hearing"
-              description="A dedicated hearing test experience. Approved test content and logic will be supplied in a later module."
+        <SectionHeading
+          eyebrow="Diagnostics"
+          title="Hearing and balance tests we perform"
+          description="From the standard audiogram to objective brainstem and balance testing, every assessment is run by an audiologist on calibrated equipment and explained to you the same day."
+          actions={
+            <CTAButton to={cta.hearingTest.to} variant="secondary">
+              All hearing tests
+            </CTAButton>
+          }
+        />
+        <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {hearingTests.slice(0, 6).map((test) => (
+            <ServiceCard
+              key={test.slug}
+              title={test.name}
+              description={test.summary}
+              to={`/hearing-test/${test.slug}`}
+              icon={<Stethoscope className="size-5" />}
             />
+          ))}
+        </div>
+        <div className="mt-10 grid gap-8 rounded-3xl border border-border bg-surface p-6 shadow-card md:p-10 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] lg:items-center">
+          <div>
+            <h3 className="text-2xl font-bold text-ink md:text-3xl">Not sure which test you need?</h3>
+            <p className="mt-3 text-muted-foreground">
+              Most people start with a full diagnostic hearing assessment. It takes under an hour, covers otoscopy,
+              pure tone audiometry, speech testing and tympanometry, and tells us exactly what to do next. Call the
+              centre and our team will guide you.
+            </p>
             <div className="mt-8 flex flex-wrap gap-3">
-              <CTAButton to={cta.hearingTest.to}>{cta.hearingTest.label}</CTAButton>
-              <CTAButton to={cta.primary.to} variant="secondary">
-                {cta.primary.label}
+              <CTAButton to={cta.primary.to}>{cta.primary.label}</CTAButton>
+              <CTAButton to={cta.secondary.to} variant="secondary">
+                {cta.secondary.label}
               </CTAButton>
             </div>
           </div>
           <ImageContainer
             ratio="landscape"
-            alt={media.audiologistTerry.alt}
-            src={media.audiologistTerry.url}
-            position="top"
+            alt={media.tympanometryResults.alt}
+            src={media.tympanometryResults.url}
             rounded="2xl"
           />
         </div>
       </Section>
+
 
       {/* 8. Hearing education */}
       <Section tone="muted" label="Hearing education">
