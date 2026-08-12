@@ -109,11 +109,11 @@ function HearingTestIndex() {
           description="Select any assessment to read what it measures, how it is performed, how to prepare and what the results mean."
         />
         <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {hearingTests.map((test) => {
+          {hearingTests.map((test, i) => {
             const icon = testIcons[test.slug];
             return (
+              <Reveal key={test.slug} direction={i % 2 === 0 ? "left" : "right"} delay={i * 70} className="h-full">
               <Link
-                key={test.slug}
                 to="/hearing-test/$slug"
                 params={{ slug: test.slug }}
                 className="group flex flex-col overflow-hidden rounded-2xl border border-border bg-surface shadow-card transition-all duration-300 hover:-translate-y-1 hover:shadow-lift focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-none"

@@ -57,7 +57,7 @@ function Page() {
         />
         <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {services.map((service, i) => (
-            <Reveal key={service.slug} direction={i % 2 === 0 ? "left" : "right"} delay={i * 70}>
+            <Reveal key={service.slug} direction={i % 2 === 0 ? "left" : "right"} delay={i * 70} className="h-full">
               <ServiceCard
                             key={service.slug}
                             title={service.name}

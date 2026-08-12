@@ -45,7 +45,7 @@ function Page() {
         <SectionHeading eyebrow="Guides" title="Articles from our clinical team" />
         <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {articles.map((article, i) => (
-            <Reveal key={article.slug} direction={i % 2 === 0 ? "left" : "right"} delay={i * 70}>
+            <Reveal key={article.slug} direction={i % 2 === 0 ? "left" : "right"} delay={i * 70} className="h-full">
               <ArticleCard
                             key={article.slug}
                             category={article.category}

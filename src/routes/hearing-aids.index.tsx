@@ -80,7 +80,7 @@ function Page() {
         />
         <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {hearingAids.map((aid, i) => (
-            <Reveal key={aid.slug} direction={i % 2 === 0 ? "left" : "right"} delay={i * 70}>
+            <Reveal key={aid.slug} direction={i % 2 === 0 ? "left" : "right"} delay={i * 70} className="h-full">
               <ProductCard
                             key={aid.slug}
                             category={aid.category}

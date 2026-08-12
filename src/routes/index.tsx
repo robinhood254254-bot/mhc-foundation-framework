@@ -126,7 +126,7 @@ function Home() {
         />
         <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {services.slice(0, 6).map((service, i) => (
-            <Reveal key={service.slug} direction={i % 2 === 0 ? "left" : "right"} delay={i * 70}>
+            <Reveal key={service.slug} direction={i % 2 === 0 ? "left" : "right"} delay={i * 70} className="h-full">
               <ServiceCard
                             key={service.slug}
                             title={service.name}
@@ -210,7 +210,7 @@ function Home() {
         />
         <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {hearingAids.slice(0, 4).map((aid, i) => (
-            <Reveal key={aid.slug} direction={i % 2 === 0 ? "left" : "right"} delay={i * 70}>
+            <Reveal key={aid.slug} direction={i % 2 === 0 ? "left" : "right"} delay={i * 70} className="h-full">
               <ProductCard
                             key={aid.slug}
                             category={aid.category}
@@ -239,7 +239,7 @@ function Home() {
         />
         <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {hearingTests.slice(0, 6).map((test, i) => (
-            <Reveal key={test.slug} direction={i % 2 === 0 ? "left" : "right"} delay={i * 70}>
+            <Reveal key={test.slug} direction={i % 2 === 0 ? "left" : "right"} delay={i * 70} className="h-full">
               <ServiceCard
                             key={test.slug}
                             title={test.name}
@@ -287,7 +287,7 @@ function Home() {
         />
         <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {articles.map((article, i) => (
-            <Reveal key={article.slug} direction={i % 2 === 0 ? "left" : "right"} delay={i * 70}>
+            <Reveal key={article.slug} direction={i % 2 === 0 ? "left" : "right"} delay={i * 70} className="h-full">
               <ArticleCard
                             key={article.slug}
                             category={article.category}
@@ -312,7 +312,7 @@ function Home() {
         />
         <div className="mt-10 grid gap-6 md:grid-cols-3">
           {featuredTestimonials.map((t, i) => (
-            <Reveal key={t.name} direction={i % 2 === 0 ? "left" : "right"} delay={i * 70}>
+            <Reveal key={t.name} direction={i % 2 === 0 ? "left" : "right"} delay={i * 70} className="h-full">
               <TestimonialCard key={t.name} quote={t.quote} name={t.name} meta={t.meta} rating={t.rating} />
             </Reveal>
           ))}
