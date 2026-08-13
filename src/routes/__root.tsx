@@ -16,6 +16,7 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { AccessibilityPanel } from "@/components/a11y/AccessibilityPanel";
 import { FloatingActions } from "@/components/ui-kit/FloatingActions";
+import { TranslationLayer } from "@/components/i18n/TranslationLayer";
 
 function NotFoundComponent() {
   return (
