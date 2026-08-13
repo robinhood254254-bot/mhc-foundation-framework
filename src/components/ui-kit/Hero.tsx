@@ -1,7 +1,6 @@
-import { useMemo } from "react";
 import { useI18n } from "@/lib/i18n";
 import { translateString } from "@/lib/translate";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { Quote, ShieldCheck } from "lucide-react";
 import { CTAButton } from "@/components/ui-kit/CTAButton";
 import { ImageContainer } from "@/components/ui-kit/ImageContainer";
