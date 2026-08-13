@@ -1,3 +1,6 @@
+import { useMemo } from "react";
+import { useI18n } from "@/lib/i18n";
+import { translateString } from "@/lib/translate";
 import { useEffect, useRef, useState } from "react";
 import { Quote, ShieldCheck } from "lucide-react";
 import { CTAButton } from "@/components/ui-kit/CTAButton";
@@ -58,6 +61,11 @@ function usePrefersReducedMotion() {
   return reduce;
 }
 
+function useLocalized(text: string) {
+  const { lang } = useI18n();
+  return useMemo(() => (lang === "sw" ? translateString(text) : text), [lang, text]);
+}
+
 export function Hero({
   eyebrow,
   headline,
@@ -80,6 +88,7 @@ export function Hero({
   const paused = useRef(false);
 
   const current = set[step % set.length]!;
+  const headlineText = useLocalized(current.headline);
 
   /* Rotate the message set, and keep the photography in step with it. */
   useEffect(() => {
@@ -96,18 +105,18 @@ export function Hero({
   /* Typewriter for the active headline. */
   useEffect(() => {
     if (reduce) {
-      setTyped(current.headline);
+      setTyped(headlineText);
       return;
     }
     setTyped("");
     let i = 0;
     const id = window.setInterval(() => {
       i += 1;
-      setTyped(current.headline.slice(0, i));
-      if (i >= current.headline.length) window.clearInterval(id);
+      setTyped(headlineText.slice(0, i));
+      if (i >= headlineText.length) window.clearInterval(id);
     }, 60);
     return () => window.clearInterval(id);
-  }, [current.headline, reduce]);
+  }, [headlineText, reduce]);
 
   return (
     <section
@@ -138,14 +147,14 @@ export function Hero({
       <div className="relative container-page grid gap-6 py-6 md:gap-8 md:py-8 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:items-center lg:gap-10 lg:py-8">
         <div className="max-w-xl">
           {eyebrow ? <p className="eyebrow">{eyebrow}</p> : null}
-          <h1 className="mt-2 min-h-[3.4em] text-[2rem] leading-[1.08] font-bold text-ink sm:min-h-[2.6em] sm:text-5xl lg:text-[3.25rem]">
+          <h1 data-no-translate className="mt-2 min-h-[3.4em] text-[2rem] leading-[1.08] font-bold text-ink sm:min-h-[2.6em] sm:text-5xl lg:text-[3.25rem]">
             <span>{typed}</span>
             {!reduce ? (
               <span aria-hidden="true" className="animate-caret ml-1 inline-block text-primary">
                 |
               </span>
             ) : null}
-            <span className="sr-only">{current.headline}</span>
+            <span className="sr-only">{headlineText}</span>
           </h1>
           <p
             key={current.subheadline}
