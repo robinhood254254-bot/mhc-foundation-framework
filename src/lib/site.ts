@@ -8,7 +8,7 @@ export const site = {
   shortName: "MHC",
   domain: "mombasahearing.com",
   description:
-    "Mombasa Hearing Centre is a specialist hearing care practice in Mombasa County, Kenya, providing diagnostic hearing assessments, hearing aids and aftercare. Referrals from public hospitals, private clinics and ENT surgeons are accepted. The centre is located at the NSSF Building, North Wing, 5th Floor, Room 531, Nkrumah Road, Mombasa, Kenya.",
+    "Mombasa Hearing Centre is a specialist hearing care practice serving patients from across Kenya — the Coast region, Nairobi, and every other county — providing diagnostic hearing assessments, hearing aids and aftercare. Referrals from public hospitals, private clinics and ENT surgeons are accepted. The centre is located at the NSSF Building, North Wing, 5th Floor, Room 531, Nkrumah Road, Mombasa, Kenya.",
   experienceYears: 23,
 };
 

@@ -15,7 +15,7 @@ export const Route = createFileRoute("/book-appointment")({
       {
         name: "description",
         content:
-          "Request a hearing appointment at Mombasa Hearing Centre, NSSF Building, Nkrumah Road, Mombasa. Send your preferred date and time straight to our team on WhatsApp.",
+          "Request a hearing appointment at Mombasa Hearing Centre, NSSF Building, Nkrumah Road, Mombasa. Patients from anywhere in Kenya are welcome — send your preferred date and time on WhatsApp.",
       },
       { property: "og:title", content: "Book an Appointment | Mombasa Hearing Centre" },
       {
@@ -202,7 +202,7 @@ function BookAppointmentPage() {
         image={{ url: media.receptionEntrance.url }}
         eyebrow="Appointments"
         title="Book an Appointment"
-        intro="Request a visit with the Mombasa Hearing Centre clinical team. Appointments help us set aside enough time for a careful, unhurried consultation."
+        intro="Request a visit with the Mombasa Hearing Centre clinical team. We accept appointments from patients anywhere in Kenya — the Coast, Nairobi and upcountry — and will plan your visit around your travel."
         breadcrumbs={[{ label: "Book an Appointment" }]}
       />
 
