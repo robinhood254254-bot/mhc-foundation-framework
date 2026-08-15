@@ -148,7 +148,185 @@ export const articles: Article[] = [
       },
     ],
   },
+  {
+    slug: "how-to-read-your-audiogram",
+    title: "How to read your audiogram, line by line",
+    category: "Understanding hearing",
+    readingTime: "6 min read",
+    excerpt:
+      "The graph you are handed after a hearing test answers most of your questions once you know what the symbols, the numbers and the shape of the line actually mean.",
+    image: { url: media.tympanometryResults.url, alt: media.tympanometryResults.alt },
+    sections: [
+      {
+        heading: "The two axes",
+        body: [
+          "Frequency, or pitch, runs across the top from 250 Hz on the left to 8000 Hz on the right. Low pitches sit on the left, high pitches on the right. Intensity, or loudness, runs down the side from -10 dB at the top to 120 dB at the bottom. The lower a mark sits on the page, the louder that pitch had to be before you heard it.",
+          "Each mark is the softest sound you detected at that pitch. O usually means the right ear by air conduction, X the left ear, and the bracket symbols show bone conduction, which tests the inner ear directly.",
+        ],
+      },
+      {
+        heading: "What the numbers mean",
+        body: ["Hearing thresholds are grouped into broad bands that describe the difficulty, not the person."],
+        list: [
+          "0 to 25 dB: normal hearing range for adults",
+          "26 to 40 dB: mild loss, soft speech and group conversation become difficult",
+          "41 to 55 dB: moderate loss, ordinary conversation is often missed",
+          "56 to 70 dB: moderately severe, speech must be loud to be followed",
+          "71 to 90 dB: severe, most everyday speech is inaudible without amplification",
+          "Above 90 dB: profound, and usually a candidate for high-power devices or implant referral",
+        ],
+      },
+      {
+        heading: "Air, bone and the gap between them",
+        body: [
+          "When bone conduction is normal but air conduction is poorer, the gap between them points to a conductive problem in the outer or middle ear: wax, fluid, a perforation or an ossicular issue. Many of these are medically or surgically treatable, which is why the gap matters more than the raw numbers.",
+          "When air and bone thresholds sit together and both are reduced, the loss is sensorineural, arising in the cochlea or the hearing nerve. That type is managed with hearing aids, rehabilitation and, where indicated, onward referral rather than medication.",
+        ],
+      },
+      {
+        heading: "The shape tells the story",
+        body: [
+          "A line that slopes downwards to the right is the classic pattern of age-related and noise-related loss, and explains the familiar complaint of hearing speech without understanding it. A dip around 4000 Hz suggests noise exposure. A flat line across all frequencies often accompanies middle-ear disease, and a rising line points to certain inner-ear conditions.",
+          "Speech testing is reported alongside the graph. Two people with identical audiograms can differ widely in how well they discriminate words, and that score is what predicts how much benefit a hearing aid will give.",
+        ],
+      },
+      {
+        heading: "Bring your audiogram with you",
+        body: [
+          "An audiogram from anywhere in the country can be reviewed at the centre and compared with a fresh test. Patients travel to us from across the Coast, Nairobi and upcountry, and a copy of any previous result makes that first appointment considerably more useful.",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "hearing-loss-and-brain-health",
+    title: "Hearing loss, memory and brain health: what the evidence says",
+    category: "Understanding hearing",
+    readingTime: "6 min read",
+    excerpt:
+      "Hearing is a brain activity, not only an ear activity. Understanding that link explains why untreated hearing loss is now discussed alongside memory and mental wellbeing.",
+    image: { url: media.audiologistReview.url, alt: media.audiologistReview.alt },
+    sections: [
+      {
+        heading: "Why hearing and thinking are connected",
+        body: [
+          "The ear collects sound, but the brain turns it into meaning. When the signal arriving from the ear is degraded, the brain has to spend extra effort filling in the gaps, and that effort is drawn from the same mental resources used for memory and concentration. This is why many patients describe being exhausted after a long meeting rather than simply saying they cannot hear.",
+          "Large international studies, including the Lancet Commission on dementia prevention, list untreated hearing loss among the modifiable risk factors for cognitive decline in later life. Risk is not certainty, and hearing loss does not cause dementia on its own, but the association is consistent enough to treat hearing as part of general health rather than a minor inconvenience.",
+        ],
+      },
+      {
+        heading: "Three mechanisms researchers describe",
+        body: [],
+        list: [
+          "Cognitive load: effort spent decoding unclear speech is effort unavailable for remembering it",
+          "Reduced stimulation: the parts of the brain that process sound receive less input over years",
+          "Social withdrawal: conversation becomes tiring, activity narrows, and isolation follows",
+        ],
+      },
+      {
+        heading: "What treatment appears to change",
+        body: [
+          "The ACHIEVE trial, published in 2023, found that hearing treatment slowed cognitive change over three years in older adults who were already at higher risk, while showing little difference in a healthier group. The practical reading is straightforward: treating hearing loss is one of the few actions available that supports both communication and long-term brain health.",
+          "Patients also report the immediate effects long before any research question is answered: less fatigue at the end of the day, easier phone calls, and a willingness to attend gatherings they had begun to avoid.",
+        ],
+      },
+      {
+        heading: "Practical steps at any age",
+        body: [
+          "Have a baseline hearing test, treat any loss early rather than waiting until it is severe, wear devices consistently rather than only for special occasions, protect your hearing in noise, and keep conversation and social life active. Where balance, tinnitus or memory concerns appear together, mention all of them at the appointment so the assessment covers the whole picture.",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "tinnitus-what-works",
+    title: "Ringing in the ears: what actually helps with tinnitus",
+    category: "Understanding hearing",
+    readingTime: "6 min read",
+    excerpt:
+      "Tinnitus is common, rarely dangerous, and far more manageable than most people are told. Here is what causes it, what genuinely helps, and what to be sceptical about.",
+    image: { url: media.tinnitusDiagram.url, alt: media.tinnitusDiagram.alt },
+    sections: [
+      {
+        heading: "What tinnitus is",
+        body: [
+          "Tinnitus is the perception of sound with no external source: ringing, hissing, buzzing, crickets or a pulse. It is a symptom rather than a disease, and it usually arises when reduced input from the ear leads the hearing pathway to increase its own internal gain, much as a microphone left turned up produces a hiss.",
+          "It is very common. Most people experience it briefly at some point, and for a minority it becomes persistent and intrusive enough to affect sleep, concentration and mood.",
+        ],
+      },
+      {
+        heading: "When to be seen promptly",
+        body: ["Most tinnitus is benign, but these features deserve a timely assessment rather than a wait-and-see approach."],
+        list: [
+          "Tinnitus in one ear only, or clearly worse in one ear",
+          "Sudden hearing loss alongside the noise",
+          "A sound that pulses in time with your heartbeat",
+          "Dizziness, vertigo or unsteadiness with the tinnitus",
+          "Tinnitus after a head injury, or with ear pain or discharge",
+        ],
+      },
+      {
+        heading: "What the evidence supports",
+        body: [
+          "Assessment comes first: a full hearing test, tympanometry and, where indicated, pitch and loudness matching define what is driving the symptom. Treating any underlying cause, such as wax, middle-ear fluid or medication effects, resolves a proportion of cases outright.",
+          "For persistent tinnitus with hearing loss, hearing aids are the single most effective step, because restoring real sound reduces the contrast that makes the internal noise stand out. Sound therapy and structured counselling based on cognitive behavioural principles have the strongest evidence for reducing distress, and many Starkey devices include built-in tinnitus sound stimuli that can be tuned to your own profile.",
+        ],
+      },
+      {
+        heading: "What to be careful about",
+        body: [
+          "There is no supplement, herbal remedy or device that has been shown to cure tinnitus, and claims of a cure are a reliable sign to walk away. Silence tends to make tinnitus louder, so complete quiet at bedtime is usually unhelpful; a low background sound is better.",
+          "Habituation is realistic for most people. The sound may not disappear, but with the right combination of amplification, sound therapy and understanding, it stops holding attention. Our tinnitus assessment and management service works through that plan step by step, for patients here on the Coast and those travelling from Nairobi and beyond.",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "childrens-hearing-milestones",
+    title: "Children's hearing: milestones, warning signs and when to test",
+    category: "Prevention",
+    readingTime: "6 min read",
+    excerpt:
+      "Speech and language are built on hearing. Knowing what a child should respond to at each age is the simplest way to catch a problem while it is still easy to solve.",
+    image: { url: media.ptaPaediatric.url, alt: media.ptaPaediatric.alt },
+    sections: [
+      {
+        heading: "Why early matters so much",
+        body: [
+          "The first three years are when the brain lays down the pathways for speech and language, and it does so using the sound it receives. A hearing loss present during that window delays language, and the delay grows the longer it goes undetected. Identified early, most children catch up with their peers.",
+          "Hearing loss in children is not always permanent. Glue ear, or fluid behind the eardrum, is extremely common after colds and ear infections and can produce a temporary loss that still affects learning if it persists through a school term.",
+        ],
+      },
+      {
+        heading: "Milestones to expect",
+        body: [],
+        list: [
+          "Newborn: startles at sudden loud sound, settles to a familiar voice",
+          "3 to 4 months: turns towards a voice, quietens or smiles when spoken to",
+          "6 to 9 months: babbles with varied sounds, responds to their own name",
+          "12 months: uses one or two words, follows a simple instruction with a gesture",
+          "18 to 24 months: a growing vocabulary, begins joining two words together",
+          "3 years: speech that unfamiliar adults can mostly understand",
+        ],
+      },
+      {
+        heading: "Warning signs at any age",
+        body: [
+          "Bring a child for testing if speech is delayed or unclear for their age, if they turn the television up or sit very close, if they do not respond unless facing you, if teachers report inattention, if they mispronounce sounds their peers have mastered, or if there is a family history of childhood hearing loss. Recurrent ear infections and discharge also warrant a check.",
+          "A child never being too young to test is the point worth repeating. We assess newborns and infants with objective methods that require no cooperation at all.",
+        ],
+      },
+      {
+        heading: "How children are tested",
+        body: [
+          "Testing is matched to age. Brainstem evoked response audiometry records the brain's automatic response while the baby sleeps. Tympanometry checks middle-ear function in seconds. Older infants are tested with visual reinforcement audiometry, and preschool children with play audiometry, where the child drops a block each time a sound is heard.",
+          "Everything is explained to parents at the visit, and results are provided in writing for schools, paediatricians and ENT colleagues wherever you are in the country.",
+        ],
+      },
+    ],
+  },
 ];
+
 
 export function getArticle(slug: string) {
   return articles.find((a) => a.slug === slug);

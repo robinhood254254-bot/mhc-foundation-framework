@@ -11,7 +11,8 @@ import { brochures } from "@/lib/hearing-aids";
 
 const title = "Hearing Education and Resources | Mombasa Hearing Centre";
 const description =
-  "Plain-language guidance on the signs of hearing loss, caring for hearing aids in coastal humidity, and protecting your hearing from noise, plus downloadable Starkey brochures.";
+  "Practical guides on the signs of hearing loss, reading your audiogram, tinnitus, children's hearing milestones, brain health and hearing aid care, plus downloadable Starkey brochures.";
+
 
 export const Route = createFileRoute("/hearing-education/")({
   head: () => ({
@@ -35,8 +36,9 @@ function Page() {
       <PageHeader
         image={{ url: media.audiologistReview.url }}
         eyebrow="Hearing Education"
-        title="Understand your hearing"
-        intro="Good decisions start with good information. These guides are written by our clinical team for patients on this coast, in plain language and without sales talk."
+        title="Answers to the hearing questions people actually ask"
+        intro="Why speech sounds muffled, what your audiogram means, how to quieten tinnitus, when a child should be tested and how to keep devices working. Written by our clinical team for patients across Kenya, in plain language and without sales talk."
+
         breadcrumbs={[{ label: "Hearing Education" }]}
         actions={<CTAButton to={cta.primary.to}>{cta.primary.label}</CTAButton>}
       />

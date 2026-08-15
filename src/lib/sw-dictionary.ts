@@ -3,7 +3,20 @@
 // Kenyan Swahili written for a hearing-healthcare audience. Add new copy as full phrases.
 
 export const phrases: Record<string, string> = {
+  // Hearing education hub
+  "answers to the hearing questions people actually ask": "Majibu ya maswali halisi ambayo watu huuliza kuhusu usikivu",
+  "why speech sounds muffled, what your audiogram means, how to quieten tinnitus, when a child should be tested and how to keep devices working. written by our clinical team for patients across kenya, in plain language and without sales talk.": "Kwa nini maneno husikika kwa kufifia, maana ya chati yako ya usikivu (audiogram), jinsi ya kupunguza mvumo masikioni, wakati mwafaka wa kumpima mtoto na jinsi ya kutunza vifaa vyako. Yameandikwa na timu yetu ya kliniki kwa wagonjwa kote nchini Kenya, kwa lugha rahisi na bila mbinu za mauzo.",
+  "how to read your audiogram, line by line": "Jinsi ya kusoma chati yako ya usikivu (audiogram), hatua kwa hatua",
+  "the graph you are handed after a hearing test answers most of your questions once you know what the symbols, the numbers and the shape of the line actually mean.": "Chati unayopewa baada ya kipimo cha usikivu hujibu maswali yako mengi mara tu unapofahamu maana halisi ya alama, namba na mkao wa mstari.",
+  "hearing loss, memory and brain health: what the evidence says": "Upotevu wa usikivu, kumbukumbu na afya ya ubongo: utafiti unasemaje",
+  "hearing is a brain activity, not only an ear activity. understanding that link explains why untreated hearing loss is now discussed alongside memory and mental wellbeing.": "Kusikia ni kazi ya ubongo, si ya sikio pekee. Kuelewa uhusiano huu kunaeleza kwa nini upotevu wa usikivu usiotibiwa sasa hujadiliwa pamoja na kumbukumbu na afya ya akili.",
+  "ringing in the ears: what actually helps with tinnitus": "Mvumo masikioni: ni nini hasa husaidia",
+  "tinnitus is common, rarely dangerous, and far more manageable than most people are told. here is what causes it, what genuinely helps, and what to be sceptical about.": "Mvumo masikioni ni jambo la kawaida, mara chache huwa hatari, na unaweza kudhibitiwa zaidi ya watu wengi wanavyoambiwa. Haya ndiyo yanayosababisha, yanayosaidia kweli, na ya kuyatilia shaka.",
+  "children's hearing: milestones, warning signs and when to test": "Usikivu wa watoto: hatua za ukuaji, dalili za tahadhari na wakati wa kupima",
+  "speech and language are built on hearing. knowing what a child should respond to at each age is the simplest way to catch a problem while it is still easy to solve.": "Lugha na usemi hujengwa juu ya usikivu. Kujua mtoto anapaswa kuitikia nini katika kila umri ndiyo njia rahisi zaidi ya kugundua tatizo likiwa bado jepesi kutatuliwa.",
+
   // Nationwide reach copy
+
   "hearing care built around you, wherever in kenya you travel from": "Huduma ya usikivu iliyoandaliwa kwa ajili yako, popote ulipo nchini Kenya",
   "audiologist-led hearing tests, balance diagnostics and hearing aid fitting at nssf building on nkrumah road. patients come to us from the coast, nairobi and every other part of the country. we measure carefully, explain plainly, and stay with you long after the fitting.": "Vipimo vya usikivu vinavyoongozwa na wataalamu wa usikivu, uchunguzi wa uwiano wa mwili na uwekaji wa vifaa vya kusikia katika Jengo la NSSF, Barabara ya Nkrumah. Wagonjwa hutufikia kutoka Pwani, Nairobi na kila sehemu nyingine ya nchi. Tunapima kwa makini, tunaeleza kwa lugha rahisi, na tunaendelea kukuhudumia hata baada ya kuwekewa kifaa.",
   "we diagnose the real cause with full hearing tests, tinnitus assessments and vestibular care, then guide you to the right treatment or device \u2014 for patients travelling from anywhere in kenya.": "Tunatambua chanzo halisi kwa vipimo kamili vya usikivu, uchunguzi wa mvumo masikioni na huduma ya uwiano wa mwili, kisha tunakuelekeza kwenye matibabu au kifaa sahihi \u2014 kwa wagonjwa wanaosafiri kutoka popote nchini Kenya.",
