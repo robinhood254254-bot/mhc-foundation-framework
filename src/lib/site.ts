@@ -117,6 +117,7 @@ export const footerServiceLinks: NavItem[] = [
   { label: "Hearing Aid Fitting", to: "/services/hearing-aid-fitting-and-verification" },
   { label: "Tinnitus Assessment & Management", to: "/services/tinnitus-assessment-and-management" },
   { label: "Repairs, Servicing & Supplies", to: "/services/hearing-aid-repairs-servicing-and-supplies" },
+  { label: "Home Visits", to: "/services/home-visits" },
 ];
 
 export const legalNav: NavItem[] = [
