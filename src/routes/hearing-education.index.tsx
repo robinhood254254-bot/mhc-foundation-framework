@@ -11,7 +11,8 @@ import { brochures } from "@/lib/hearing-aids";
 
 const title = "Hearing Education and Resources | Mombasa Hearing Centre";
 const description =
-  "Plain-language guidance on the signs of hearing loss, caring for hearing aids in coastal humidity, and protecting your hearing from noise, plus downloadable Starkey brochures.";
+  "Practical guides on the signs of hearing loss, reading your audiogram, tinnitus, children's hearing milestones, brain health and hearing aid care, plus downloadable Starkey brochures.";
+
 
 export const Route = createFileRoute("/hearing-education/")({
   head: () => ({
