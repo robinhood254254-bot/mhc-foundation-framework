@@ -188,7 +188,7 @@ export const services: Service[] = [
     summary:
       "Custom-made ear moulds, noise plugs, swim plugs and musician protection, taken from impressions made at the centre.",
     intro: [
-      "Prevention is the cheapest hearing care there is. Mombasa is a port city, and dock work, workshops, generators, boat engines and amplified music all sit comfortably above the level at which permanent damage begins.",
+      "Prevention is the most effective hearing care there is. Mombasa is a port city, and dock work, workshops, generators, boat engines and amplified music all sit comfortably above the level at which permanent damage begins.",
       "We take impressions at the centre and supply custom-fitted protection: industrial noise plugs for workers, filtered plugs for musicians and sound engineers who need to hear the music without the damage, and watertight swim plugs for children with grommets or recurrent ear infections.",
       "Custom moulds for behind-the-ear hearing aids are made in the same way, and a well-made mould solves most complaints about whistling and discomfort.",
     ],
@@ -206,6 +206,33 @@ export const services: Service[] = [
       "Hearing aid wearers whose current mould whistles or hurts",
     ],
     image: { url: media.deviceDisplay.url, alt: media.deviceDisplay.alt },
+  },
+  {
+    slug: "home-visits",
+    name: "Home Visits",
+    shortName: "Home visits",
+    summary:
+      "Limited home appointments for patients who genuinely cannot travel to the centre, arranged case by case with our clinical team.",
+    intro: [
+      "Most hearing care is best delivered at the centre, where the sound-treated room, the audiometer, the tympanometer and the fitting software all sit in one place. That is why a clinic visit remains our first recommendation for every patient.",
+      "There are, however, patients who simply cannot make the journey. Someone who is bedridden after surgery or a stroke, an elderly patient who cannot manage the lift and the corridor, or a family caring for a relative in palliative care should not be left without hearing support. In those situations our team travels to the home.",
+      "A home visit is arranged after a short conversation about the patient's condition and what is needed. We carry portable equipment for checks, cleaning, re-tubing, battery supply, basic troubleshooting and follow-up counselling. Where a full diagnostic assessment or a verified fitting is required, we plan the clinic visit together with the family and, where relevant, with the referring hospital or doctor.",
+      "Referrals from public hospitals, private clinics and ENT surgeons are accepted for home appointments in the same way as for clinic appointments.",
+    ],
+    includes: [
+      "Telephone or WhatsApp triage before the visit is confirmed",
+      "Hearing aid checks, cleaning, re-tubing and wax guard replacement at the bedside",
+      "Battery and accessory supply for housebound patients",
+      "Guidance for family members and carers on daily handling and care",
+      "Planning of a clinic appointment when full diagnostic testing is needed",
+    ],
+    whoItIsFor: [
+      "Bedridden patients and those recovering from surgery, stroke or a long illness",
+      "Elderly patients who can no longer travel safely into town",
+      "Families caring for a relative at home who needs hearing aid support",
+      "Patients referred by a hospital or doctor with mobility restrictions",
+    ],
+    image: { url: media.teamGroup.url, alt: media.teamGroup.alt },
   },
 ];
 

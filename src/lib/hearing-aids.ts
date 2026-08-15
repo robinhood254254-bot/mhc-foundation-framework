@@ -297,7 +297,7 @@ export const hearingAids: HearingAid[] = [
       alt: "Pair of champagne coloured Starkey G Series AI receiver-in-canal hearing aids",
     },
     intro: [
-      "G Series AI exists so that good hearing technology is not reserved for the few. It carries the features that make the largest practical difference, automatic directionality, wireless connectivity and app control, in a range priced to be reachable for more families along the coast.",
+      "G Series AI exists so that good hearing technology is not reserved for the few. It carries the features that make the largest practical difference, automatic directionality, wireless connectivity and app control, in a range built to be practical for more families along the coast.",
       "The directionality system uses Starkey's Friendly AI to recognise the kind of place you are in, a quiet sitting room, a small group, a noisy street, and adjust the settings for you. Most wearers never touch a control, which is exactly the point for a first pair of hearing aids.",
       "The range covers four styles. The rechargeable receiver-in-canal is waterproof to one metre and needs no batteries. The 312 receiver-in-canal is the smallest option. The powered and ultra-power behind-the-ear models carry a telecoil and drive the gain needed for severe and profound losses, which makes G Series AI a genuine option for patients other ranges cannot serve.",
       "All four styles are wireless and work with the My Starkey app for programme changes, volume and call streaming, and all four pair with the StarLink accessory family: remote microphones for one-to-one conversation in noise, a table microphone for group meetings, a TV streamer and a remote control.",
@@ -342,7 +342,7 @@ export const hearingAids: HearingAid[] = [
       "First-time hearing aid users looking for dependable, affordable technology",
       "Patients with severe or profound loss who need a powered behind-the-ear device",
       "Users of loop systems in halls, classrooms and places of worship",
-      "Families who want rechargeability without a premium price",
+      "Families who want dependable rechargeable hearing aids",
     ],
     brochure: { url: gSeriesPdf.url, title: "Starkey G Series AI brochure", size: "PDF" },
   },

@@ -47,7 +47,7 @@ export const articles: Article[] = [
         ],
       },
       {
-        heading: "What waiting actually costs",
+        heading: "What waiting actually takes from you",
         body: [
           "Untreated hearing loss is not a neutral state. Research consistently links it with social withdrawal, low mood, reduced income and an increased risk of cognitive decline, because the brain slowly loses its practice at processing speech.",
           "The auditory pathway responds to use. The longer sound is absent, the more work is needed later to relearn it, which is why patients fitted early adapt faster and report better satisfaction than those who wait a decade.",
@@ -99,7 +99,7 @@ export const articles: Article[] = [
         heading: "When to bring them in",
         body: [
           "Come to the centre if sound is weak or intermittent, if you hear whistling that was not there before, if the device feels loose, or if it has been submerged. Most of these are solved in one visit with cleaning, a wax guard, new tubing or a receiver change.",
-          "Book a professional service every six months even when nothing seems wrong. Cleaning, de-humidifying and a check against your current audiogram cost far less than an out-of-warranty repair.",
+          "Book a professional service every six months even when nothing seems wrong. Cleaning, de-humidifying and a check against your current audiogram keep a device reliable and prevent most out-of-warranty repairs.",
         ],
       },
     ],

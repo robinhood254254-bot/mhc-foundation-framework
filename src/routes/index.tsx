@@ -94,7 +94,7 @@ const heroMessages = [
   {
     headline: "Your hearing is our concern",
     subheadline:
-      "Start with a professional hearing assessment. Book an appointment online or walk into the NSSF Building, North Wing, 5th Floor, Room 1 — we are ready to help.",
+      "Start with a professional hearing assessment. Book an appointment online or walk into the NSSF Building, North Wing, 5th Floor, Room 531 — we are ready to help.",
     backdrop: { src: hearingAids[2]!.image.url, alt: hearingAids[2]!.image.alt },
   },
 ];
