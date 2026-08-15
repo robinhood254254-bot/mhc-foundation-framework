@@ -188,7 +188,7 @@ export const services: Service[] = [
     summary:
       "Custom-made ear moulds, noise plugs, swim plugs and musician protection, taken from impressions made at the centre.",
     intro: [
-      "Prevention is the cheapest hearing care there is. Mombasa is a port city, and dock work, workshops, generators, boat engines and amplified music all sit comfortably above the level at which permanent damage begins.",
+      "Prevention is the most effective hearing care there is. Mombasa is a port city, and dock work, workshops, generators, boat engines and amplified music all sit comfortably above the level at which permanent damage begins.",
       "We take impressions at the centre and supply custom-fitted protection: industrial noise plugs for workers, filtered plugs for musicians and sound engineers who need to hear the music without the damage, and watertight swim plugs for children with grommets or recurrent ear infections.",
       "Custom moulds for behind-the-ear hearing aids are made in the same way, and a well-made mould solves most complaints about whistling and discomfort.",
     ],
