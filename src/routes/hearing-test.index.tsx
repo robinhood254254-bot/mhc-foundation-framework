@@ -13,17 +13,17 @@ import { media } from "@/lib/media";
 export const Route = createFileRoute("/hearing-test/")({
   head: () => ({
     meta: [
-      { title: "Hearing Tests in Mombasa | Mombasa Hearing Centre" },
+      { title: "Hearing Tests in Kenya | Mombasa Hearing Centre" },
       {
         name: "description",
         content:
-          "Diagnostic hearing and balance tests in Mombasa: pure tone audiometry, tympanometry, BERA, caloric testing, paediatric assessment and tinnitus evaluation.",
+          "Diagnostic hearing and balance tests for patients from across Kenya: pure tone audiometry, tympanometry, BERA, caloric testing, paediatric assessment and tinnitus evaluation.",
       },
-      { property: "og:title", content: "Hearing Tests in Mombasa | Mombasa Hearing Centre" },
+      { property: "og:title", content: "Hearing Tests in Kenya | Mombasa Hearing Centre" },
       {
         property: "og:description",
         content:
-          "Audiologist-led hearing and balance diagnostics at NSSF Building, Nkrumah Road, Mombasa. Same-day results and clear written reports.",
+          "Audiologist-led hearing and balance diagnostics at NSSF Building, Nkrumah Road, Mombasa, for patients travelling from anywhere in Kenya. Same-day results and clear written reports.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "/hearing-test" },

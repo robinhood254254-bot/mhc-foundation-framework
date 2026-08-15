@@ -10,9 +10,9 @@ import { services } from "@/lib/services";
 import { serviceIcons } from "@/lib/icons";
 import { media } from "@/lib/media";
 
-const title = "Hearing Services in Mombasa | Mombasa Hearing Centre";
+const title = "Hearing Services in Kenya | Mombasa Hearing Centre";
 const description =
-  "Diagnostic hearing assessments, paediatric hearing care, Starkey hearing aid fitting, tinnitus management, balance care, repairs and custom hearing protection in Mombasa.";
+  "Diagnostic hearing assessments, paediatric hearing care, Starkey hearing aid fitting, tinnitus management, balance care, repairs and custom hearing protection for patients from across Kenya.";
 
 export const Route = createFileRoute("/services/")({
   head: () => ({
@@ -37,7 +37,7 @@ function Page() {
         image={{ url: media.receptionTeam.url }}
         eyebrow="Services"
         title="Hearing services at Mombasa Hearing Centre"
-        intro={`Everything from the first hearing test to lifelong aftercare happens under one roof on Nkrumah Road. ${site.experienceYears} years of practice on this coast have taught us that careful measurement, plain explanation and steady follow-up matter more than anything else.`}
+        intro={`Everything from the first hearing test to lifelong aftercare happens under one roof on Nkrumah Road. ${site.experienceYears} years of practice, serving patients from the Coast, Nairobi and the rest of Kenya, have taught us that careful measurement, plain explanation and steady follow-up matter more than anything else.`}
         breadcrumbs={[{ label: "Services" }]}
         actions={
           <>

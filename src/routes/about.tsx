@@ -11,7 +11,7 @@ import { media } from "@/lib/media";
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About Mombasa Hearing Centre | Specialist Hearing Care in Mombasa" },
+      { title: "About Mombasa Hearing Centre | Specialist Hearing Care in Kenya" },
       {
         name: "description",
         content:
@@ -19,12 +19,12 @@ export const Route = createFileRoute("/about")({
       },
       {
         property: "og:title",
-        content: "About Mombasa Hearing Centre | Specialist Hearing Care in Mombasa",
+        content: "About Mombasa Hearing Centre | Specialist Hearing Care in Kenya",
       },
       {
         property: "og:description",
         content:
-          "Our people, our centre and our approach to hearing care in Mombasa and the wider Coast region.",
+          "Our people, our centre and our approach to hearing care for patients from the Coast, Nairobi and across Kenya.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "/about" },
@@ -79,7 +79,7 @@ function Page() {
         image={{ url: media.teamGroup.url }}
         eyebrow="About"
         title="About Mombasa Hearing Centre"
-        intro="A specialist hearing-care organisation serving Mombasa, the Coast region and Kenya at large — combining experienced clinicians, modern audiology equipment and a genuinely welcoming centre."
+        intro="A specialist hearing-care organisation serving patients from the Coast region, Nairobi and Kenya at large — combining experienced clinicians, modern audiology equipment and a genuinely welcoming centre."
         breadcrumbs={[{ label: "About" }]}
         actions={<CTAButton to={cta.primary.to}>{cta.primary.label}</CTAButton>}
       />
@@ -95,7 +95,7 @@ function Page() {
           <div>
             <p className="eyebrow">Who we are</p>
             <h2 className="mt-3 text-3xl font-bold text-ink md:text-4xl">
-              Specialist hearing care in the heart of Mombasa
+              Specialist hearing care for patients from across Kenya
             </h2>
             <div className="mt-5 space-y-4 leading-relaxed text-muted-foreground">
               <p>

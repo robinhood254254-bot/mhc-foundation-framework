@@ -10,9 +10,9 @@ import { cta } from "@/lib/site";
 import { hearingAids, brochures } from "@/lib/hearing-aids";
 import { media } from "@/lib/media";
 
-const title = "Starkey Hearing Aids in Mombasa | Mombasa Hearing Centre";
+const title = "Starkey Hearing Aids in Kenya | Mombasa Hearing Centre";
 const description =
-  "Starkey Signature Series, Omega AI, Edge AI, Evolv AI and G Series AI hearing aids, fitted, verified and serviced at Mombasa Hearing Centre on Nkrumah Road.";
+  "Starkey Signature Series, Omega AI, Edge AI, Evolv AI and G Series AI hearing aids, fitted, verified and serviced at Mombasa Hearing Centre on Nkrumah Road for patients from across Kenya.";
 
 export const Route = createFileRoute("/hearing-aids/")({
   head: () => ({
@@ -44,7 +44,7 @@ const highlights = [
   {
     icon: <Droplets className="size-5" />,
     title: "Built for coastal conditions",
-    body: "Water-resistant and waterproof coatings that stand up to humidity, sweat and rain, which matters far more in Mombasa than in a showroom.",
+    body: "Water-resistant and waterproof coatings that stand up to humidity, sweat and rain, which matters far more in Kenyan heat, dust and humidity than in a showroom.",
   },
   {
     icon: <Radio className="size-5" />,
@@ -59,7 +59,7 @@ function Page() {
       <PageHeader
         image={{ url: media.displayCounter.url }}
         eyebrow="Hearing Aids"
-        title="Starkey hearing aids, fitted and supported in Mombasa"
+        title="Starkey hearing aids, fitted and supported for patients across Kenya"
         intro="We are an authorised Starkey partner. Every device below is prescribed from your own audiogram, programmed and verified at the centre, and supported here for the life of the device with servicing, batteries and re-programming."
         breadcrumbs={[{ label: "Hearing Aids" }]}
         actions={

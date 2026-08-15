@@ -28,19 +28,19 @@ import { serviceIcons, testIcons } from "@/lib/icons";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Mombasa Hearing Centre | Specialist Hearing Care in Mombasa" },
+      { title: "Mombasa Hearing Centre | Specialist Hearing Care in Kenya" },
       {
         name: "description",
         content:
-          "Mombasa Hearing Centre is a specialist hearing-care organisation at NSSF Building, Nkrumah Road, Mombasa, offering hearing aids, hearing tests and patient education.",
+          "Mombasa Hearing Centre offers hearing aids, hearing tests and patient education at NSSF Building, Nkrumah Road, Mombasa, welcoming patients from the Coast, Nairobi and across Kenya.",
       },
       {
         property: "og:title",
-        content: "Mombasa Hearing Centre | Specialist Hearing Care in Mombasa",
+        content: "Mombasa Hearing Centre | Specialist Hearing Care in Kenya",
       },
       {
         property: "og:description",
-        content: "Specialist hearing care, hearing aids and hearing assessments in Mombasa, Kenya.",
+        content: "Specialist hearing care, hearing aids and hearing assessments for patients from across Kenya.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "/" },
@@ -82,19 +82,19 @@ const heroMessages = [
   {
     headline: "Hearing loss, ringing ears and balance problems — solved here",
     subheadline:
-      "We diagnose the real cause with full hearing tests, tinnitus assessments and vestibular care at NSSF Building on Nkrumah Road, then guide you to the right treatment or device.",
+      "We diagnose the real cause with full hearing tests, tinnitus assessments and vestibular care, then guide you to the right treatment or device — for patients travelling from anywhere in Kenya.",
     backdrop: { src: hearingAids[0]!.image.url, alt: hearingAids[0]!.image.alt },
   },
   {
-    headline: "For adults, children and seniors across Mombasa",
+    headline: "For adults, children and seniors from every county in Kenya",
     subheadline:
-      "Whether phone calls sound muffled, a child misses words in class, or a parent withdraws from conversations, our audiologists test carefully and explain the results in English or Kiswahili.",
+      "Patients travel to us from Mombasa and the Coast, Nairobi, Nakuru, Kisumu, Eldoret, Bungoma and beyond. Wherever you are coming from, our audiologists test carefully and explain the results in English or Kiswahili.",
     backdrop: { src: hearingAids[1]!.image.url, alt: hearingAids[1]!.image.alt },
   },
   {
     headline: "Your hearing is our concern",
     subheadline:
-      "Start with a professional hearing assessment. Book an appointment online or walk into the NSSF Building, North Wing, 5th Floor, Room 531 — we are ready to help.",
+      "Start with a professional hearing assessment. Book ahead from anywhere in the country and we will plan your visit around your travel, or walk into the NSSF Building, North Wing, 5th Floor, Room 531.",
     backdrop: { src: hearingAids[2]!.image.url, alt: hearingAids[2]!.image.alt },
   },
 ];
@@ -102,7 +102,7 @@ const heroMessages = [
 const trust = [
   {
     value: `${site.experienceYears}+ years`,
-    label: "Serving Mombasa and the coast",
+    label: "Patients from across Kenya",
     icon: <Award className="size-4" />,
   },
   {
@@ -127,15 +127,15 @@ function Home() {
     <>
       {/* 1. Hero */}
       <Hero
-        eyebrow={`Specialist hearing care · ${site.experienceYears}+ years in Mombasa`}
-        headline="Hearing care built around you, in the heart of Mombasa"
-        subheadline="Audiologist-led hearing tests, balance diagnostics and hearing aid fitting at NSSF Building on Nkrumah Road. We measure carefully, explain plainly, and stay with you long after the fitting."
+        eyebrow={`Specialist hearing care · ${site.experienceYears}+ years serving Kenya`}
+        headline="Hearing care built around you, wherever in Kenya you travel from"
+        subheadline="Audiologist-led hearing tests, balance diagnostics and hearing aid fitting at NSSF Building on Nkrumah Road. Patients come to us from the Coast, Nairobi and every other part of the country. We measure carefully, explain plainly, and stay with you long after the fitting."
         primaryCta={{ label: cta.primary.label, to: cta.primary.to }}
         secondaryCta={{ label: cta.hearingTest.label, to: cta.hearingTest.to }}
         slides={heroSlides}
         messages={heroMessages}
         overlay={0}
-        trustIndicator="Diagnostic testing, fitting and aftercare under one roof since 2003"
+        trustIndicator="Diagnostic testing, fitting and aftercare under one roof since 2003 — appointments accepted from anywhere in Kenya"
         quotes={patientVoices}
       />
 
@@ -153,7 +153,7 @@ function Home() {
         <SectionHeading
           eyebrow="Services"
           title="What we do at the centre"
-          description="Diagnosis, hearing aids, tinnitus care, balance rehabilitation and hearing protection, all delivered by our own clinical team on Nkrumah Road."
+          description="Diagnosis, hearing aids, tinnitus care, balance rehabilitation and hearing protection, all delivered by our own clinical team on Nkrumah Road, for patients travelling in from across the country."
           actions={
             <CTAButton to="/services" variant="secondary">
               All services
@@ -195,7 +195,7 @@ function Home() {
             <SectionHeading
               eyebrow="Why us"
               title="Why patients keep coming back"
-              description="Families travel from across Mombasa, Kilifi and Kwale to be seen here. These are the reasons they give."
+              description="Families travel from Mombasa, Kilifi and Kwale, and from Nairobi and upcountry, to be seen here. These are the reasons they give."
             />
             <div className="mt-8 grid gap-4 sm:grid-cols-2">
               {[

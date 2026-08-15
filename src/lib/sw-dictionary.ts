@@ -3,6 +3,15 @@
 // Kenyan Swahili written for a hearing-healthcare audience. Add new copy as full phrases.
 
 export const phrases: Record<string, string> = {
+  // Nationwide reach copy
+  "hearing care built around you, wherever in kenya you travel from": "Huduma ya usikivu iliyoandaliwa kwa ajili yako, popote ulipo nchini Kenya",
+  "audiologist-led hearing tests, balance diagnostics and hearing aid fitting at nssf building on nkrumah road. patients come to us from the coast, nairobi and every other part of the country. we measure carefully, explain plainly, and stay with you long after the fitting.": "Vipimo vya usikivu vinavyoongozwa na wataalamu wa usikivu, uchunguzi wa uwiano wa mwili na uwekaji wa vifaa vya kusikia katika Jengo la NSSF, Barabara ya Nkrumah. Wagonjwa hutufikia kutoka Pwani, Nairobi na kila sehemu nyingine ya nchi. Tunapima kwa makini, tunaeleza kwa lugha rahisi, na tunaendelea kukuhudumia hata baada ya kuwekewa kifaa.",
+  "we diagnose the real cause with full hearing tests, tinnitus assessments and vestibular care, then guide you to the right treatment or device \u2014 for patients travelling from anywhere in kenya.": "Tunatambua chanzo halisi kwa vipimo kamili vya usikivu, uchunguzi wa mvumo masikioni na huduma ya uwiano wa mwili, kisha tunakuelekeza kwenye matibabu au kifaa sahihi \u2014 kwa wagonjwa wanaosafiri kutoka popote nchini Kenya.",
+  "for adults, children and seniors from every county in kenya": "Kwa watu wazima, watoto na wazee kutoka kila kaunti nchini Kenya",
+  "patients travel to us from mombasa and the coast, nairobi, nakuru, kisumu, eldoret, bungoma and beyond. wherever you are coming from, our audiologists test carefully and explain the results in english or kiswahili.": "Wagonjwa hutufikia kutoka Mombasa na Pwani, Nairobi, Nakuru, Kisumu, Eldoret, Bungoma na kwingineko. Popote unapotoka, wataalamu wetu wa usikivu hupima kwa makini na kueleza matokeo kwa Kiingereza au Kiswahili.",
+  "start with a professional hearing assessment. book ahead from anywhere in the country and we will plan your visit around your travel, or walk into the nssf building, north wing, 5th floor, room 531.": "Anza na uchunguzi wa kitaalamu wa usikivu. Weka miadi mapema ukiwa popote nchini nasi tutapanga ziara yako kulingana na safari yako, au ufike moja kwa moja katika Jengo la NSSF, Upande wa Kaskazini, Ghorofa ya 5, Chumba namba 531.",
+  "patients from across kenya": "Wagonjwa kutoka kila pembe ya Kenya",
+
   "home visits": "Ziara za Nyumbani",
   "limited home appointments for bedridden and immobile patients.": "Miadi michache ya nyumbani kwa wagonjwa waliolala kitandani na wasioweza kutembea.",
   "limited home appointments for patients who genuinely cannot travel to the centre, arranged case by case with our clinical team.": "Miadi michache ya nyumbani kwa wagonjwa ambao kwa kweli hawawezi kufika kituoni, hupangwa kila kesi peke yake pamoja na timu yetu ya kliniki.",
