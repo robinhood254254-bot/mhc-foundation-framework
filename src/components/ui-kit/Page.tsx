@@ -22,7 +22,11 @@ export function PageHeader({
     <section className="relative overflow-hidden border-b border-border bg-surface-2">
       {image ? (
         <div aria-hidden="true" className="pointer-events-none absolute inset-0">
-          <img src={image.url} alt="" className="size-full object-cover object-center" />
+          <img
+            src={image.url}
+            alt={image.alt ?? `${title} at Mombasa Hearing Centre`}
+            className="size-full object-cover object-center"
+          />
           <div className="absolute inset-0 bg-surface-2/45" />
           <div className="absolute inset-0 bg-gradient-to-r from-surface-2 via-surface-2/80 to-surface-2/25" />
         </div>
