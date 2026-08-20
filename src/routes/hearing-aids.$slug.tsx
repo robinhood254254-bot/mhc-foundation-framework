@@ -4,7 +4,7 @@ import { PageHeader, Section } from "@/components/ui-kit/Page";
 import { SectionHeading } from "@/components/ui-kit/SectionHeading";
 import { CTAButton } from "@/components/ui-kit/CTAButton";
 import { ImageContainer } from "@/components/ui-kit/ImageContainer";
-import { cta, site } from "@/lib/site";
+import { cta } from "@/lib/site";
 import { seoTitle } from "@/lib/seo";
 import { getHearingAid, hearingAids } from "@/lib/hearing-aids";
 import { media } from "@/lib/media";

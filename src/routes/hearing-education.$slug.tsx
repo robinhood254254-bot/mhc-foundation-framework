@@ -3,7 +3,7 @@ import { ArrowLeft, Clock } from "lucide-react";
 import { PageHeader, Section } from "@/components/ui-kit/Page";
 import { CTAButton } from "@/components/ui-kit/CTAButton";
 import { ImageContainer } from "@/components/ui-kit/ImageContainer";
-import { cta, site } from "@/lib/site";
+import { cta } from "@/lib/site";
 import { seoTitle } from "@/lib/seo";
 import { articles, getArticle } from "@/lib/education";
 
