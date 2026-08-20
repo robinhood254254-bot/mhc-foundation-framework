@@ -12,7 +12,8 @@ import { PageHeader, Section } from "@/components/ui-kit/Page";
 import { SectionHeading } from "@/components/ui-kit/SectionHeading";
 import { CTAButton } from "@/components/ui-kit/CTAButton";
 import { ImageContainer } from "@/components/ui-kit/ImageContainer";
-import { cta, site } from "@/lib/site";
+import { cta } from "@/lib/site";
+import { seoTitle } from "@/lib/seo";
 import { getHearingTest, hearingTests } from "@/lib/hearing-tests";
 
 export const Route = createFileRoute("/hearing-test/$slug")({
@@ -23,7 +24,7 @@ export const Route = createFileRoute("/hearing-test/$slug")({
   },
   head: ({ params }) => {
     const test = getHearingTest(params.slug);
-    const title = test ? `${test.name} in Mombasa | ${site.name}` : `Hearing Test | ${site.name}`;
+    const title = seoTitle(test ? `${test.name} in Mombasa` : "Hearing Test");
     const description = test
       ? test.summary.slice(0, 155)
       : "Diagnostic hearing and balance testing at Mombasa Hearing Centre.";

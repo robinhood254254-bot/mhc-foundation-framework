@@ -131,7 +131,7 @@ export function Hero({
             <img
               key={m.backdrop.src}
               src={m.backdrop.src}
-              alt=""
+              alt={m.backdrop.alt}
               className={cn(
                 "absolute top-1/2 left-1/2 w-[min(52rem,130%)] -translate-x-1/2 -translate-y-1/2 object-contain opacity-0 transition-all duration-1000 ease-out lg:left-[36%]",
                 i === step % set.length && "scale-100 opacity-[0.38]",

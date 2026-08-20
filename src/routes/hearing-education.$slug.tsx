@@ -3,7 +3,8 @@ import { ArrowLeft, Clock } from "lucide-react";
 import { PageHeader, Section } from "@/components/ui-kit/Page";
 import { CTAButton } from "@/components/ui-kit/CTAButton";
 import { ImageContainer } from "@/components/ui-kit/ImageContainer";
-import { cta, site } from "@/lib/site";
+import { cta } from "@/lib/site";
+import { seoTitle } from "@/lib/seo";
 import { articles, getArticle } from "@/lib/education";
 
 export const Route = createFileRoute("/hearing-education/$slug")({
@@ -14,7 +15,7 @@ export const Route = createFileRoute("/hearing-education/$slug")({
   },
   head: ({ params }) => {
     const article = getArticle(params.slug);
-    const title = article ? `${article.title} | ${site.name}` : `Article | ${site.name}`;
+    const title = seoTitle(article ? article.title : "Hearing Education Article");
     const description = article
       ? article.excerpt.slice(0, 155)
       : "Hearing education from Mombasa Hearing Centre.";

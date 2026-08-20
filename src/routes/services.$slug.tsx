@@ -4,7 +4,8 @@ import { PageHeader, Section } from "@/components/ui-kit/Page";
 import { SectionHeading } from "@/components/ui-kit/SectionHeading";
 import { CTAButton } from "@/components/ui-kit/CTAButton";
 import { ImageContainer } from "@/components/ui-kit/ImageContainer";
-import { cta, site } from "@/lib/site";
+import { cta } from "@/lib/site";
+import { seoTitle } from "@/lib/seo";
 import { getService, services } from "@/lib/services";
 import { getHearingTest } from "@/lib/hearing-tests";
 import { hearingAids } from "@/lib/hearing-aids";
@@ -17,7 +18,7 @@ export const Route = createFileRoute("/services/$slug")({
   },
   head: ({ params }) => {
     const service = getService(params.slug);
-    const title = service ? `${service.name} in Mombasa | ${site.name}` : `Service | ${site.name}`;
+    const title = seoTitle(service ? `${service.name} in Mombasa` : "Hearing Services");
     const description = service
       ? service.summary.slice(0, 155)
       : "Hearing care services at Mombasa Hearing Centre.";
