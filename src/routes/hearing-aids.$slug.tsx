@@ -5,6 +5,7 @@ import { SectionHeading } from "@/components/ui-kit/SectionHeading";
 import { CTAButton } from "@/components/ui-kit/CTAButton";
 import { ImageContainer } from "@/components/ui-kit/ImageContainer";
 import { cta, site } from "@/lib/site";
+import { seoTitle } from "@/lib/seo";
 import { getHearingAid, hearingAids } from "@/lib/hearing-aids";
 import { media } from "@/lib/media";
 
@@ -16,7 +17,7 @@ export const Route = createFileRoute("/hearing-aids/$slug")({
   },
   head: ({ params }) => {
     const aid = getHearingAid(params.slug);
-    const title = aid ? `${aid.name} | ${site.name}` : `Hearing Aid | ${site.name}`;
+    const title = seoTitle(aid ? aid.name : "Hearing Aid");
     const description = aid
       ? aid.summary.slice(0, 155)
       : "Starkey hearing aids fitted at Mombasa Hearing Centre.";
